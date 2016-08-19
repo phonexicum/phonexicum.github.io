@@ -6,7 +6,7 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: infosec
+title: "<i>infosec</i>"
 email: phonexicum@yandex.ru
 description: > # this means to ignore newlines until "baseurl:"
   I created this site in a burst of information security studying to organize my mind and create some kind of cheatsheet for myself.
