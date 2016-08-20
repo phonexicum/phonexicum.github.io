@@ -5,13 +5,19 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
+# =====================================================================================================================
+# bundle install
 # bundle exec jekyll serve
 
 safe: false
 gems:
   - jekyll-pandoc
 
+
+# =====================================================================================================================
 # Site settings
+# =====================================================================================================================
+
 title: "Information Security"
 email: phonexicum@yandex.ru
 description: > # this means to ignore newlines until "baseurl:"
@@ -24,6 +30,9 @@ url: "https://phonexicum.github.io" # the base hostname & protocol for your site
 twitter_username: phonexicum
 github_username:  phonexicum
 
+# =====================================================================================================================
+# Markdown build settings
+# =====================================================================================================================
 
 # # Build settings
 # markdown: kramdown
@@ -46,5 +55,11 @@ pandoc:
     - normalize
     - smart
     - mathjax
-    - csl: _styles/apa.csl
-    - bibliography: bibliography/references.bib
+    - csl: Markdown-csl/apa.csl
+#    - bibliography: bibliography/references.bib
+
+# Alternative csls:
+#   https://github.com/citation-style-language/styles
+
+# =====================================================================================================================
+# =====================================================================================================================

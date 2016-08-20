@@ -1,0 +1,3 @@
+[submodule "Markdown-csl"]
+	path = Markdown-csl
+	url = https://github.com/philipbelesky/Markdown-Citation-Style-Languages
