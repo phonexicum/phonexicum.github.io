@@ -1,8 +1,13 @@
 ---
 layout: default
+
+category_root: main
 ---
 
-<div class="home">
+* [information security map]({{ "/infosec" | prepend: site.baseurl }})
+* [phonexicum]({{ "/phonexicum" | prepend: site.baseurl }})
+
+<!-- <div class="home">
 
   <h1 class="page-heading">Posts</h1>
 
@@ -20,4 +25,4 @@ layout: default
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-</div>
+</div> -->

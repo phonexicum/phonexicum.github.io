@@ -5,8 +5,14 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
+# bundle exec jekyll serve
+
+safe: false
+gems:
+  - jekyll-pandoc
+
 # Site settings
-title: "<i>infosec</i>"
+title: "Information Security"
 email: phonexicum@yandex.ru
 description: > # this means to ignore newlines until "baseurl:"
   I created this site in a burst of information security studying to organize my mind and create some kind of cheatsheet for myself.
@@ -18,5 +24,27 @@ url: "https://phonexicum.github.io" # the base hostname & protocol for your site
 twitter_username: phonexicum
 github_username:  phonexicum
 
+
+# # Build settings
+# markdown: kramdown
+# markdown_ext:  markdown,mkdown,mkdn,mkd,md
+# kramdown:
+#   input: GFM
+#   hard_wrap: true
+
+# # Build settings
+# markdown: redcarpet
+# markdown_ext:  markdown,mkdown,mkdn,mkd,md
+# redcarpet:
+#   extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
+
 # Build settings
-markdown: kramdown
+markdown: Pandoc
+markdown_ext:  markdown,mkdown,mkdn,mkd,md
+pandoc:
+  extensions:
+    - normalize
+    - smart
+    - mathjax
+    - csl: _styles/apa.csl
+    - bibliography: bibliography/references.bib
