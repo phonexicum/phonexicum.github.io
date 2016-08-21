@@ -41,6 +41,7 @@ exclude:
     - "Gemfile.lock"
     - "Markdown-csl"
     - "static.phonexicum.github.io"
+    - "README.md"
 
 # =====================================================================================================================
 # Markdown build settings

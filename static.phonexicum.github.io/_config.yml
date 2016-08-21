@@ -1,0 +1,5 @@
+# source: "site.phonexicum.github.io" # not compatible with github-pages
+baseurl: "" # the subpath of your site, e.g. /blog
+
+exclude:
+    - vendor

@@ -1,0 +1,7 @@
+# github-pages versions:
+#   https://pages.github.com/versions/
+
+language: ruby
+rvm:
+  - 2.1.7   # This is what github use
+script: "bundle exec jekyll build"
