@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Information Security</title>
+    <description>I created this site in a burst of information security studying to organize my mind and create some kind of cheatsheet for myself.
+</description>
+    <link>https://phonexicum.github.io/</link>
+    <atom:link href="https://phonexicum.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 21 Aug 2016 06:40:46 -0700</pubDate>
+    <lastBuildDate>Sun, 21 Aug 2016 06:40:46 -0700</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+  </channel>
+</rss>

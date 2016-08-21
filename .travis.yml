@@ -3,6 +3,5 @@
 
 language: ruby
 rvm:
-  # - 2.1.7   # This is what github use
-  - 2.2.0   # This is what I need
+  - 2.1.7   # This is what github use
 script: "bundle exec jekyll build"

@@ -1,0 +1,73 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# =====================================================================================================================
+# bundle install
+# bundle exec jekyll serve
+
+safe: false
+gems:
+  - jekyll-pandoc
+destination: "../site.phonexicum.github.io"
+
+# =====================================================================================================================
+# Site settings
+# =====================================================================================================================
+
+title: "Information Security"
+email: phonexicum@yandex.ru
+description: > # this means to ignore newlines until "baseurl:"
+  I created this site in a burst of information security studying to organize my mind and create some kind of cheatsheet for myself.
+# Write an awesome description for your new site here. You can edit this
+# line in _config.yml. It will appear in your document head meta (for
+# Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://phonexicum.github.io" # the base hostname & protocol for your site
+twitter_username: phonexicum
+github_username:  phonexicum
+
+# =====================================================================================================================
+# Build settings
+# =====================================================================================================================
+exclude:
+    - vendor
+    - "run.sh"
+    - "build.sh"
+    - "Gemfile"
+    - "Gemfile.lock"
+    - "Markdown-csl"
+
+# =====================================================================================================================
+# Markdown build settings
+# =====================================================================================================================
+
+# # Build settings
+# markdown: kramdown
+# markdown_ext:  markdown,mkdown,mkdn,mkd,md
+# kramdown:
+#   input: GFM
+#   hard_wrap: true
+
+# # Build settings
+# markdown: redcarpet
+# markdown_ext:  markdown,mkdown,mkdn,mkd,md
+# redcarpet:
+#   extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
+
+# Build settings
+markdown: Pandoc
+markdown_ext:  markdown,mkdown,mkdn,mkd,md
+pandoc:
+  extensions:
+    - normalize
+    - smart
+    - mathjax
+    - csl: Markdown-csl/apa.csl
+#    - bibliography: bibliography/references.bib
+
+# Alternative csls:
+#   https://github.com/citation-style-language/styles
