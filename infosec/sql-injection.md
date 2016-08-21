@@ -10,6 +10,8 @@ permalink: /infosec/sql-injection.html
 
 <article class="markdown-body" markdown="1">
 
+[TOC]
+
 ### SQL injection classification:
 
 - union based sqli
@@ -20,15 +22,11 @@ permalink: /infosec/sql-injection.html
 
 #### Databases features
 
-_Feature_     | MySQL                         | PostgreSQL        | MS SQL        | Oracle
----           | ---                           | ---               | ---           | ---
-Comments      | # -- /**/ /*!12345 */ ;\x00   |                   | /**/ -- ;\x00 | --    2
-
-
----
-
-
->! spoiler
-
+-------------- --------------------------------------------------------- ------------------- ------------------------------- ------------------
+_Feature_       MySQL                                                     PostgreSQL          MS SQL                          Oracle
+---             ---                                                       ---                 ---                             ---
+Comments        `#...` `-- ...` `/*...*/` `;\x00...`\                                         `/*...*/` `-- ...` `;\x00...`   `--` 
+                `/*!12345 or 1=1*/` - comment if version() > 12345
+-------------- --------------------------------------------------------- ------------------- ------------------------------- ------------------
 
 </article>

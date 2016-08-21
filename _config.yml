@@ -64,6 +64,7 @@ exclude:
 markdown: Pandoc
 markdown_ext:  markdown,mkdown,mkdn,mkd,md
 pandoc:
+  site_flags: "--toc"
   extensions:
     - normalize
     - smart
