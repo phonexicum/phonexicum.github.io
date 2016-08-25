@@ -22,12 +22,15 @@ permalink: /infosec/waf.html
 
 WAF filtering is based on regexps and strings analysis.
 
-- detect malicious signatures (e.g. '.*from.*information_schema.*')
+- signature WAFs. WAF is looking for malicious signes in traffic and calculates score, if score exceeds a certain threashold it will block.
+    - detect malicious signatures (e.g. '.\*from.\*information_schema.*')
 
-    signatures multitude are chosen according to context
+        signatures multitude are chosen according to context (cookies, xml, javascript, ...)
 
-- restrict multitude of legal characters
-- some WAFs uses training with data mining
+    - restrict multitude of legal characters
+
+- hueristics WAFs
+    - some WAFs can use training and can involve data mining
 
 WAFs are always limited with their computing resources.
 

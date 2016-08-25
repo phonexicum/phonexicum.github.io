@@ -11,4 +11,4 @@ permalink: /infosec/
 
 My goal is to gather different attack technics, in order to understand potential threats.
 
-_Looking deeper._
+This project is only just started.
