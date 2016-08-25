@@ -26,7 +26,8 @@ description: > # this means to ignore newlines until "baseurl:"
 # line in _config.yml. It will appear in your document head meta (for
 # Google search results) and in your feed.xml site description.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://phonexicum.github.io" # the base hostname & protocol for your site
+# url: "https://phonexicum.github.io" # the base hostname & protocol for your site
+url: "_site"
 twitter_username: phonexicum
 github_username:  phonexicum
 
@@ -47,12 +48,22 @@ exclude:
 # Markdown build settings
 # =====================================================================================================================
 
-# # Build settings
-# markdown: kramdown
-# markdown_ext:  markdown,mkdown,mkdn,mkd,md
-# kramdown:
-#   input: GFM
-#   hard_wrap: true
+# Build settings
+markdown: kramdown
+markdown_ext:  markdown,mkdown,mkdn,mkd,md
+kramdown:
+  auto_id_stripping: true
+  auto_ids: true
+  coderay_line_numbers: ":table"
+  input: GFM
+  hard_wrap: true
+  parse_span_html: true
+  remove_span_html_tags: false
+
+  parse_block_html: false
+  toc_levels: 1..3
+
+  remove_block_html_tags: true
 
 # # Build settings
 # markdown: redcarpet
@@ -60,17 +71,22 @@ exclude:
 # redcarpet:
 #   extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
 
-# Build settings
-markdown: Pandoc
-markdown_ext:  markdown,mkdown,mkdn,mkd,md
-pandoc:
-  site_flags: "--toc"
-  extensions:
-    - normalize
-    - smart
-    - mathjax
-    - csl: Markdown-csl/apa.csl
-#    - bibliography: bibliography/references.bib
+# # Build settings
+# markdown: Pandoc
+# markdown_ext:  markdown,mkdown,mkdn,mkd,md
+# pandoc:
+#   # flags: '-f +auto_identifiers+implicit_header_references'
+#   extensions:
+#     - template: '_includes/toc.html'
+#     - toc                                 # Good toc alternative: https://github.com/ghiculescu/jekyll-table-of-contents 
+#     - toc-depth: 5
+
+#     - normalize
+#     - smart
+#     - mathjax
+
+#     - csl: Markdown-csl/apa.csl
+# #    - bibliography: bibliography/references.bib
 
 # Alternative csls:
 #   https://github.com/citation-style-language/styles
