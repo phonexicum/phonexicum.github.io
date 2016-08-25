@@ -560,7 +560,7 @@
 .markdown-body code {
   padding: 0;
   padding-top: 0.2em;
-  padding-bottom: 0.2em;
+  padding-bottom: 0.1em;
   margin: 0;
   font-size: 85%;
   background-color: rgba(0,0,0,0.04);
@@ -598,7 +598,7 @@
 
 .markdown-body .highlight pre,
 .markdown-body pre {
-  padding: 16px;
+  padding: 0.2em;
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;

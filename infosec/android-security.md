@@ -5,7 +5,9 @@ title: Android
 
 category: infosec
 
-permalink: /infosec/anroid-security.html
+permalink: /infosec/android-security.html
+
+published: false
 ---
 
 android hi

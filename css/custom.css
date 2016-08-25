@@ -1,0 +1,5 @@
+.markdown-body td>p, .markdown-body td>blockquote, .markdown-body td>ul, .markdown-body td>ol, .markdown-body td>dl, .markdown-body td>table, .markdown-body td>pre, .markdown-body li>p
+{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
