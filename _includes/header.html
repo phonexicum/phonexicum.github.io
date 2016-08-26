@@ -4,7 +4,9 @@
 
     <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
 
-    {% assign result_header_titles = "<div class='parent-title'><a href='" | append: page.url | append: "'>" | append: page.title | append: "</a></div>" %}
+    {% if page.title %}
+        {% assign result_header_titles = "<div class='parent-title'><a href='" | append: page.url | append: "'>" | append: page.title | append: "</a></div>" %}
+    {% endif %}
     {% assign current_category = page.category %}
     <!-- I suppose here that my site will never become the tree deeper then 100 levels -->
     {% for i in (1..100) %}
