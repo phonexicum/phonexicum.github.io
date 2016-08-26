@@ -3,3 +3,14 @@
     margin-top: 0px;
     margin-bottom: 0px;
 }
+
+header.site-header {
+    background-color: #ffffff;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+}
+
+.indent-after-header {
+
+}

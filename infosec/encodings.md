@@ -4,6 +4,7 @@ layout: page
 title: encodings
 
 category: infosec
+see_my_category_in_header: true
 
 permalink: /infosec/encodings.html
 ---

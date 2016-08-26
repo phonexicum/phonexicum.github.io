@@ -4,7 +4,7 @@ layout: default
 category_root: main
 ---
 
-* [information security map]({{ "/infosec" | prepend: site.baseurl }})
+* [information security cheatsheet]({{ "/infosec" | prepend: site.baseurl }})
 * [phonexicum]({{ "/phonexicum" | prepend: site.baseurl }})
 
 <!-- <div class="home">

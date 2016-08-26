@@ -4,6 +4,7 @@ layout: page
 title: SQli
 
 category: infosec
+see_my_category_in_header: true
 
 permalink: /infosec/sql-injection.html
 ---
