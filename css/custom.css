@@ -11,6 +11,13 @@ header.site-header {
     top: 0px;
 }
 
-.indent-after-header {
-
+.markdown-body .spoiler, .markdown-body .spoiler-title, .markdown-body .spoiler-text {
+    overflow: hidden;
+    cursor:pointer;
+}
+.markdown-body .spoiler-title {
+    text-decoration: underline;
+}
+.markdown-body .spoiler-text {
+    display: none;
 }

