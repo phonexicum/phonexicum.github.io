@@ -7,6 +7,14 @@ category_root: main
 * [information security cheatsheet]({{ "/infosec" | prepend: site.baseurl }})
 * [phonexicum]({{ "/phonexicum" | prepend: site.baseurl }})
 
+<br>
+
+* [programming concepts]({{ "/programming_concepts" | prepend: site.baseurl }})
+
+<br>
+
+This site I made for myself, you can use it at your own risk.
+
 <!-- <div class="home">
 
   <h1 class="page-heading">Posts</h1>

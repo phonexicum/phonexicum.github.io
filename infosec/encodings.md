@@ -32,16 +32,17 @@ Exists a lot of abnormal encodings (e.g. cp1251, ...), which are messing up two 
 
 ## Different encode types
 
-- URL encode *(url must be represented by ascii symbols 0 - 126)*
+- **URL encode** *(url must be represented by ascii symbols 0 - 126)*
 
     <br>
-    Hello World **-->** Hello%20%57%6f%72%6c%64 *(normal ascii symbols can be represented without encode by choice)* <br>
-    ` ` **-->** `+` or %20 <br>
+    Hello World **-->** Hello%20%57%6f%72%6c%64 *(normal ascii symbols can be represented without encode by choice)*
+
+    ` ` **-->** `+` or %20
+
     not ascii symbols: ü **-->** %C3%BC *(utf-8 hex representation)*
 
-    <br>
 
-- HTML entities
+- **HTML entities**
 
     <br>
 
@@ -57,7 +58,8 @@ Exists a lot of abnormal encodings (e.g. cp1251, ...), which are messing up two 
     | ®   | registered trademark    | `&reg;`   | `&#174;` |
     | | etc. | | |
 
-    Any symbol can be encoded in decimal `&#123;` or in hex `&#x123;` <br>
+    Any symbol can be encoded in decimal `&#123;` or in hex `&#x123;`
+
     Encoded symbols will be not interpreted by browser as a special symbols.
 
 
@@ -65,13 +67,20 @@ Exists a lot of abnormal encodings (e.g. cp1251, ...), which are messing up two 
 
 - Encodings latin1, gbk and character escaping
 
-    In latin1 *string*=`%BF%27`=`¿'` <br>
-    After escaping symbol `%27`=`'` with `%5C`=`\` *string*=`%BF%5C%27` <br>
-    In gbk encoding *string*=`%BF%5C%27`=`縗'` <br><br>
+    In latin1 *string*=`%BF%27`=`¿'`
+
+    After escaping symbol `%27`=`'` with `%5C`=`\` *string*=`%BF%5C%27`
+
+    In gbk encoding *string*=`%BF%5C%27`=`縗'`
+
+    <br>
+
     *If mysql `SET NAMES gbk;` was set, then this encoding trick will help to bypass `mysql_real_escape_string` php function.*
 
 
 ## Special characters
+
+unicode replacement symbol - "\ufffd"
 
 <table>
 <tbody>

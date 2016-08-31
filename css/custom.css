@@ -11,6 +11,14 @@ header.site-header {
     top: 0px;
 }
 
+h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
+  display: block; 
+  content: " "; 
+  margin-top: -80px; 
+  height: 80px; 
+  visibility: hidden; 
+}
+
 .markdown-body .spoiler, .markdown-body .spoiler-title, .markdown-body .spoiler-text {
     overflow: hidden;
     cursor:pointer;
@@ -20,4 +28,22 @@ header.site-header {
 }
 .markdown-body .spoiler-text {
     display: none;
+}
+
+.markdown-body ul, .markdown-body ol {
+    padding-left: 1.0em;
+    margin-left: 1.0em;
+    margin-bottom: 0.5em;
+}
+
+.markdown-body ul ul, .markdown-body ul ol, .markdown-body ol ol, .markdown-body ol ul {
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+}
+.markdown-body ul li>p+p:nth-last-of-type(1), .markdown-body ol li>p+p:nth-last-of-type(1) {
+    margin-bottom: 1.5em;
+}
+
+.markdown-body ul+p {
+    margin-top: 1.0em;
 }

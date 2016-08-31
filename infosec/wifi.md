@@ -1,12 +1,14 @@
 ---
 layout: page
 
-title: Android
+title: WiFi
 
 category: infosec
 see_my_category_in_header: true
 
-permalink: /infosec/android-security.html
+permalink: /infosec/wifi.html
+
+published: false
 ---
 
 <article class="markdown-body" markdown="1">
