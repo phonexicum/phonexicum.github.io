@@ -1,7 +1,7 @@
 ---
 layout: page
 
-title: encodings
+title: Encodings
 
 category: infosec
 see_my_category_in_header: true

@@ -10,6 +10,8 @@ see_my_category_in_header: false
 permalink: /infosec/
 ---
 
+<article class="markdown-body" markdown="1">
+
 My goal is to gather different attack technics, in order to understand potential threats.
 
 This project has only just started.
@@ -25,3 +27,5 @@ This project has only just started.
 #### Android security
 
 - [Android security]({{ "/infosec/android-security.html" | prepend: site.baseurl }})
+
+</article>

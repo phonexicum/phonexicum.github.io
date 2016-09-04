@@ -4,6 +4,8 @@ layout: default
 category_root: main
 ---
 
+<article class="markdown-body" markdown="1">
+
 * [information security cheatsheet]({{ "/infosec" | prepend: site.baseurl }})
 * [phonexicum]({{ "/phonexicum" | prepend: site.baseurl }})
 
@@ -14,6 +16,8 @@ category_root: main
 <br>
 
 This site I made for myself, you can use it at your own risk.
+
+</article>
 
 <!-- <div class="home">
 
