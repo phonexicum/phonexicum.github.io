@@ -19,32 +19,34 @@ permalink: /infosec/encodings.html
 
 ## Definitions
 
-- **Symbol encoding** - establishes rule how symbols\pictures correlate with arithmetic numbers.
-
+Symbol encoding
+: establishes rule how symbols\pictures correlate with arithmetic numbers.
+    
     (e.g. unicode)
 
-- **Character encoding** - establishes rule how numbers (signifying some character) will be encoded in bytes (and written somewhere) and vice versa.
+Character encoding
+: establishes rule how numbers (signifying some character) will be encoded in bytes (and written somewhere) and vice versa.
 
     (e.g. UTF-8, UTF-16, ...)
 
 Exists a lot of abnormal encodings (e.g. cp1251, ...), which are messing up two concepts, enclosing both of them: symbol encoding and character encoding.
 
+<br>
 
 ## Different encode types
 
-- **URL encode** *(url must be represented by ascii symbols 0 - 126)*
+URL encode
+: *(url must be represented by ascii symbols 0 - 126)*
 
     <br>
-    Hello World **-->** Hello%20%57%6f%72%6c%64 *(normal ascii symbols can be represented without encode by choice)*
-
-    ` ` **-->** `+` or %20
-
+    Hello World **-->** Hello%20%57%6f%72%6c%64 *(normal ascii symbols can be represented without encode by choice)* <br>
+    ` ` **-->** `+` or %20 <br>
     not ascii symbols: ü **-->** %C3%BC *(utf-8 hex representation)*
 
+<br>
 
-- **HTML entities**
-
-    <br>
+HTML entities
+: <br>
 
     | ' ' | non-breaking space      | `&nbsp;`  | `&#160;` |
     | <   | less than               | `&lt;`    | `&#60;`  |
@@ -62,6 +64,7 @@ Exists a lot of abnormal encodings (e.g. cp1251, ...), which are messing up two 
 
     Encoded symbols will be not interpreted by browser as a special symbols.
 
+<br>
 
 ## Encoding tricks
 
@@ -77,6 +80,7 @@ Exists a lot of abnormal encodings (e.g. cp1251, ...), which are messing up two 
 
     *If mysql `SET NAMES gbk;` was set, then this encoding trick will help to bypass `mysql_real_escape_string` php function.*
 
+<br>
 
 ## Special characters
 

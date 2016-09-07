@@ -358,6 +358,7 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
 >   - SSLunpinning, android-ssl-bypass, Android-SSL-TrustKiller
 >   - Frida
 
-</div></div>
+</div>
+</div>
 
 </article>

