@@ -1,14 +1,14 @@
 ---
 layout: page
 
-title: WiFi
+title: GSM
 
-category: infosec
+category: infosec_hidden
 see_my_category_in_header: true
 
-permalink: /infosec/wifi.html
+permalink: /infosec/hidden/gsm.html
 
-published: false
+published: true
 ---
 
 <article class="markdown-body" markdown="1">
@@ -18,7 +18,7 @@ published: false
 * TOC
 {:toc}
 
-## Mobile devices
+## Mobile network overview
 
 
 </article>

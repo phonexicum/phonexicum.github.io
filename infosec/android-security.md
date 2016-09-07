@@ -336,8 +336,6 @@ Application can check if google play services installed on smartphone is up-to-d
     
     - if wifi is on, telephone always tries to connect to known hotspots
 
-        [Hacking Wifi](./wifi.html)
-
 - NFC
 - Bluetooth (headset)
 
