@@ -18,7 +18,8 @@ published: true
 * TOC
 {:toc}
 
-## Mobile devices
+
+## Technical characteristics
 
 
 </article>
