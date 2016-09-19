@@ -57,3 +57,10 @@ h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
 .markdown-body ul+p {
     margin-top: 1.0em;
 }
+
+body {
+    background-color: #f6f6f6;
+}
+.wrapper {
+    background-color: #ffffff;
+}

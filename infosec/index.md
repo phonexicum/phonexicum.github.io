@@ -28,4 +28,13 @@ This project has only just started.
 
 - [Android security]({{ "/infosec/android-security.html" | prepend: site.baseurl }})
 
+#### Network security
+
+*There is a lot of information channels ourdays: usb, ethernet, wifi, gsm, NFC, RFID, etc.*
+
+- [WiFi]({{ "/infosec/wifi.html" | prepend: site.baseurl }})
+
+<!-- - [GSM security]({{ "/infosec/gsm.html" | prepend: site.baseurl }}) -->
+
+
 </article>
