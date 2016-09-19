@@ -2,9 +2,13 @@
 layout: default
 
 category_root: main
+
+permalink: /
 ---
 
 <article class="markdown-body" markdown="1">
+
+<br>
 
 * [information security cheatsheet]({{ "/infosec" | prepend: site.baseurl }})
 * [phonexicum]({{ "/phonexicum" | prepend: site.baseurl }})
@@ -15,7 +19,7 @@ category_root: main
 
 <br>
 
-This site I made for myself, you can use it at your own risk.
+*This site I made for myself, you can use it at your own risk.*
 
 </article>
 
