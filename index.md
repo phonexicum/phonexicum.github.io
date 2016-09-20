@@ -17,6 +17,10 @@ permalink: /
 
 * [programming concepts]({{ "/programming_concepts" | prepend: site.baseurl }})
 
+<!-- <br>
+
+* [funny aphorisms]({{ "/other_articles/funny.html" | prepend: site.baseurl }}) -->
+
 <br>
 
 *This site I made for myself, you can use it at your own risk.*

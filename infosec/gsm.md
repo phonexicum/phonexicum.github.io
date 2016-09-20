@@ -3,7 +3,7 @@ layout: page
 
 title: GSM
 
-category: infosec_hidden
+category: infosec
 see_my_category_in_header: true
 
 permalink: /infosec/gsm.html
@@ -12,6 +12,10 @@ published: true
 ---
 
 <article class="markdown-body" markdown="1">
+
+References:
+
+*This article was made mainly after listening Positive Technologies webinar ["MiTM-Mobile: Как ломали GSM на PHDays V. Павел Новиков"](https://youtu.be/Fx3cww1rXOg)*
 
 ## Content
 

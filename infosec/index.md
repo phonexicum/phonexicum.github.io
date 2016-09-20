@@ -33,6 +33,7 @@ This project has only just started.
 *There is a lot of information channels ourdays: usb, ethernet, wifi, gsm, NFC, RFID, etc.*
 
 - [WiFi]({{ "/infosec/wifi.html" | prepend: site.baseurl }})
+- [GSM]({{ "/infosec/gsm.html" | prepend: site.baseurl }})
 
 <!-- - [GSM security]({{ "/infosec/gsm.html" | prepend: site.baseurl }}) -->
 
