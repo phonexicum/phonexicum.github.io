@@ -34,8 +34,11 @@ This project has only just started.
 
 - [WiFi]({{ "/infosec/wifi.html" | prepend: site.baseurl }})
 - [GSM]({{ "/infosec/gsm.html" | prepend: site.baseurl }})
+- [GNSS (GPS)]({{ "/infosec/gps.html" | prepend: site.baseurl }})
 
-<!-- - [GSM security]({{ "/infosec/gsm.html" | prepend: site.baseurl }}) -->
+#### etc.
 
+- [GHDB / Google Dorks]({{ "/infosec/ghdb.html" | prepend: site.baseurl }})
+- [various notes]({{ "/infosec/unstructured_notes.html" | prepend: site.baseurl }})
 
 </article>

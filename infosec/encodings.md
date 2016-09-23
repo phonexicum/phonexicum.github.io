@@ -46,23 +46,28 @@ URL encode
 <br>
 
 HTML entities
-: <br>
-
-    | ' ' | non-breaking space      | `&nbsp;`  | `&#160;` |
-    | <   | less than               | `&lt;`    | `&#60;`  |
-    | >   | greater than            | `&gt;`    | `&#62;`  |
-    | &   | ampersand               | `&amp;`   | `&#38;`  |
-    | ¢   | cent                    | `&cent;`  | `&#162;` |
-    | £   | pound                   | `&pound;` | `&#163;` |
-    | ¥   | yen                     | `&yen;`   | `&#165;` |
-    | €   | euro                    | `&euro;`  | `&#8364;`|
-    | ©   | copyright               | `&copy;`  | `&#169;` |
-    | ®   | registered trademark    | `&reg;`   | `&#174;` |
-    | | etc. | | |
-
-    Any symbol can be encoded in decimal `&#123;` or in hex `&#x123;`
-
+: Any symbol can be encoded in decimal `&#123;` or in hex `&#x123;`
+    
     Encoded symbols will be not interpreted by browser as a special symbols.
+
+<div class="spoiler"><div class="spoiler-title">
+    <i>examples</i>:
+</div><div class="spoiler-text" markdown="1">
+
+| ' ' | non-breaking space      | `&nbsp;`  | `&#160;` |
+| <   | less than               | `&lt;`    | `&#60;`  |
+| >   | greater than            | `&gt;`    | `&#62;`  |
+| &   | ampersand               | `&amp;`   | `&#38;`  |
+| ¢   | cent                    | `&cent;`  | `&#162;` |
+| £   | pound                   | `&pound;` | `&#163;` |
+| ¥   | yen                     | `&yen;`   | `&#165;` |
+| €   | euro                    | `&euro;`  | `&#8364;`|
+| ©   | copyright               | `&copy;`  | `&#169;` |
+| ®   | registered trademark    | `&reg;`   | `&#174;` |
+| | etc. | | |
+
+</div>
+</div>
 
 <br>
 
@@ -92,17 +97,28 @@ unicode replacement symbol - "\ufffd"
 <td valign="top" markdown="1">
 
 - space immitation *(hex)*
-    
-    <br>
 
+    <br>
+    
     | %20  | space               |
     | /**/ | comment             |
     | %09  | tabulation          |
     | %0A  | new line            |
-    | %0D  | carriage return     |
     | %0B  | vertical tabulation |
     | %0C  | new page            |
+    | %0D  | carriage return     |
     | %A0  | non-breaking space  |
+
+    <br>
+    using utf-8 encoding (encode one-byte symbol using 2 bytes):
+
+    in different systems \xC0 and \xe0 can be not recognized as utf-8 service byte
+
+        \xC0\x49, \xC0\x4A, \xC0\x4B, \xC0\x4C, \xC0\x4D
+        \xC0\x89, \xC0\x8A, \xC0\x8B, \xC0\x8C, \xC0\x8D
+        \xC0\xC9, \xC0\xCA, \xC0\xCB, \xC0\xCC, \xC0\xCD
+        \xC0\xE0, \xC0\x60
+        \xE0\x00\x09, \xE0\x40\x09, \xE0\x80\x09
 
 </td>
 <td markdown="1">

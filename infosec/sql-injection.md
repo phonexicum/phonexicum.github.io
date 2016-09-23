@@ -910,5 +910,28 @@ EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
     
     `SELECT CHR(32)||CHR(92)||CHR(93) FROM dual;`
 
+
+<br><br>
+
+---
+
+<div class="spoiler"><div class="spoiler-title">
+    <i>WAF shit I have witnessed:</i>
+</div><div class="spoiler-text" markdown="1">
+
+<br>
+
+1. amount of spaces - matters
+
+    `$str = str_replace(array(' '), array('.'), $_GET['param'];);` <br>
+    `$res = mysqli_query($db_link, "SELECT * FROM flag WHERE id=".$str."");`
+
+    <br>
+    Now if you pass `/?param=1+` - you will be OK. (query = `id=1.`) <br>
+    But if you pass `/?param=1++` - everything will go wrong, because query will be `id=1..` - mysql error.
+
+</div>
+</div>
+
 </article>
 
