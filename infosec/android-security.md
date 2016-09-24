@@ -230,10 +230,10 @@ Application:
 
 - **filesystem** rights:
 
-    - on **telephone card**: default is **`MODE_PRIVATE`** - chmod 0600 - nobody can read your files
+    - on **telephone card**: default is **`MODE_PRIVATE`** - chmod 0660 - nobody can read your files
     - on **sd card**:  default chmod **0755** - everybody can read your files
 
-    - system tools for files (and not only) can create them with unsecure rights. **Use only** android **API**.
+    - system tools for files (and not only) (e.g. touch, echo) can create them with unsecure rights (0666). **Use only** android **API**.
 
 
 - secure **network** connections
@@ -285,6 +285,8 @@ Application:
 
         android < 6.0 - any application can send a broadcast message
 
+    - intent data must be validated
+
 - After getting a broadcast intent you must to make sure, from whom you got it.
 
     Before sending  broadcast intent you must be sure, that target component was not replace by malicious content. <br>
@@ -315,8 +317,8 @@ Information leaks:
 
 Information leaks for application analysis:
 
-- application can store sensitive information in **sqlite db** (credentials, ip-addresses, etc)
-
+- application can store sensitive information in **sqlite db** (credentials, ip-addresses, etc) <br>
+    possible sql injections
 - application cache
 
 <br>
@@ -331,8 +333,8 @@ Application can check if google play services installed on smartphone is up-to-d
 
 ## Wireless attacks
 
-- fake cellphone stations
-- fake wifi hotspots
+- fake cellphone stations ([GSM security]({{ "/infosec/gsm.html" | prepend: site.baseurl }}))
+- fake wifi hotspots ([Wifi security]({{ "/infosec/wifi.html" | prepend: site.baseurl }}))
     
     - if wifi is on, telephone always tries to connect to known hotspots
 

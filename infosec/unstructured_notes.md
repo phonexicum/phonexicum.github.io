@@ -41,4 +41,58 @@ published: true
 
     # You have file
 
+## ATM security
+
+***ATM - Automatic Teller Machine***
+
+ATM structure:
+
+- service zone (**can be easily opened** (with picklocks or key (locks oftenly universal for all ATMs of one product line)))
+
+    - computer
+
+        <br>
+        management ports:
+
+        - usb
+        - com port
+
+        network connection to *processing server* (sometimes can be accessed from the street):
+
+        - ethernet
+        - gsm
+        - etc. (rarity)
+
+            <br>
+            Connection security:
+
+            - No VPN (**network traffic** with processing server is primitive, **can be easily faked**)
+            - software VPN (**Is configuration correct? Firewall?**)
+            - hardware VPN (**can be stealed** and hacker will be able to connect to VPN network on his own from anywhere)
+
+        Network can be poorly arranged:
+
+        - ATM can be accessible from internet
+        - ATM can have access to other ATMs
+        - ATMs can be managed though Active Directory by admins who can access companies active directory
+
+        software:
+
+        - windows (**XP**, 7, NT, OS/2) (**usually without upgrades**)
+        - applications <--> XFS Manager (at first developed by microsoft, that is why - windows) <--> service providers <--> microcontrollers/hardware
+        - user friendly service GUI for service worker/tester
+
+    - microcontrollers for devices:
+
+        - keypad
+        - touch panel
+        - cash dispenser
+        - cash deposit unit
+        - card reader
+        - receipt printer
+
+- safe with money (too firm for our attention) (4 blocks for 2000-3000 banknote each, 4-th usually contains biggest) (full ATM can contain several millions $ or &euro;)
+
+***Somewhere there is a trick**, because: each ATM can be easily hacked in about 15 minutes, and in average it containes about a million, though hackers surelly will desire to massively attack it, though banks will desire to make ATMs safer and press upon vendors. But system still looks vulnerable.*
+
 </article>
