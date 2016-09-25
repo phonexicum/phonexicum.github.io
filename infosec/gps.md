@@ -37,7 +37,7 @@ There is several systems of global positioning (numbers for 2016 year):
 | IRNSS   | India  | 7        | 3+4=7     | targeted only on India country <br> precision is good. |
 | QZSS    | Japan  | 1        | 4         | planned to target only for Japan. <br> works jointly to GPS to impove its precision, not a standalone project |
 
-Satellites lifetime is small - several years.
+Satellites lifetime is small - from several years up to 10.
 
 SBAS - Satellite-based augmentation system
 : All global positioning systems provides accuracy of tens of meters. To improve it - SBAS is used.
@@ -89,9 +89,11 @@ GPS message structure:
 - time and ephemerides (satellite coords) in message sends in turns each subframe
 - special message type - almanah (data about all satellites positions, system time, etc.) (GPS - 12.5 minutes, GLONASS - 2.5 minutes)
 
+GPS has several carrier frequencies: L1 = 1575.42 MHz, L2 = 1227.60 MHz, (L3 = 1381.05 MHz, L4 = 1379.913 MHz), L5 = 1176.45 MHz.
+
 All GPS satellites uses the same frequency band, but send different codes in the beginning of the message. <br>
 In GLONASS there is 15 channels used by satellites (satellites on different sides of the planet can use the same channel). <br>
-=> GPS receiver listens bandwidth of about 2 MHz, GLONASS - about 8 MHz
+=> GPS receiver listens bandwidth of about 2 KHz, GLONASS - about 8 KHz
 
 GPS antenna type: <br>
 GPS antennas use circular right polarization, because after reflection from earth it becames left-polarized and receivers can ignore it.
