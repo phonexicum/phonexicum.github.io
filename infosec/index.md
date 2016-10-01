@@ -21,8 +21,9 @@ This project has only just started.
 #### Web application security
 
 - [encodings]({{ "/infosec/encodings.html" | prepend: site.baseurl }})
-- [Web Application Firewall]({{ "/infosec/waf.html" | prepend: site.baseurl }})
+- [Web Application Firewall]({{ "/infosec/waf.html" | prepend: site.baseurl }}) *(to be improved)*
 - [SQL injection]({{ "/infosec/sql-injection.html" | prepend: site.baseurl }})
+- [XXE]({{ "/infosec/xxe.html" | prepend: site.baseurl }})
 
 #### Android security
 
