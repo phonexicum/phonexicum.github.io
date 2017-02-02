@@ -343,6 +343,56 @@ Application can check if google play services installed on smartphone is up-to-d
 
 SMS is **not encrypted** and **not authenticated** and can be intercepted, therefore is absolutely not secure (nor their content, nor sender).
 
+<br>
+
+---
+
+<!-- ============================================================================================================================================ -->
+
+## Android app defences
+
+- root detection
+
+    Runtime checks:
+
+    - Standart files and configurations:
+
+        *build* tag: `cat /system/build.prop | grep ro.build.tags`, must be equal to `release-keys`
+
+        Over The Air (OTA) certificates (google certs for updates): `ls -l /etc/security/otacerts.zip`
+
+    - Search for additional components on smartphone:
+
+        right managers: superuser.apk, com.thirdparty.superuser, eu.chainfire.supersu, com.koushikdutta.superuser, com.zachspong.temprootremovejb, com.ramdroid.appquarantine
+
+        busybox
+
+    - Check output for `user`, `id`
+
+    - Check filesystem writes:
+
+        `/data` becomes readable
+
+        a lot of directores in `/` become writable
+
+    Bypass for analysis:
+
+    - RootCloak (uses method hooking (exec, file i/o, getInstalledApplications, etc.)) (Xposed framework needed)
+
+- ssl-pinning
+
+    procedure of storing ssl certificate of app's server inside application to make additional checks defending from MITM
+
+    Bypass for analysis:
+
+    - SSLunpinning (Xposed framework module), android-ssl-bypass, Android-SSL-TrustKiller (needs root, uses method hooking)
+
+#### Advanced utilities:
+
+Xposed framework - hooking framework
+
+[Frida](http://www.frida.re/) - framework for javascript injections (not only android related)
+
 ---
 
 <div class="spoiler"><div class="spoiler-title">
@@ -354,11 +404,26 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
 >   - adb shell am start -n com.example.nanisenya.snatch/.MoneyTransferActivity --es id 31 --es amount 1 --es receiver 80107430600227300031 --es description wow
 > <br>&#20;
 >
->   - APK Studio, Apktool, dex2jar
->   - cfr, procyon, fernflower, krakatau, jd-gui, jad
->   - Android SDK, Genymotion, Android Studio
->   - SSLunpinning, android-ssl-bypass, Android-SSL-TrustKiller
->   - Frida
+>   - APK disassemblation: APK Studio, Apktool, dex2jar
+>   - java decompilation: cfr, procyon, fernflower, krakatau, jd-gui, jad
+>   - Android emulators: Android SDK (Android Studio), Genymotion, physical device
+>   - Xposed framework - hooking framework
+>   - [Frida](http://www.frida.re/) - framework for javascript injections
+> <br>&#20;
+> 
+>  Rebuilding android apk
+>
+>   - Generate key 
+>   
+>       `keytool -genkey -v -keystore my_key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000`
+>
+>   - Sign android apk
+>
+>       `jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my_key.keystore app_name.apk alias_name`
+>
+>   - Add into keystore specified certificate
+>       
+>       `keytool -importcert -v -trustcacerts -file "cert.der" -keystore "keystore.bks" -provider org.MyProvider -providerpath "my_app.jar" -storetype BKS -storepass testing`
 
 </div>
 </div>

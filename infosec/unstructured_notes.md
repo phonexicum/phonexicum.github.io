@@ -13,7 +13,7 @@ published: true
 
 <article class="markdown-body" markdown="1">
 
-## Content
+# Content
 <div class="spoiler"><div class="spoiler-title">
     <i>Table of contents</i>
 </div><div class="spoiler-text" markdown="1">
@@ -41,58 +41,30 @@ published: true
 
     # You have file
 
-## ATM security
+<br>
 
-***ATM - Automatic Teller Machine***
+---
 
-ATM structure:
+## LFI -> RCE
 
-- service zone (**can be easily opened** (with picklocks or key (locks oftenly universal for all ATMs of one product line)))
+Each users request leaves track on server side:
 
-    - computer
+- storing media-files - ***file upload***
+    - images
+    - video (e.g. ffmpeg vulns, etc.)
+- log records (`/apache/logs`, `/var/log/apache2`, `/proc/self/environ`, etc.)
+- pseudo-protocols (`data://`, `php://`, `expect://`, etc.)
+- tmp files
 
-        <br>
-        management ports:
+    `phpinfo ()` - files passed through http are stored by php into tmp files, tmp file-name can be guessed using information from phpinfo and using LFI it must be executed ([some expoit scripts examples](https://rdot.org/forum/showthread.php?t=1134&page=2))
 
-        - usb
-        - com port
+    <br>
+    tmp files lives until php-script will end its execution (actually cleanup will start before sending last chunk of data), ways to hold tmp file:
 
-        network connection to *processing server* (sometimes can be accessed from the street):
+    - `Content-Length` must be falsy to hang php-script execution
+    - network connection can be slowed down (e.g. small network/proxy packets, etc.) and `HTTP_Z` http header must be big to increase amount of data after `_FILES` variable in phpinfo output
+    - load of script recursively including itself (php will die without cleaning tmp files)
 
-        - ethernet
-        - gsm
-        - etc. (rarity)
-
-            <br>
-            Connection security:
-
-            - No VPN (**network traffic** with processing server is primitive, **can be easily faked**)
-            - software VPN (**Is configuration correct? Firewall?**)
-            - hardware VPN (**can be stealed** and hacker will be able to connect to VPN network on his own from anywhere)
-
-        Network can be poorly arranged:
-
-        - ATM can be accessible from internet
-        - ATM can have access to other ATMs
-        - ATMs can be managed though Active Directory by admins who can access companies active directory
-
-        software:
-
-        - windows (**XP**, 7, NT, OS/2) (**usually without upgrades**)
-        - applications <--> XFS Manager (at first developed by microsoft, that is why - windows) <--> service providers <--> microcontrollers/hardware
-        - user friendly service GUI for service worker/tester
-
-    - microcontrollers for devices:
-
-        - keypad
-        - touch panel
-        - cash dispenser
-        - cash deposit unit
-        - card reader
-        - receipt printer
-
-- safe with money (too firm for our attention) (4 blocks for 2000-3000 banknote each, 4-th usually contains biggest) (full ATM can contain several millions $ or &euro;)
-
-***Somewhere there is a trick**, because: each ATM can be easily hacked in about 15 minutes, and in average it containes about a million, though hackers surelly will desire to massively attack it, though banks will desire to make ATMs safer and press upon vendors. But system still looks vulnerable.*
+- other places, where web-application stores data (e.g. sessions, e-mails, etc.)
 
 </article>
