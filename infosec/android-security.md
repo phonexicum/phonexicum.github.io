@@ -287,14 +287,26 @@ Application:
 
     - intent data must be validated
 
+
 - After getting a broadcast intent you must to make sure, from whom you got it.
 
     Before sending  broadcast intent you must be sure, that target component was not replace by malicious content. <br>
 
     The commands which require user intercation are placed in a queue (e.g. question from sim card). So after getting answer from user through broadcast intent you must be confident whose question user answered your or the malicious hackers answer just before your which send the same broadcast intent, e.g. [sim spoofing](http://blog.0xb.in/2015/08/spoofing-and-intercepting-sim-commands.html)
 
+
+- **Task activity hijacking** ([paper](https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-ren-chuangang.pdf))
+
+    If user already installed malicious software, it can temper with taskAffinity to redirect user from good application to malicious one (purposes: fishing, ransomware, spyware, ...).
+
+    Exists several attacking scenario's, all are based on specifying `taskAffinity` to change current task and return to other activities in malicious tasks, some methods can additionaly use `allowTaskReparenting=true`, `launchMode=singleTask` and `FLAG_ACTIVITY_(NEW_TASK|SINGLE_TOP|CLEAR_TOP|REORDER_TO_FRONT|NO_HISTORY|CLEAR_TASK|NEW_DOCUMENT|MULTIPLE_TASK)`
+
+    - no real mitigation way
+
+
 - application **android:debuggable** - enables to attach to process with jdb (java debugger) and gives some privileges under process (run-as, etc.).
 <br>&#20;
+
 
 - **eval** equivalents in Android
 
@@ -308,6 +320,7 @@ Application:
         if we can inject into javascript our code we have RCE, e.g.
 
         `JavaObject.getClass().forname(“java.lang.Runtime”).getMethod(“getRuntime”, , null).invoke(null,null).exec([“/system/bin/sh”,”rm”,”-rf”,”*”])`
+
 
 Information leaks:
 
