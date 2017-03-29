@@ -11,15 +11,29 @@ permalink: /infosec/android-security.html
 
 <article class="markdown-body" markdown="1">
 
-## Content
+Table of Content:
 
 * TOC
 {:toc}
 
+---
+
+## Bookmarks
+
+### Awesomness
+
+* [Best Practices for Security &amp; Privacy](https://developer.android.com/training/best-security.html) - google cheatsheet
+* [Google security tips](https://developer.android.com/training/articles/security-tips.html)
+* [OWASP mobile security](https://www.owasp.org/index.php/Projects/OWASP_Mobile_Security_Project_-_Top_Ten_Mobile_Risks)
+
 <br>
 
-[Google security tips](https://developer.android.com/training/articles/security-tips.html) <br>
-[OWASP mobile security](https://www.owasp.org/index.php/Projects/OWASP_Mobile_Security_Project_-_Top_Ten_Mobile_Risks)
+* [Anatomy of Android - internals, externals and all in between](https://anatomyofandroid.com/) - several articles
+
+## Articles
+
+* {:.dummy} [Spoofing and intercepting SIM commands through STK framework](http://blog.0xb.in/2015/08/spoofing-and-intercepting-sim-commands.html?view=sidebar) - (Android 5.1 and below) (CVE-2015-3843)
+* {:.dummy} [Google Chrome for Android: UXSS and Credential disclosure](http://blog.0xb.in/2012/10/google-chrome-for-android-uxss-and.html)
 
 ---
 
@@ -400,11 +414,49 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
 
     - SSLunpinning (Xposed framework module), android-ssl-bypass, Android-SSL-TrustKiller (needs root, uses method hooking)
 
-#### Advanced utilities:
+<br>
 
-Xposed framework - hooking framework
+---
 
-[Frida](http://www.frida.re/) - framework for javascript injections (not only android related)
+<!-- ============================================================================================================================================ -->
+
+## Android security tools
+
+* [Xposed framework (4PDA)](http://4pda.ru/forum/index.php?showtopic=425052) - hooking framework
+* [Frida](http://www.frida.re/) - framework for javascript injections (not only android related)
+
+<br>
+
+* [debugging APK](http://www.securitylab.ru/analytics/472624.php?R=1) (article) (русский) - decompilation and debugging of APK
+* [ProGuard](https://www.guardsquare.com/en/proguard) - most pupular optimizer (thus *obfuscator*) for java bytecode
+
+#### Android Emulators:
+
+* [Android studio + Android SDK](https://developer.android.com/studio/index.html#downloads)
+* [Android x86 VM images for VMware and VirtualBox](http://www.osboxes.org/android-x86/)
+* [Genymotion](https://www.genymotion.com/)
+
+#### Download APK:
+
+* [Raccoon](https://github.com/onyxbits/Raccoon) - Google Play desktop client (allows to download android APK files)
+* [APK online downloader](https://apkpure.com/)
+
+#### APK disassemble
+
+* APK Studio
+* Apktool
+* dex2jar
+
+#### Java decompilers
+
+cfr, procyon, fernflower, krakatau, [jd-gui](https://github.com/java-decompiler/jd-gui/releases), jad
+
+#### Other tools:
+
+* [Nocturne](https://github.com/LapisBlue/Nocturne) - a graphical tool for creation of Java deobfuscation mappings
+* [Android-SSL-TrustKiller](https://github.com/iSECPartners/Android-SSL-TrustKiller) - bypass SSL certificate pinning for most applications
+
+* {:.dummy} list of other tools: [25 Awesome Android Reverse Engineering Tools - Mobile phones - Romanian Security Team](https://rstforums.com/forum/topic/102731-25-awesome-android-reverse-engineering-tools/)
 
 ---
 
@@ -415,13 +467,6 @@ Xposed framework - hooking framework
 >   - adb shell dumpsys user
 >   - adb shell pm list users
 >   - adb shell am start -n com.example.nanisenya.snatch/.MoneyTransferActivity --es id 31 --es amount 1 --es receiver 80107430600227300031 --es description wow
-> <br>&#20;
->
->   - APK disassemblation: APK Studio, Apktool, dex2jar
->   - java decompilation: cfr, procyon, fernflower, krakatau, jd-gui, jad
->   - Android emulators: Android SDK (Android Studio), Genymotion, physical device
->   - Xposed framework - hooking framework
->   - [Frida](http://www.frida.re/) - framework for javascript injections
 > <br>&#20;
 > 
 >  Rebuilding android apk

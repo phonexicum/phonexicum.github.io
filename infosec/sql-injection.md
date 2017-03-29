@@ -16,10 +16,37 @@ I collect different types of sqli attacks from the internet.
 In this document I am targeting 4 databases: MySQL, PostgreSQL, MS SQL, ORACLE
 
 
-## Content
+***Table of Contents***
 
 * TOC
 {:toc}
+
+---
+
+## SQL-injection Bookmarks
+
+* [Rogue-MySql-Server](https://github.com/allyshka/Rogue-MySql-Server) - MySQL fake server for read files of connected clients
+* [attackercan/cpp-sql-fuzzer](https://github.com/attackercan/CPP-SQL-FUZZER) - tables of allowed symbols in different inputs of SQL expressions
+* [sqlmap](http://sqlmap.org/) - automatic SQL injection and database takeover tool
+
+Cheatsheets:
+
+* [sql Injection Cheat Sheet (pentestmonkey)](http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet) - Oracle, MSSQL, MySQL, PostgreSQL, Ingres, DB2, Informix
+* [sql injection knowledge base](http://websec.ca/kb/sql_injection) - Oracle, MSSQL, MySQL
+* {:.dummy} [MySql SQL injection (RDot intro)](https://rdot.org/forum/showthread.php?t=124)
+
+<br>
+
+* [getting around mysql_real_escape_string()](http://stackoverflow.com/questions/5741187/sql-injection-that-gets-around-mysql-real-escape-string) (2nd answer)
+* [MySqli based on multibyte encodings](https://raz0r.name/vulnerabilities/sql-inekcii-svyazannye-s-multibajtovymi-kodirovkami-i-addslashes/) (*русский*)
+
+#### attack databases
+
+* [Advanced MySqli exploitation with FILE_PRIV](http://lab.onsec.ru/2012_03_01_archive.html)
+* [ODAT](https://github.com/quentinhardy/odat) - Oracle database attacking tool ([wiki](https://github.com/quentinhardy/odat/wiki))
+
+
+---
 
 ## SQL injection classification
 

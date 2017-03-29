@@ -3,10 +3,10 @@ layout: page
 
 title: Encodings
 
-category: infosec
+category: infosec_infolists
 see_my_category_in_header: true
 
-permalink: /infosec/encodings.html
+permalink: /infolists/encodings.html
 ---
 
 <article class="markdown-body" markdown="1">
@@ -54,17 +54,17 @@ HTML entities
     <i>examples</i>:
 </div><div class="spoiler-text" markdown="1">
 
-| ' ' | non-breaking space      | `&nbsp;`  | `&#160;` |
-| <   | less than               | `&lt;`    | `&#60;`  |
-| >   | greater than            | `&gt;`    | `&#62;`  |
-| &   | ampersand               | `&amp;`   | `&#38;`  |
-| ¢   | cent                    | `&cent;`  | `&#162;` |
-| £   | pound                   | `&pound;` | `&#163;` |
-| ¥   | yen                     | `&yen;`   | `&#165;` |
-| €   | euro                    | `&euro;`  | `&#8364;`|
-| ©   | copyright               | `&copy;`  | `&#169;` |
-| ®   | registered trademark    | `&reg;`   | `&#174;` |
-| | etc. | | |
+| ' ' | non-breaking space   | `&nbsp;`  | `&#160;`  |
+| <   | less than            | `&lt;`    | `&#60;`   |
+| >   | greater than         | `&gt;`    | `&#62;`   |
+| &   | ampersand            | `&amp;`   | `&#38;`   |
+| ¢   | cent                 | `&cent;`  | `&#162;`  |
+| £   | pound                | `&pound;` | `&#163;`  |
+| ¥   | yen                  | `&yen;`   | `&#165;`  |
+| €   | euro                 | `&euro;`  | `&#8364;` |
+| ©   | copyright            | `&copy;`  | `&#169;`  |
+| ®   | registered trademark | `&reg;`   | `&#174;`  |
+|     | etc.                 |           |           |
 
 </div>
 </div>

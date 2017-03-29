@@ -6,7 +6,7 @@ title: Web-Crawler
 category: phonexicum
 see_my_category_in_header: true
 
-permalink: /infosec/webcrawler.html
+permalink: /infosec/jaxsnoop.html
 
 published: true
 ---
@@ -170,7 +170,7 @@ _. *Zhang K., Shasha D. Simple fast algorithms for the editing distance between 
 
 **Comparing hierarchical information**:
 
-1. ***Basic idea***: Generate edit graph for two sequences needed to be compared. Shortest path from top-left corner to bottom-right, will reflect minimul edit sequence (insert, delete, update) between given sequences. This algorithm can be easily adapted for comparing trees: rooted, ordered and labeled trees.
+1. ***Basic idea***: Generate edit graph for two sequences needed to be compared. Shortest path from top-left corner to bottom-right, will reflect minimal edit sequence (insert, delete, update) between given sequences. This algorithm can be easily adapted for comparing trees: rooted, ordered and labeled trees.
 
     * Article with description of algorithm for basic idea:
 

@@ -1,14 +1,19 @@
-.markdown-body td>p, .markdown-body td>blockquote, .markdown-body td>ul, .markdown-body td>ol, .markdown-body td>dl, .markdown-body td>table, .markdown-body td>pre, .markdown-body li>p
-{
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-
 header.site-header {
     background-color: #ffffff;
     position: fixed;
     width: 100%;
     top: 0px;
+}
+
+.dummy a, .dummy {
+    color: lightgrey;
+    font-style: italic;
+}
+
+.markdown-body td>p, .markdown-body td>blockquote, .markdown-body td>ul, .markdown-body td>ol, .markdown-body td>dl, .markdown-body td>table, .markdown-body td>pre, .markdown-body li>p
+{
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6 {
@@ -17,11 +22,11 @@ header.site-header {
     /*color: #418749;*/
 }
 
-h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
-  display: block; 
-  content: " "; 
-  margin-top: -80px; 
-  height: 80px; 
+.wrapper:before {
+  display: block;
+  content: " ";
+  margin-top: -80px;
+  height: 80px;
   visibility: hidden;
 }
 
@@ -50,9 +55,9 @@ h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {
     margin-top: 0.5em;
     margin-bottom: 1.5em;
 }
-.markdown-body ul li>p+p:nth-last-of-type(1), .markdown-body ol li>p+p:nth-last-of-type(1) {
+/*.markdown-body ul li>p+p:nth-last-of-type(1), .markdown-body ol li>p+p:nth-last-of-type(1) {
     margin-bottom: 1.5em;
-}
+}*/
 
 .markdown-body ul+p {
     margin-top: 1.0em;
