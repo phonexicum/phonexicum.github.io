@@ -43,6 +43,7 @@ Studying:
 * [Best books, tutorials and courses to learn about *exploit* development](http://www.pentest.guru/index.php/2016/01/28/best-books-tutorials-and-courses-to-learn-about-exploit-development/)
 
 <!--* [InfoSec Institute](http://resources.infosecinstitute.com/)-->
+<!--* [CERTCOLLECTION - BASELINE - SANS & Offensive-Security (2017)](magnet:?xt=urn:btih:F91FEB6D2EA93F1C3C03B6BE52051C2DF72DA1B7&dn=CERTCOLLECTION%20-%20BASELINE%20-%20SANS%20%26%20Offensive-Security&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969&tr=udp%3a%2f%2ftracker.zer0day.to%3a1337&tr=udp%3a%2f%2fpublic.popcorn-tracker.org%3a6969&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969&tr=udp%3a%2f%2fexplodie.org%3a6969)-->
 
 ## Tools
 
@@ -61,6 +62,8 @@ Studying:
 
 * [pentestmonkey](http://pentestmonkey.net/cheat-sheet) - cheetsheats for reverse shell, ssh, sqli (oracle, mysql, postgres, mssql, db2, ingres, informix)
 
+<!-- forensic: * volatility - https://github.com/volatilityfoundation/volatility/wiki/Linux -->
+
 ---
 
 # Secsem Science
@@ -75,10 +78,11 @@ Online utilities:
 * [pastebin.com](http://pastebin.com/)
 * [requestBin](https://requestb.in/) - collect and inspect HTTP requests
 * [httpbin](http://httpbin.org/) - http request and response service
+* [paste.ofcode.org](https://paste.ofcode.org/)
 
 ### Cheatsheets
     
-* [WebReference](https://webref.ru/html) - справочник HTML
+* [WebReference](https://webref.ru/html) - справочник HTML (older site: [htmlbook](http://htmlbook.ru/html/))
 * [HTML5 Security Cheatsheet](http://html5sec.org/)
 * [XSS Filter Evasion Cheat Sheet](https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet) (OWASP)
 * [SSRF bible](https://docs.google.com/document/d/1v1TkWZtrhzRLy0bYXBcdLUedXGb9njTNIJXa3u9akHM/edit)
@@ -94,6 +98,7 @@ Online utilities:
 
 * [JBroFuzz](https://sourceforge.net/projects/jbrofuzz/)
 * [w3bfukk0r](http://www.ngolde.de/w3bfukk0r.html) - scan webservers for hidden directories
+* [Dor1s/libfuzzer-workshop](https://github.com/Dor1s/libfuzzer-workshop)
 
 ### Fingerprinting
 
@@ -105,6 +110,7 @@ Online utilities:
 
 * [css based attack](http://mksben.l0.cm/2015/10/css-based-attack-abusing-unicode-range.html) - abusing unicode-range of @font-face
 * [PRSSI](http://blog.portswigger.net/2015/02/prssi.html) - path-relative stylesheet import vulnerability
+* [Markdown's XSS Vulnerability](https://github.com/showdownjs/showdown/wiki/Markdown%27s-XSS-Vulnerability-(and-how-to-mitigate-it))
 
 ### Web Scanners
 
@@ -135,6 +141,7 @@ Online utilities:
 
 ### Theory, Awesomeness
 
+* [Cryptography tutorial](https://www.tutorialspoint.com/cryptography/index.htm)
 * [Crypto 101](https://www.crypto101.io/) - crypto course
 * [CryptoTermininology](https://github.com/OpenTechFund/CryptoTermininology)
 
@@ -189,6 +196,10 @@ Tools:
 Hardware:
 
 * [routersploit](https://github.com/reverse-shell/routersploit) - router exploitation framework
+
+Distributed tools:
+
+* [pingfs](https://github.com/yarrick/pingfs)
 
 Intresting tools:
 
@@ -288,7 +299,16 @@ Encodings:
 * [Censys](https://censys.io/) - search engine enables researchers to ask questions about the hosts and networks that compose the Internet
 * [Shodan](https://www.shodan.io/) - search engine for internet connected devices
 * [crt.sh](https://crt.sh/) - certificate search
+* [publicwww](https://publicwww.com/) - find any alphanumeric snippet, signature or keyword in the web pages HTML, JS and CSS code
 
+---
+
+# Docker security
+
+* [docker security](https://docs.docker.com/engine/security/security/)
+* [coreos/clair](https://github.com/coreos/clair) - static analysis of vulnerabilities in application containers 
+* [docker security scanning](https://docs.docker.com/docker-cloud/builds/image-scan/)
+* [docker/docker-bench-security](https://github.com/docker/docker-bench-security) - a script that checks for dozens of common best-practices around deploying Docker containers in production
 
 ---
 
@@ -310,6 +330,7 @@ Encodings:
 ## For Common Users
 
 * [virustotal.com](https://www.virustotal.com/)
+* [huntingmalware](https://linux.huntingmalware.com/) - looks like virustotal analogue for linux executables (?)
 * [online tools for checking malicious signs](https://zeltser.com/lookup-malicious-websites/) - list of free online tools for looking up potentially malicious websites
 * [haveibeenpwned.com](https://haveibeenpwned.com/) - check if your email has been compromised in a data breach
 * [Norse Attack Map](http://map.norsecorp.com/)

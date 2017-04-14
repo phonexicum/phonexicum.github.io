@@ -45,7 +45,7 @@ published: true
 
 ---
 
-## LFI -> RCE
+## LFI -> RCE (by Log File Tainting)
 
 Each users request leaves track on server side:
 
@@ -66,5 +66,16 @@ Each users request leaves track on server side:
     - load of script recursively including itself (php will die without cleaning tmp files)
 
 - other places, where web-application stores data (e.g. sessions, e-mails, etc.)
+
+Example of log file tainting with ruby: [Rails Dynamic Render to RCE (CVE-2016-0752)](https://nvisium.com/blog/2016/01/26/rails-dynamic-render-to-rce-cve-2016-0752/)
+
+<!--Loading shell through LFI:
+
+    Через медиа-файлы (фото, видео, документы и т. д.). Для реализации этого способа требуется доступ к странице загрузки файлов (возможно, админке или менеджеру файлов).
+    Через файлы логов (/apache/logs/error.log, /var/log/access_log, /proc/self/environ, /proc/self/cmdline, /proc/self/fd/X и многие другие). Здесь стоит учесть, что чем больше размер логов, тем труднее произвести успешную атаку. В некоторых случаях PHP должен быть запущен в режиме совместимости с CGI или же должна существовать виртуальная файловая система /proc, для доступа к которой необходимы соответствующие права.
+    Через псевдопротоколы (data:, php://input, php://filter), требующие наличия директивы allow_url_include=On (по умолчанию — Off) и версии PHP >= 5.2.
+    Через файлы сессий (/tmp/sess_*, /var/lib/php/session/). Естественно, атакующий должен иметь возможность записывать свои данные в сессию.
+    Через мыло. При этом в уязвимой CMS должна присутствовать возможность отправки писем от www-юзера, а также иметься доступная для чтения директория с отправленными мейлами (к примеру, /var/spool/mail).
+    (/tmp/php*, C:tmpphp*). -->
 
 </article>

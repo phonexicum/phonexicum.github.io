@@ -1,5 +1,12 @@
-// Spoiler processing
+// Dynamic padding depending on size of fixed header
+$(document).ready(function() {
+    var headerOffset = document.getElementById("header").offsetHeight;
+    $('.page-content').css({
+        'padding:':headerOffset+"px"
+    });
+});
 
+// Process spoilers
 $(document).ready(function() {
     $('.spoiler-title').click(function(){
         var spoiler = $(this).closest(".spoiler");

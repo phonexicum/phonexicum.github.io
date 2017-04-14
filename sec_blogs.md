@@ -23,6 +23,8 @@ permalink: /blogs.html
 
 Multidirectional blogs:
 
+* [Welcome to hack world (*rafayhackingarticles*)](www.rafayhackingarticles.net/) (look for categories in web-site)
+
 * [highon.coffee](https://highon.coffee/blog/)
 * [Blog of Osanda (*osandamalith*)](https://osandamalith.com/)
 * [Aditya Agrawal (*manifestsecurity*)](https://manifestsecurity.com/)
@@ -40,6 +42,7 @@ Multidirectional blogs:
 * [XSS Jigsaw (*innerht.ml*)](http://blog.innerht.ml/)
 * [ZoczuS Blog](http://zoczus.blogspot.ru/)
 * [Into the symmetry](http://intothesymmetry.blogspot.ch/)
+* [The nvisium blog](https://nvisium.com/blog/)
 * [My "Public Evernote" (*httpsonly*)](https://httpsonly.blogspot.ru/)
 * [PortSwigger Web Security Blog](http://blog.portswigger.net/)
 * [The Spanner](http://www.thespanner.co.uk/) (javascript)
@@ -53,6 +56,7 @@ Multidirectional blogs:
 * [phrack.org](http://phrack.org/issues/69/1.html)
 * [j00ru//vx tech blog](http://j00ru.vexillium.org/) (reverse, os internals)
 * [LiveOverflow](https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w) (video) (reverse)
+* [impureworld](https://impureworld.wordpress.com/)
 
 ## Android
 
@@ -69,7 +73,7 @@ Multidirectional blogs:
 
 ## other
 
-* [ProjectZero](http://googleprojectzero.blogspot.ru/) (kernel)
+* [ProjectZero](http://googleprojectzero.blogspot.ru/) (kernel, hardware)
 * [My aimful life (*cr4.sh*)](http://blog.cr4.sh/) (firmware)
 
 ## not infosec
