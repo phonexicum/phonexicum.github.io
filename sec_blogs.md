@@ -58,6 +58,8 @@ Multidirectional blogs:
 * [LiveOverflow](https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w) (video) (reverse)
 * [impureworld](https://impureworld.wordpress.com/)
 
+* [Kees Cook](https://wiki.ubuntu.com/KeesCook) - linux kernel security
+
 ## Android
 
 * [androidcracking](http://androidcracking.blogspot.nl/)
