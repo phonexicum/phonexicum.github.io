@@ -49,6 +49,7 @@ exclude:
 # Markdown build settings
 # =====================================================================================================================
 
+# https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers
 highlighter: rouge
 
 # Build settings

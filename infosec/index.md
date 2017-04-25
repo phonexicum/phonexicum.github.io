@@ -18,6 +18,10 @@ This project has only just started.
 
 <br>
 
+#### Binary/Reverse
+
+- [Reverse]({{ "/infosec/reverse.html" | prepend: site.baseurl }})
+
 #### Web application security
 
 - [SQL injection]({{ "/infosec/sql-injection.html" | prepend: site.baseurl }})
