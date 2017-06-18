@@ -47,6 +47,12 @@ Multidirectional blogs:
 * [PortSwigger Web Security Blog](http://blog.portswigger.net/)
 * [The Spanner](http://www.thespanner.co.uk/) (javascript)
 * [MKSB (*mksben.l0.cm*)](http://mksben.l0.cm/) (XSS)
+* [danielmiessler](https://danielmiessler.com/blog/)
+* [qualys](https://blog.qualys.com/)
+
+## Databases
+
+* [red-database-security](http://blog.red-database-security.com/) (oracle db)
 
 ## Binary/Reverse
 
@@ -59,6 +65,8 @@ Multidirectional blogs:
 * [impureworld](https://impureworld.wordpress.com/)
 
 * [Kees Cook](https://wiki.ubuntu.com/KeesCook) - linux kernel security
+
+* [цикл статей по безопасности UEFI BIOS от @coderush (хабрахабр)](https://habrahabr.ru/users/coderush/topics/) (статьи апреля 2016 и ранее)
 
 ## Android
 

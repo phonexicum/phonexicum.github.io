@@ -32,6 +32,8 @@ url: "https://phonexicum.github.io" # the base hostname & protocol for your site
 twitter_username: phonexicum
 github_username:  phonexicum
 
+future: true # This will show posts with future date
+
 # =====================================================================================================================
 # Build settings
 # =====================================================================================================================

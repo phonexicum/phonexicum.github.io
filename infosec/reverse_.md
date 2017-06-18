@@ -156,6 +156,7 @@ published: true
 
     * **[gdb peda](https://github.com/longld/peda)** - **Python Exploit Development Assistance for GDB**
     * [pwndbg](https://github.com/zachriggle/pwndbg) ([features](https://github.com/pwndbg/pwndbg/blob/master/FEATURES.md)) - *emulation*, *heap inspection*, ida pro integration, qemu compatibility, etc.
+    * [gdb duel](https://github.com/vuvova/gdb-tools/blob/arpeggio/duel/help.md) - purpose language designed for concise state exploration of debugged C programs. ([gdb duel (ru) (хабр)](https://habrahabr.ru/post/328180/))
 
 * **[pwntools](https://docs.pwntools.com/en/stable/) - framework and exploit development library ([examples](https://github.com/Gallopsled/pwntools/tree/dev/examples))**
 

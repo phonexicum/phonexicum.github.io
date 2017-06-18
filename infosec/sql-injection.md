@@ -42,6 +42,8 @@ Cheatsheets:
 
 #### attack databases
 
+* [red database security](http://red-database-security.com/) - group focused on ORACLE database security (presentations, articles, etc.)
+
 * [Advanced MySqli exploitation with FILE_PRIV](http://lab.onsec.ru/2012_03_01_archive.html)
 * [ODAT](https://github.com/quentinhardy/odat) - Oracle database attacking tool ([wiki](https://github.com/quentinhardy/odat/wiki))
 

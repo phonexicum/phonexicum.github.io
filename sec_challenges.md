@@ -61,6 +61,11 @@ Wild-world oriented:
 * {:.dummy} [http://test.test-me.pp.ru/](http://test.test-me.pp.ru/)
 
 
+## Cryptogrphy
+
+* [cryptopals](https://cryptopals.com/) - the cryptopals crypto challenges
+
+
 ## Binary
 
 Tasks:
@@ -87,7 +92,7 @@ Half-teaching:
 ## Web
 
 * [hackthissite.org](https://www.hackthissite.org/)
-* [Older Challenges and Write Ups](https://github.com/cure53/XSSChallengeWiki/wiki/Older-Challenges-and-Write-Ups) - awesome list of challenges
+* [cure53, XSS Challenge wiki, Older Challenges and Write Ups](https://github.com/cure53/XSSChallengeWiki/wiki/Older-Challenges-and-Write-Ups) - awesome list of challenges
 
 <br>
 
@@ -119,5 +124,11 @@ Half-teaching:
 * [hackerone](https://hackerone.com/)
 * [list of bug bounty programs](https://bugcrowd.com/list-of-bug-bounty-programs)
 
+
+
+
+## Other
+
+* [spoj.com](http://www.spoj.com/problems/classical/) - programmic challenges
 
 </article>

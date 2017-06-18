@@ -5,6 +5,7 @@ title: phonexicum
 
 category: main
 category_root: phonexicum
+see_my_category_in_header: false
 
 permalink: /phonexicum/
 ---
