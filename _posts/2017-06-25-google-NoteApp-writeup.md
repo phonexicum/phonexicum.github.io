@@ -26,7 +26,7 @@ Table of Contents:
 ## Problem spec
 
 * We got service on [https://notes-server-m8tv5txzzohwiznk.web.ctfcompetition.com/](https://notes-server-m8tv5txzzohwiznk.web.ctfcompetition.com/), where user can register
-* We got source of some android application [NotesApp.apk]({{ "/resources/posts/NotesApp.apk" | prepend: site.baseurl }})
+* We got source of some android application [NotesApp.apk]({{ "/resources/posts/NotesApp.apk_" | prepend: site.baseurl }})
 * We got hint: **"Hint: pyc"**
 
 ## Examine android application
@@ -145,7 +145,7 @@ There is some features to be spotted:
 
     * Closer look at source file can reveal, that web-server use some `ZXHash` from another python module `hasher` for generating cookies. We can download that file too! Just in the same manner as we downloaded `index.py`.
     
-        ([https://notes-server-m8tv5txzzohwiznk.web.ctfcompetition.com/hasher.pyc](https://notes-server-m8tv5txzzohwiznk.web.ctfcompetition.com/hasher.pyc)) (here it is uncompyled [source file]({{ "/resources/posts/NotesApp-hasher.py" | prepend: site.baseurl }}))
+        ([https://notes-server-m8tv5txzzohwiznk.web.ctfcompetition.com/hasher.pyc](https://notes-server-m8tv5txzzohwiznk.web.ctfcompetition.com/hasher.pyc)) (here is uncompyled [source file]({{ "/resources/posts/NotesApp-hasher.py" | prepend: site.baseurl }}))
 
     * After familiarizing yourself with the source code of hasher you can notice such reliable word as `md5` and such terrifying signs as `pow` and binary operations, but for those who notice the last line of code it is clear that everything was ruined:
 
@@ -301,7 +301,7 @@ sqlite> .dump Diff
     ...
 ```
 
-*Real flag can be read from this three lines!, but only luckiest guys could have managed to guess it ... ... and I was not lucky :(*
+*Real flag can be read from `Diff` output, but only luckiest guys could have managed to guess it ... ... and I was not lucky :(*
 
 
 <br>
