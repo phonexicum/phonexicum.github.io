@@ -147,7 +147,7 @@ There is some features to be spotted:
     
         ([https://notes-server-m8tv5txzzohwiznk.web.ctfcompetition.com/hasher.pyc](https://notes-server-m8tv5txzzohwiznk.web.ctfcompetition.com/hasher.pyc)) (here is uncompyled [source file]({{ "/resources/posts/NotesApp-hasher.py" | prepend: site.baseurl }}))
 
-    * After familiarizing yourself with the source code of hasher you can notice such reliable word as `md5` and such terrifying signs as `pow` and binary operations, but for those who notice the last line of code it is clear that everything was ruined:
+    * After familiarizing yourself with the source code of hasher you can notice such more or less reliable word as `md5` and such terrifying signs as `pow` and binary operations, but for those who notice the last line of code it is clear that everything was ruined:
 
         <div markdown="1">
 ``` python

@@ -13,7 +13,7 @@ published: true
 
 <article class="markdown-body" markdown="1">
 
-***Table of Contents***
+# Content
 
 * TOC
 {:toc}
@@ -34,13 +34,18 @@ published: true
 ## Helpfull Resources
 
 * [libcdb.com](http://libcdb.com/) - libc database
+* [libc-database](https://github.com/niklasb/libc-database) - build a database of libc offsets to simplify exploitation
+
+<br>
 
 * [NTAPI undocumented functions](http://undocumented.ntinternals.net/)
 * [gcc inline assembly](http://www.ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html)
 
+<br>
+
 * [reverse shell cheat sheet](https://highon.coffee/blog/reverse-shell-cheat-sheet/)
 
-## Studying
+## Studying (practical)
 
 * [Linux (x86) Exploit Development Series](https://sploitfun.wordpress.com/2015/06/26/linux-x86-exploit-development-tutorial-series/)
 * [Memory Layout of C Programs](http://www.geeksforgeeks.org/memory-layout-of-c-program/)
@@ -71,8 +76,13 @@ published: true
 
 * [Glibc adventures: The Forgotten Chunks](https://www.contextis.com//documents/120/Glibc_Adventures-The_Forgotten_Chunks.pdf)
 * [Malloc Maleficarium](https://sploitfun.wordpress.com/2015/03/04/heap-overflow-using-malloc-maleficarum/)
+* [The Malloc Maleficarium](http://seclists.org/bugtraq/2005/Oct/118)
 * [Malloc DES-Maleficarium](http://phrack.org/issues/66/10.html)
 * [Yet another free() exploitation technique](http://phrack.org/issues/66/6.html)
+
+Other:
+
+* [Understanding heap exloiting](http://www.mathyvanhoef.com/2013/02/understanding-heap-exploiting-heap.html)
 
 <br><br>
 
@@ -90,11 +100,17 @@ published: true
 
 ### Remainings
 
-* [getting function names from ***go*** executable in IDA](https://habrahabr.ru/post/325498/)
+* [getting function names from ***go-lang*** executable in IDA](https://habrahabr.ru/post/325498/)
+
+<br>
+
+* [Detecting LD_PRELOAD](http://haxelion.eu/article/LD_NOT_PRELOADED_FOR_REAL/)
+
+<br>
 
 ---
 
-# Practice
+# Practice (offensive)
 
 ## Approaches
 
@@ -111,13 +127,16 @@ published: true
 
 ### Binary Solvers
 
-* [angr](https://docs.angr.io/)
+* [angr](https://docs.angr.io/), [angr examples](https://docs.angr.io/docs/examples.html), [tips for speeding up](https://docs.angr.io/docs/speed.html)
 * [KLEE](http://klee.github.io/)
 * [Z3Prover/z3](https://github.com/Z3Prover/z3) - Z3 theorem prover
+
+    [claripy](https://docs.angr.io/docs/claripy.html) - angr engine (z3 alternative)
 
 ### Shellcodes
 
 * [MSFvenom](https://www.offensive-security.com/metasploit-unleashed/msfvenom/) (metasploit)
+* [Veil](https://github.com/Veil-Framework/Veil) - [wiki](https://github.com/Veil-Framework/Veil/wiki) - generate metasploit payloads that bypass common anti-virus solutions
 
 * {:.dummy} [Duck toolkit](https://ducktoolkit.com/) - online payload scripts generator (win, linux)
 * {:.dummy} [Bunny toolkit](https://bunnytoolkit.com/payloadindex/) - some payload examples
@@ -144,7 +163,19 @@ published: true
 
 ## Tools
 
-### Basic
+### debuggers, disassemblers, hex-/binary- editors
+
+#### basic
+
+* ***IDA Pro Advanced Edition*** - most powerfull disassembler [idabook.com](http://idabook.com/) ([Available IDC Tutorials](https://hex-rays.com/products/ida/support/tutorials/idc/index.shtml) (IDC - IDA scripting language))
+
+    Steroids:    
+    
+    * ***hex-rays*** - can construct pseudo-code (decompiler)
+    * [IDA Python](https://github.com/idapython/src) ([IDA Python docs](https://www.hex-rays.com/products/ida/support/idapython_docs/)) – plugin which makes it possible to write scripts for IDA in Python ([example (russian)](https://xakep.ru/2011/06/23/55780/))
+    * [ret-sync](https://github.com/bootleg/ret-sync) - a set of plugins that helps to synchronize a debugging session (WinDbg/GDB/LLDB/OllyDbg2/x64dbg) with IDA disassembler.
+    * [Ponce](https://github.com/illera88/Ponce) - symbolic execution (symbolic solver + execution)
+    * [IDA_JNI_Rename](https://github.com/trojancyborg/IDA_JNI_Rename) - header and script for correct decompilation of native android libraries
 
 * **gdb**
 
@@ -152,29 +183,110 @@ published: true
     * [GDB command reference](http://visualgdb.com/gdbreference/commands/)
     * [debugging with GDB](https://sourceware.org/gdb/onlinedocs/gdb/), ( [debugging with GDB (linux по-русски)](http://rus-linux.net/nlib.php?name=/MyLDP/algol/gdb/otladka-s-gdb.html) )
 
-    gdb assistance:
+    gdb steroids:
 
     * **[gdb peda](https://github.com/longld/peda)** - **Python Exploit Development Assistance for GDB**
+    * [gef](https://github.com/hugsy/gef) - multi-architecture gdb enhanced features for exploiters & reverse-engineers, [docs](http://gef.readthedocs.io/en/latest/)
+    * [gdb-heap](https://github.com/rogerhu/gdb-heap)
     * [pwndbg](https://github.com/zachriggle/pwndbg) ([features](https://github.com/pwndbg/pwndbg/blob/master/FEATURES.md)) - *emulation*, *heap inspection*, ida pro integration, qemu compatibility, etc.
     * [gdb duel](https://github.com/vuvova/gdb-tools/blob/arpeggio/duel/help.md) - purpose language designed for concise state exploration of debugged C programs. ([gdb duel (ru) (хабр)](https://habrahabr.ru/post/328180/))
 
 * **[pwntools](https://docs.pwntools.com/en/stable/) - framework and exploit development library ([examples](https://github.com/Gallopsled/pwntools/tree/dev/examples))**
 
-* binutils - basic tools for surface analysis
+* [ROPgadget](https://github.com/JonathanSalwan/ROPgadget), [rp++](https://github.com/0vercl0k/rp) - search for rop-gadgets, [one_gadget](https://github.com/david942j/one_gadget) - search for one-gadget rce in binary
+    
+    * {:.dummy} [free online rop-gadgets search](http://www.ropshell.com/)
 
-    `file, readelf, nm, strings, ldd`
+    [rop-tool](https://github.com/t00sh/rop-tool) - a tool to help you writing binary exploits
 
-* `checksec` - analysis of exploitation countermeasures in binary
-* `ltrace, strace` - runtime analysis of system calls
+* [radare2](https://github.com/radare/radare2) –  disassembler, debugger, hexadecimal editor, ... (handy for patching binaries)
+    <br>set asm.bits = 64, asm.arch = ... (`rasm2 -L` prints available list)
 
-* `ROPgadget, rp++` - search for rop-gadgets, [one_gadget](https://github.com/david942j/one_gadget) - search for one-gadget rce in binary
-* hexeditors
+    * {:.dummy} [iaito - GUI for radare2](https://github.com/hteso/iaito) - in 03.2017 was very bugged, but it progress
+    * {:.dummy} [Bokken](http://bokken.re/) – gui based on *radare2* and *pyew*. (hard to [install](https://inguma.eu/projects/bokken/wiki/Installation))
 
-    * **[radare2](https://github.com/radare/radare2)** - can view file in many views: hex, assembler, etc. (handy for changing binaries) ([GUI for radare2](https://github.com/hteso/iaito) - in 03.2017 was very bugged, but it progress)
-    * hexedit
-    * [Hex viewers and editors](https://twitter.com/i/moments/841916822014332930)
+* [Hiew](http://www.hiew.ru/) – disassembler and editor
 
-### Remainings
+    * `/` – disassemble from current point
+    * `Alt + L` – highlighting
+
+* [Hopper](https://www.hopperapp.com/) – disassembler + pseudocode, ... (langs: Objective C, ...)
+* [RECStudio](http://www.backerstreet.com/rec/recdload.htm) – decompiler
+* [Retargetable Decompiler](https://retdec.com/) - general-purpose (various platforms) binary decompiler
+
+#### linux
+
+* [patchelf](https://github.com/NixOS/patchelf) - utility to modify the dynamic linker and RPATH of ELF executables
+* [wcc](https://github.com/endrazine/wcc) - collection of compilation tools to perform binary executables conversions on the GNU/Linux and other POSIX platforms
+
+#### windows (PE)
+
+* [ImmunityDebugger](https://www.immunityinc.com/products/debugger/) – debugger (PE only)
+
+    Steroids:
+
+    * [mona.py](https://github.com/corelan/mona) - [mona.py manual](https://www.corelan.be/index.php/2011/07/14/mona-py-the-manual/)
+    
+
+* x64/x86 imports reconstruction tools
+
+    * ***Import Reconstructor***
+    
+        В нём указывается работающий процесс, и указывается в этом процессе место, в котором записана таблица импорта функций из ядра
+        
+        * RVA – адрес этого места в бинарнике
+        * OEP – адрес точки старта в файле
+        * Size – размер указанной таблицы импорта
+        
+        После всего этого файл находит, что импортируется в данный бинарник, и может починить бинарник, правильно перезаписав таблицу импорта в том месте, где она должна была бы быть. (Мы при этом сохраням тот вид бинарника, который в памяти, т.е. например он может быть наполовину расшифрованным, если хакер там пытался себя шифровать)
+
+    * [Scylla](https://github.com/NtQuery/Scylla)
+
+* ***PETools***, [pefile](https://github.com/erocarrera/pefile), ***PEid*** – tools for PE-files analysis, modification, live memory dumps, etc.
+* [Resource Hacker](http://www.angusj.com/resourcehacker/) – tool for modification of resources inside PE-files
+* [Dependency Walker](http://www.dependencywalker.com/) - scans any x32/x64 windows module and builds a hierarchical tree diagram of all dependent modules
+
+
+### utilities
+
+* [checksec.sh](https://github.com/slimm609/checksec.sh) – script checking executable properties like PIE, RELRO, PaX, Canaries, ASLR, Fortify Source, ...
+* ***execstack*** – check/change stack executability
+* ***xdelta3*** – binaries diff
+* ***objdump*** – disassembler
+* ***strace*** – syscall trace
+* ***ltrace*** – dynamic libraries calls
+
+    * [villoc](https://github.com/wapiflapi/villoc) – heap visualisation tool (after ltrace log)
+
+* ***file*** (linux), [trid](http://mark0.net/soft-trid-e.html) (windows) – info about file, its type
+* ***readelf***
+* ***nm*** (linux), ***dumpbin*** (windows) – exported symbols from library
+* ***ldd*** (elf), ***Dependency Walker*** (pe) – dynamic-libraries dependencies
+* ***strings***
+* ***lsof*** (linux) – ls opened files by process
+
+
+### decompilers (python, .NET/dotNet, delphi)
+
+Python
+
+* [uncompyle6](https://github.com/rocky/python-uncompyle6) – python decompiler
+* [pycdc](https://github.com/zrax/pycdc) - python decompiler
+* [dis](https://docs.python.org/2/library/dis.html?highlight=dis#module-dis) – python module, capable to disassemble python bytecode
+* [inspect](https://docs.python.org/2/library/inspect.html) – python module, which can get information about live objects (modules, classes, functions, etc.)
+
+.NET/dotNet
+
+* [ILSpy](http://ilspy.net/) - .NET assembly browser and decompiler
+* [dotPeek](https://www.jetbrains.com/decompiler/) - .NET decompiler and assembly browser
+* [dnSpy](https://github.com/0xd4d/dnSpy) - .NET assembly editor, decompiler, and debugger
+* [de4dot](https://github.com/0xd4d/de4dot) - .NET deobfuscator and unpacker
+
+Delphi
+
+* DeDe (v3.50), [DelphiDecompiler](https://studiogm.us/delphidecompiler), [Interactive Delphi Reconstructor](https://github.com/crypto2011/IDR) (executable `idr.exe` is in repo's root)
+
+### remainings
 
 #### Format string exploitation
 
@@ -184,14 +296,24 @@ published: true
 
     basic features: `printf ("%1$s ... %1$s", name)`, `printf (" hifi %n hifi %hn ddd %hhn ddd", &val)`
 
+#### binary memory checks (frameworks):
 
-<br><br>
+* ***valgrind*** - framework for building dynamic analysis tools to automatically detect many memory management and threading bugs
+* [Splint](http://splint.org/) - is a tool for statically checking C programs for security vulnerabilities and coding mistakes
+* [Insure++](https://www.parasoft.com/product/insure/) - detects memory corruption, memory leaks, access outside of array bounds, invalid pointers
+* [efence](https://www.freebsd.org/cgi/man.cgi?query=efence&apropos=0&sektion=0&manpath=Red+Hat+Linux%2Fi386+7.1&format=html) (freebsd) - malloc debugger, which detects crossing the boundaries of a malloc() memory allocation, and detects touching memory that has been released by free()
+
+<br>
 
 ---
 
-# Theory report
+# Theory
 
-LD_PRELOAD (environment variable) - a list of additional, user-specified, ELF shared objects to be loaded before all others. 
+## LD_PRELOAD
+
+***LD_PRELOAD*** (environment variable) - a list of additional, user-specified, ELF shared objects to be loaded before all others. <br>
+LD_PRELOAD can be used to patch original functions (e.g. `system`). <br>
+Use `dlsym(RTLD_NEXT, "system")` to get original function. Use `gcc -shared -fPIC -o my_hook.so my_hook.c ` for compilation.
 
 ## Assembler
 
@@ -301,6 +423,8 @@ print hex(libc.symbols['__realloc_hook'])
 
 Malloc function can be triggered by printing a lot of text by printf (after overload of output buffer, malloc will be triggered)
 
+* [hooks for mallic](http://www.gnu.org/software/libc/manual/html_node/Hooks-for-Malloc.html) (gnu)
+
 <br>
 
 ### Return to fixup
@@ -401,6 +525,8 @@ Various allocator realizations:
 #### OS's mechanisms
 
 * **ASLR** - address space layout randomization - randomize stack, heap, dynamical libraries
+
+Disable ASLR: `echo 0 >/proc/sys/kernel/randomize_va_space`
 
 *[Ubuntu security features](https://wiki.ubuntu.com/Security/Features)*
 
@@ -723,7 +849,7 @@ Not an exploit but just a list of basic commands
 from pwn import *
 
 # we can set the context once, instead of writing asm(x, os=..., arch=...) each time
-context(os='linux', arch='amd64')
+context(os='linux', arch='amd64', log_level='info')
 
 if __name__ == '__main__':
 
@@ -739,7 +865,14 @@ if __name__ == '__main__':
     shellcode = asm(shellcraft.amd64.linux.sh())
 
     r = process('./bin')
+    # # start for netcat
     # r = remote('127.0.0.1', 7777)
+    # # start through ssh
+    # s = ssh('passcode', 'pwnable.kr', 2222, password='guest')
+    # r = s.process(["./passcode"])
+
+    # std_out, std_err = r.communicate()
+
     r.recvuntil('4: exit\n')
     
     payload = "A" * 16 + "B" * 8
@@ -889,6 +1022,14 @@ s1.model()
 ```
 
 ``` python
+s = Solver()
+constraints = [cons1, cons2, ...]
+cons = And(constraints) # !!!
+cons = simplify(cons)   # !!! simplify can improve PRODUCTIVITY! (because of conditions merge)
+s.add(cons)
+```
+
+``` python
 num1 = BitVec('num1', 32)
 num2 = BitVec('num2', 32)
 
@@ -897,6 +1038,14 @@ s2.add(URem(num1 * 179 + num2 * 31337, 2**32) == 12345678)
 s2.add(URem(num1 * 7877 + num2 * 13, 2**32) == 4105897404)
 s2.check()
 s2.model()
+```
+
+``` python
+s = Solver()
+# add some constraints
+s.push()    # save context
+# ass some specific constraints and solve the problem, ...
+s.pop()     # restore context
 ```
 
 </div></div>

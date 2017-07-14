@@ -792,7 +792,7 @@ iPhone sends requests for all APs known to him just after hearing any hidden AP 
 
 ---
 
-## Practice
+## Practice (Offensive)
 
 There is a guy [090h](https://twitter.com/090h) who is a good specialist at practical wifi cracking. <br>
 His [github account](https://github.com/0x90) has a lot of practically interesting repos. Among their number: <br>
@@ -898,6 +898,8 @@ Handshake bruteforce:
         Cowpatty
         Cloudcracker
 
+***Aircrack-ng*** – is an 802.11 WEP and WPA-PSK keys cracking program that can recover keys once enough data packets have been captured.
+
 <br>
 
 #### Frameworks
@@ -909,10 +911,15 @@ Handshake bruteforce:
 
 ***impacket*** - similar to scapy
 
+<br>
+
+* [WiFi Pineapple](https://www.wifipineapple.com/) – wireless auditing platform
+
 Scanner-like utilities:
 
-        FruityWiFi
-        Snoopy-ng
+* [FruityWiFi](http://www.fruitywifi.com/index_eng.html)
+* [Snoopy-ng](https://github.com/sensepost/snoopy-ng)
+
 
 <br>
 

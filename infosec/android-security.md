@@ -11,7 +11,7 @@ permalink: /infosec/android-security.html
 
 <article class="markdown-body" markdown="1">
 
-Table of Content:
+# Content
 
 * TOC
 {:toc}
@@ -430,6 +430,11 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
 * [debugging APK](http://www.securitylab.ru/analytics/472624.php?R=1) (article) (русский) - decompilation and debugging of APK
 * [ProGuard](https://www.guardsquare.com/en/proguard) - most pupular optimizer (thus *obfuscator*) for java bytecode
 
+<br>
+
+* [drozer](https://github.com/mwrlabs/drozer) - security testing framework for Android
+* [qark](https://github.com/linkedin/qark) - tool designed to look for several security related Android application vulnerabilities
+
 #### Android Emulators:
 
 * [Android studio + Android SDK](https://developer.android.com/studio/index.html#downloads)
@@ -443,20 +448,40 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
 
 #### APK disassemble
 
+* unzip -> dex2jar
 * APK Studio
 * Apktool
-* dex2jar
+
+<br>
+
+* `aapt.exe` (`…\adt-bundle\sdk\build-tools\android-4.4W\`) – extract lots of information about .apk
 
 #### Java decompilers
 
-cfr, procyon, fernflower, krakatau, [jd-gui](https://github.com/java-decompiler/jd-gui/releases), jad
+* [jd-gui](https://github.com/java-decompiler/jd-gui/releases)
+* [cfr](http://www.benf.org/other/cfr/)
+* [jad](http://www.javadecompilers.com/jad)
+* [jadx](https://github.com/skylot/jadx) - dex->java
+* [BytecodeViewer](https://github.com/Konloch/bytecode-viewer) - combined utility (has various backends)
+* [procyon](https://bitbucket.org/mstrobel/procyon/wiki/Java%20Decompiler)
+* [Luyten](https://github.com/deathmarine/Luyten)
+* [fernflower](https://github.com/fesh0r/fernflower)
+* [Krakatau](https://github.com/Storyyeller/Krakatau/) (python required)
 
 #### Other tools:
 
 * [Nocturne](https://github.com/LapisBlue/Nocturne) - a graphical tool for creation of Java deobfuscation mappings
 * [Android-SSL-TrustKiller](https://github.com/iSECPartners/Android-SSL-TrustKiller) - bypass SSL certificate pinning for most applications
+* [Dexprotector](https://dexprotector.com/) – android-app obfuscator
+
+<br>
+
+* [ApkAnalyser](https://github.com/sonyxperiadev/ApkAnalyser/downloads) - static, virtual analysis tool
+
+<br>
 
 * {:.dummy} list of other tools: [25 Awesome Android Reverse Engineering Tools - Mobile phones - Romanian Security Team](https://rstforums.com/forum/topic/102731-25-awesome-android-reverse-engineering-tools/)
+* {:.dummy} [ip-tools](https://4pda.ru/forum/index.php?showtopic=478753) - android-application for network analysis
 
 ---
 

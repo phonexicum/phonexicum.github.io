@@ -16,6 +16,7 @@ permalink: /blogs.html
 
 * [security blogs](http://workhack.com/security) - list of security blogs
 * [link base](https://link-base.org/) - enormous base of security forums and blogs
+* [Top 50 InfoSec blogs you should be reading](https://digitalguardian.com/blog/top-50-infosec-blogs-you-should-be-reading)
 
 * Lots of good security specialists exist in twitter.
 
@@ -34,6 +35,11 @@ Multidirectional blogs:
 * [onsec](http://lab.onsec.ru/)
 * [pentestmonkey](http://pentestmonkey.net/category/blog)
 * [defconrussia](https://www.twitch.tv/defconrussia) (video)
+* [Pentura Labs's Blog](https://penturalabs.wordpress.com/)
+
+<br>
+
+* {:.dummy} [secureideas](http://blog.secureideas.com/)
 
 ## Web
 
@@ -56,7 +62,8 @@ Multidirectional blogs:
 
 ## Binary/Reverse
 
-* [sploitFUN](https://sploitfun.wordpress.com/) (reverse)
+* [sploitFUN](http://sploitfun.blogspot.ru/) (the other guy 1) (binary/reverse)
+* [sploitFUN](https://sploitfun.wordpress.com/) (the other guy 2) (reverse)
 * [The Shadow-File](http://shadow-file.blogspot.ru/) (binary)
 * [Le journal d'un reverser (*0x90909090*)](http://0x90909090.blogspot.fr/) (reverse)
 * [phrack.org](http://phrack.org/issues/69/1.html)
@@ -65,6 +72,8 @@ Multidirectional blogs:
 * [impureworld](https://impureworld.wordpress.com/)
 
 * [Kees Cook](https://wiki.ubuntu.com/KeesCook) - linux kernel security
+
+* [Corelan Team](https://www.corelan.be/) (multidirectional reverse: windows, ios, linux, heap, ...)
 
 * [цикл статей по безопасности UEFI BIOS от @coderush (хабрахабр)](https://habrahabr.ru/users/coderush/topics/) (статьи апреля 2016 и ранее)
 
@@ -75,6 +84,7 @@ Multidirectional blogs:
 ## Cryptography
 
 * [A Few Thoughts on Cryptographic Engineering](http://blog.cryptographyengineering.com/)
+* [Bristol Cryptography Blog](http://bristolcrypto.blogspot.ru/)
 
 ## Windows
 

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg id="svg3233" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="408.67853" width="661.41132" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<title id="title7500">MAC diagram</title>
+<metadata id="metadata3238">
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+<dc:title>MAC diagram</dc:title>
+<dc:date>07/16/11</dc:date>
+<dc:creator>
+<cc:Agent>
+<dc:title>Emil Hemdal</dc:title>
+</cc:Agent>
+</dc:creator>
+<dc:contributor>
+<cc:Agent>
+<dc:title>Twisp</dc:title>
+</cc:Agent>
+</dc:contributor>
+<cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+</cc:Work>
+<cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+<cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+<cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+<cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+</cc:License>
+</rdf:RDF>
+</metadata>
+<g id="layer1" transform="translate(-22.620134,-328.02292)">
+<rect id="rect3672" stroke-dasharray="none" height="373.75" width="268.57144" stroke="#000" stroke-miterlimit="4" y="360.32645" x="25.245134" stroke-width="1.25" fill="#bbe0e3"/>
+<rect id="rect2246" stroke-dasharray="none" height="24.285715" width="137.14285" stroke="#000" stroke-miterlimit="4" y="330.64792" x="90.959427" stroke-width="1.25" fill="#bbe0e3"/>
+<rect id="rect3224" stroke-dasharray="none" height="32.857143" width="242.14285" stroke="#000" stroke-miterlimit="4" y="375.02896" x="38.459427" stroke-width="1.25" fill="#9CF"/>
+<rect id="rect3230" stroke-dasharray="none" height="70.521652" width="107.39275" stroke="#000" stroke-miterlimit="4" y="468.22049" x="150.84698" stroke-width="1.36006498" fill="#F9C"/>
+<rect id="rect3847" stroke-dasharray="none" height="373.75" width="269.73282" stroke="#000" stroke-miterlimit="4" y="360.32645" x="411.67361" stroke-width="1.25" fill="#FF9"/>
+<rect id="rect3851" stroke-dasharray="none" height="24.285715" width="137.14285" stroke="#000" stroke-miterlimit="4" y="330.64792" x="477.9686" stroke-width="1.25" fill="#FF9"/>
+<rect id="rect3859" stroke-dasharray="none" height="32.857143" width="242.14285" stroke="#000" stroke-miterlimit="4" y="375.02896" x="425.4686" stroke-width="1.25" fill="#9CF"/>
+<rect id="rect3867" stroke-dasharray="none" height="70.521652" width="111.40511" stroke="#000" stroke-miterlimit="4" y="468.22046" x="555.62579" stroke-width="1.38523912" fill="#F9C"/>
+<rect id="rect3733" stroke-dasharray="none" height="21.428572" width="139.28571" stroke="#000" stroke-miterlimit="4" y="480.90985" x="283.88797" stroke-width="1.25" fill="#9CF"/>
+<rect id="rect3744" stroke-dasharray="none" height="20.714291" width="50.642677" stroke="#000" stroke-miterlimit="4" y="505.33844" x="328.20947" stroke-width="1.25000012" fill="#9C0"/>
+<rect id="rect3948" stroke-dasharray="none" transform="matrix(0.70710678,-0.70710678,0.70710678,0.70710678,0,0)" height="34.607864" width="34.607864" stroke="#000" stroke-miterlimit="4" y="797.30853" x="-60.015141" stroke-width="1.25" fill="#bbe0e3"/>
+<rect id="rect5121" stroke-dasharray="none" height="20.714291" width="50.642677" stroke="#000" stroke-miterlimit="4" y="595.86224" x="170.8828" stroke-width="1.25000012" fill="#9C0"/>
+<rect id="rect5129" stroke-dasharray="none" height="20.714291" width="50.642677" stroke="#000" stroke-miterlimit="4" y="595.86224" x="596.35242" stroke-width="1.25000012" fill="#9C0"/>
+<rect id="rect5137" stroke-dasharray="none" height="20.714291" width="50.642677" stroke="#000" stroke-miterlimit="4" y="595.86224" x="444.63809" stroke-width="1.25000012" fill="#9C0"/>
+<g id="g2767" fill-rule="evenodd" transform="translate(24.620136,330.02292)">
+<path id="path3287" fill="#000" d="m170.96875,85.875,0,38.5625,1.25,0,0-38.5625-1.25,0z"/>
+<path id="path2773" style="marker-start:none;" d="m171.58399,130.20107-5-8.65,10,0-5,8.65z" stroke="#000" stroke-width="0.8pt"/>
+</g>
+<g id="g2759" fill-rule="evenodd" transform="translate(24.620136,330.02292)">
+<path id="path3487" fill="#000" d="m170.96875,216.71875,0,38.5625,1.25,0,0-38.5625-1.25,0z"/>
+<path id="path2765" style="marker-start:none;" d="m171.58399,261.05709-5-8.65,10,0-5,8.65z" stroke="#000" stroke-width="0.8pt"/>
+</g>
+<g id="g2751" fill-rule="evenodd" transform="translate(24.620136,330.02292)">
+<path id="path3491" fill="#000" d="m91.15625,172.84375,0,1.25,20.71875,0,0-1.25-20.71875,0z"/>
+<path id="path2757" style="marker-start:none;" d="m117.6512,173.45838-8.65,5,0-10,8.65,5z" stroke="#000" stroke-width="0.8pt"/>
+</g>
+<g id="g2743" fill-rule="evenodd" transform="translate(24.620136,330.02292)">
+<path id="path3729" fill="#000" d="m178.15625,86.78125-0.75,1,72.84375,55,0.75-1-72.84375-55z"/>
+<path id="path2749" style="marker-start:none;" d="m255.23014,145.76464-9.91623-1.22104,6.02501-7.98118,3.89122,9.20222z" stroke="#000" stroke-width="0.8pt"/>
+</g>
+<g id="g2735" fill-rule="evenodd" transform="translate(24.620136,330.02292)">
+<path id="path3887" fill="#000" d="m596.4375,85.875,0,38.5625,1.25,0,0-38.5625-1.25,0z"/>
+<path id="path2741" style="marker-start:none;" d="m597.05363,130.20106-5-8.65,10,0-5,8.65z" stroke="#000" stroke-width="0.8pt"/>
+</g>
+<g id="g2727" fill-rule="evenodd" transform="translate(24.620136,330.02292)">
+<path id="path3889" fill="#000" d="m596.4375,216.71875,0,38.5625,1.25,0,0-38.5625-1.25,0z"/>
+<path id="path2733" style="marker-start:none;" d="m597.05362,261.05708-5-8.65,10,0-5,8.65z" stroke="#000" stroke-width="0.8pt"/>
+</g>
+<g id="g2719" fill-rule="evenodd" transform="translate(4.4170851,331.03307)">
+<path id="path3891" fill="#000" d="m516.625,172.84375,0,1.25,20.71875,0,0-1.25-20.71875,0z"/>
+<path id="path2725" style="marker-start:none;" d="m543.12084,173.45837-8.65,5,0-10,8.65,5z" stroke="#000" stroke-width="0.8pt"/>
+</g>
+<g id="g2711" fill-rule="evenodd" transform="translate(24.620136,330.02292)">
+<path id="path3792" fill="#000" d="m292.71875,203.3125-90,56.40625,0.65625,1.0625,90-56.4375-0.65625-1.03125z"/>
+<path id="path2717" style="marker-start:none;" d="m297.93822,200.76172-4.67261,8.83116-5.31207-8.47242,9.98468-0.35874z" stroke="#000" stroke-width="0.8pt"/>
+</g>
+<g id="g2703" fill-rule="evenodd" transform="translate(24.620136,330.02292)">
+<path id="path4971" fill="#000" d="m466.78125,90.5-61.4375,55,0.84375,0.9375,61.4375-55-0.84375-0.9375z"/>
+<path id="path2709" style="marker-start:none;" d="m471.49121,87.128612-3.10913,9.49504-6.67048-7.450147,9.77961-2.044893z" stroke="#000" stroke-width="0.8pt"/>
+</g>
+<g id="g2695" fill-rule="evenodd" transform="translate(24.620136,330.02292)">
+<path id="path5028" fill="#000" d="m358.875,198.875-0.90625,0.84375,52.84375,57.875,0.9375-0.84375-52.875-57.875z"/>
+<path id="path2701" style="marker-start:none;" d="m415.17447,261.41891-9.52574-3.01376,7.38288-6.74486,2.14286,9.75862z" stroke="#000" stroke-width="0.8pt"/>
+</g>
+<g id="g2687" fill-rule="evenodd" transform="translate(24.620136,330.02292)">
+<path id="path5018" fill="#000" d="m554.8125,275.5625,0,1.25,13.5625,0,0-1.25-13.5625,0z"/>
+<path id="path2693" style="marker-start:none;" d="m549.0294,276.19646,8.65-5,0,10-8.65-5z" stroke="#000" stroke-width="0.8pt"/>
+</g>
+<g id="g2679" fill-rule="evenodd" transform="translate(24.620136,330.02292)">
+<path id="path5143" fill="#000" d="m474.03125,275.5625,0,1.25,13.5625,0,0-1.25-13.5625,0z"/>
+<path id="path2685" style="marker-start:none;" d="m493.36357,276.19646-8.65,5,0-10,8.65,5z" stroke="#000" stroke-width="0.8pt"/>
+</g>
+<g id="g2671" fill-rule="evenodd" transform="translate(24.620136,329.01277)">
+<path id="path5145" fill="#000" d="m520.5625,303.90625,0,13.59375,1.25,0,0-13.59375-1.25,0z"/>
+<path id="path2677" style="marker-start:none;" d="m521.19648,323.25935-5-8.65,10,0-5,8.65z" stroke="#000" stroke-width="0.8pt"/>
+</g>
+<text id="text3759" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" font-size="16px" font-style="normal" y="673.55499" x="29.294426" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3761" y="673.55499" x="29.294426">MAC:</tspan><tspan id="tspan3763" y="696.05499" x="29.294426">Message Authentication Code</tspan></text>
+<text id="text3765" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" font-size="16px" font-style="normal" y="668.50421" x="426.28436" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3769" x="426.28436" y="668.50421">If the same MAC is found: then</tspan><tspan id="tspan3775" x="426.28436" y="688.50421">the message is authentic and </tspan><tspan id="tspan3819" x="426.28436" y="708.50421">integrity checked</tspan><tspan id="tspan3771" x="426.28436" y="728.50421">Else: something is not right.</tspan></text>
+<text id="text3777" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" font-size="16px" font-style="normal" y="612.94586" x="173.74625" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3781" font-size="18px" y="612.94586" x="173.74625" font-weight="bold">MAC</tspan></text>
+<text id="text3785" style="letter-spacing:0px;word-spacing:0px;" font-weight="bold" xml:space="preserve" font-size="18px" font-style="normal" y="495.76813" x="154.55333" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3787" y="495.76813" x="154.55333">MAC</tspan><tspan id="tspan3789" y="518.26813" x="154.55333">Algorithm</tspan></text>
+<text id="text3791" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" font-size="16px" font-style="normal" y="508.90009" x="38.385796" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3793" font-size="18px" y="508.90009" x="38.385796" font-weight="bold">Key (K)</tspan></text>
+<text id="text3799" style="letter-spacing:0px;word-spacing:0px;" font-weight="bold" xml:space="preserve" font-size="18px" font-style="normal" y="349.29599" x="498.00522" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3801" x="498.00522" y="349.29599">RECEIVER</tspan></text>
+<text id="text3803" style="letter-spacing:0px;word-spacing:0px;" font-weight="bold" xml:space="preserve" font-size="16px" font-style="normal" y="396.77316" x="114.14723" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3807" x="114.14723" y="396.77316">MESSAGE</tspan></text>
+<text id="text3811" style="letter-spacing:0px;word-spacing:0px;" font-weight="bold" xml:space="preserve" font-size="20px" font-style="normal" y="611.93567" x="534.37073" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3813" font-size="18px" y="611.93567" x="534.37073">=?</tspan></text>
+<text id="text3785-3" style="letter-spacing:0px;word-spacing:0px;" font-weight="bold" xml:space="preserve" font-size="18px" font-style="normal" y="496.32651" x="561.47528" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3787-0" y="496.32651" x="561.47528">MAC</tspan><tspan id="tspan3789-7" y="518.82654" x="561.47528">Algorithm</tspan></text>
+<text id="text3791-9" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" font-size="16px" font-style="normal" y="507.72592" x="440.62442" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3793-6" font-size="18px" y="507.72592" x="440.62442" font-weight="bold">Key (K)</tspan></text>
+<text id="text3803-4" style="letter-spacing:0px;word-spacing:0px;" font-weight="bold" xml:space="preserve" font-size="16px" font-style="normal" y="496.5416" x="309.57059" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3807-7" x="309.57059" y="496.5416">MESSAGE</tspan></text>
+<text id="text3803-7" style="letter-spacing:0px;word-spacing:0px;" font-weight="bold" xml:space="preserve" font-size="16px" font-style="normal" y="397.54666" x="502.50974" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3807-5" x="502.50974" y="397.54666">MESSAGE</tspan></text>
+<text id="text3777-8" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" font-size="16px" font-style="normal" y="522.52344" x="329.76196" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3781-0" font-size="18px" y="522.52344" x="329.76196" font-weight="bold">MAC</tspan></text>
+<text id="text3777-86" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" font-size="16px" font-style="normal" y="612.427" x="446.9397" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3781-9" font-size="18px" y="612.427" x="446.9397" font-weight="bold">MAC</tspan></text>
+<text id="text3777-3" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" font-size="16px" font-style="normal" y="612.427" x="598.46259" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3781-3" font-size="18px" y="612.427" x="598.46259" font-weight="bold">MAC</tspan></text>
+<text id="text3795" style="letter-spacing:0px;word-spacing:0px;" font-weight="normal" xml:space="preserve" font-size="16px" font-style="normal" y="348.28586" x="118.18785" font-family="Sans" line-height="125%" fill="#000000"><tspan id="tspan3797" font-size="18px" y="348.28586" x="118.18785" font-weight="bold">SENDER</tspan></text>
+</g>
+</svg>

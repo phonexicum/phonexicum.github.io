@@ -12,13 +12,21 @@ permalink: /bookmarks.html
 
 <article class="markdown-body" markdown="1">
 
-Table of Contents:
+# Content
 
 * TOC
 {:toc}
 
 
 ---
+
+<div class="spoiler"><div class="spoiler-title">
+    <i>Do not know what to do</i>
+</div><div class="spoiler-text" markdown="1">
+
+* [securityxploded](http://securityxploded.com/)
+
+</div></div>
 
 # Awesome Awesomeness
 
@@ -316,6 +324,9 @@ Encodings:
 
 # remainings
 
+* [Execute a `system` command](http://rosettacode.org/wiki/Execute_a_system_command) in different programming languages
+* [big list of naughty strings](https://github.com/minimaxir/big-list-of-naughty-strings)
+
 * Containers analysis
 
     * [cr0hn/dockerscan](https://github.com/cr0hn/dockerscan) - docker attacking (firstly) and analysis tools
@@ -328,6 +339,20 @@ Encodings:
 * [Системы обработки данных при проведении тестирования на проникновение](https://habrahabr.ru/company/pentestit/blog/283056/)
 * [Sparta](http://sparta.secforce.com/) (network infrastructure penetration testing tool) - sparta controls other tools like nmap, hydra, nikto, etc.
 * [QuasarRAT](https://github.com/quasar/QuasarRAT) - remote administration tool for windows
+* [vba-dynamic-hook](https://github.com/eset/vba-dynamic-hook) - can be used to take off password from MicrosoftOffice documents
+
+<br>
+
+* [kippo](https://github.com/desaster/kippo) - ssh honeypot
+* `python -m smtpd -n -c DebuggingServer localhost:25` - smtp honeypot
+
+<br>
+
+* [GNU Radio](https://www.gnuradio.org/) - toolkit for software radio
+
+<br>
+
+* Rolebased and mandatory access models for Linux: SELinux, GRSecurity, AppArmor
 
 ## For Common Users
 

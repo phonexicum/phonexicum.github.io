@@ -16,6 +16,8 @@ permalink: /dump-bookmarks.html
 
 * [CDN](https://docs.google.com/document/d/1uPrv9anFmCsWPOAQ_iZYzSf26T3d7FcUo4YnVKFYR-c/edit) - content delivery network
 
+* [sysadmin notes](http://www.sysadminnotes.ca/site-map/)
+
 # Bookmarks
 
 * [microservices.io](http://microservices.io/index.html)

@@ -85,6 +85,12 @@ HTML entities
 
     *If mysql `SET NAMES gbk;` was set, then this encoding trick will help to bypass `mysql_real_escape_string` php function.*
 
+    <br>
+
+    Similar tricks can be done with next encodings: `big5`, `cp932`, `gb2312`, `gbk` and `sjis`.
+
+- `\x90` - assembler's nop-code
+
 <br>
 
 ## Special characters

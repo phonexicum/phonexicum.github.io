@@ -1,7 +1,7 @@
 ---
 layout: page
 
-title: GNSS
+title: GNSS(GPS)
 
 category: infosec
 see_my_category_in_header: true

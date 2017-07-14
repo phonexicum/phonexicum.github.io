@@ -16,7 +16,7 @@ permalink: /
 
 <br>
 
-* [InfoSec]({{ "/infosec" | prepend: site.baseurl }})
+* [Infosec]({{ "/infosec" | prepend: site.baseurl }}) (main articles)
 * [security related lists]({{ "/infolists" | prepend: site.baseurl }}) (encodings, ghdb)
 
 <br>
@@ -25,7 +25,7 @@ permalink: /
 
 <!--<br>
 
-* [programming concepts]({{ "/programming_concepts" | prepend: site.baseurl }})-->
+* [programming]({{ "/programming" | prepend: site.baseurl }})-->
 
 <!--
 <br>

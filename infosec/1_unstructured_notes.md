@@ -1,7 +1,7 @@
 ---
 layout: page
 
-title: Short Notes
+title: _notes_
 
 category: infosec
 see_my_category_in_header: true
@@ -43,6 +43,10 @@ published: true
 
 <br>
 
+[dvcs-ripper](https://github.com/kost/dvcs-ripper) - rip web accessible (distributed) version control systems: SVN/GIT/HG... (even when directory browsing is turned off)
+
+<br>
+
 ---
 
 ## LFI -> RCE (by Log File Tainting)
@@ -77,5 +81,9 @@ Example of log file tainting with ruby: [Rails Dynamic Render to RCE (CVE-2016-0
     Через файлы сессий (/tmp/sess_*, /var/lib/php/session/). Естественно, атакующий должен иметь возможность записывать свои данные в сессию.
     Через мыло. При этом в уязвимой CMS должна присутствовать возможность отправки писем от www-юзера, а также иметься доступная для чтения директория с отправленными мейлами (к примеру, /var/spool/mail).
     (/tmp/php*, C:tmpphp*). -->
+
+## PHP auto-typeconversion problems
+
+* [php magic hashes](https://www.whitehatsec.com/blog/magic-hashes/) - hashes that starts with `0e` and can be autoconverted by PHP to float variable, while using `==` instead of `===`
 
 </article>

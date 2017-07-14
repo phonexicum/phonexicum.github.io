@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg height="250" width="300" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <symbol id="syncMessage">
+   <desc>The arrow of a synchron message</desc>
+   <path d="m0 0h93v-3l7 3-7 3v-3" fill="#000"/>
+  </symbol>
+  <symbol id="asyncMessage">
+   <desc>The arrow of an asynchron message</desc>
+   <path d="m0 0h100m-93-3l-7 3 7 3" fill="none"/>
+  </symbol>
+ </defs>
+ <g stroke-width="2" font-family="sans-serif" font-size="18" stroke="#000" font-weight="normal" font-style="normal" fill="#000">
+  <g id="alice" transform="translate(10,10)">
+   <rect rx="0" ry="0" height="30" width="80" y="0" x="0" fill="#fff"/>
+   <text y="20" x="40" stroke-width=".7" text-anchor="middle">Alice</text>
+   <line y1="30" x2="40" x1="40" stroke-dasharray="5,3" y2="180"/>
+  </g>
+  <g id="mallory" transform="translate(110,10)">
+   <rect rx="0" ry="0" height="30" width="80" y="0" x="0" fill="#fff"/>
+   <text y="20" x="40" stroke-width=".7" text-anchor="middle">Mallory</text>
+   <line y1="30" x2="40" x1="40" stroke-dasharray="5,3" y2="180"/>
+  </g>
+  <g id="bob" transform="translate(210,10)">
+   <rect rx="0" ry="0" height="30" width="80" y="0" x="0" fill="#fff"/>
+   <text y="20" x="40" stroke-width=".7" text-anchor="middle">Bob</text>
+   <line y1="30" x2="40" x1="40" stroke-dasharray="5,3" y2="180"/>
+  </g>
+  <g id="messages" font-size="12" transform="translate(50,80)">
+   <use y="0" x="0" xlink:href="#syncMessage"/>
+   <text y="-5" x="50" stroke-width=".5" text-anchor="middle">A = g
+    <tspan font-size="10" dy="-6">a</tspan>
+    <tspan dy="6">mod p</tspan>
+   </text>
+   <use y="30" x="100" xlink:href="#syncMessage"/>
+   <text y="25" x="150" stroke-width=".5" text-anchor="middle">Z = g
+    <tspan font-size="10" dx="1" dy="-6">z</tspan>
+    <tspan dy="6">mod p</tspan>
+   </text>
+   <use y="60" x="100" xlink:href="#asyncMessage"/>
+   <text y="55" x="150" stroke-width=".5" text-anchor="middle">B = g
+    <tspan font-size="10" dx="1" dy="-6">b</tspan>
+    <tspan dy="6">mod p</tspan>
+   </text>
+   <use y="90" x="0" xlink:href="#asyncMessage"/>
+   <text y="85" x="50" stroke-width=".5" text-anchor="middle">Z = g
+    <tspan font-size="10" dx="1" dy="-6">z</tspan>
+    <tspan dy="6">mod p</tspan>
+   </text>
+  </g>
+  <g id="keys" font-size="12" stroke-width=".5" text-anchor="middle" transform="translate(50,210)">
+   <text y="0" x="0">K
+    <tspan font-size="10" dy="6">A</tspan>
+    <tspan dy="-6">= Z</tspan>
+    <tspan font-size="10" dx="-2" dy="-6">a</tspan>
+    <tspan dy="6">mod p</tspan>
+   </text>
+   <text y="0" x="100">K
+    <tspan font-size="10" dy="6">A</tspan>
+    <tspan dy="-6">= A</tspan>
+    <tspan font-size="10" dx="-3" dy="-6">z</tspan>
+    <tspan dy="6">mod p</tspan>
+   </text>
+   <text y="20" x="100">K
+    <tspan font-size="10" dy="6">B</tspan>
+    <tspan dy="-6">= B</tspan>
+    <tspan font-size="10" dx="-2" dy="-6">z</tspan>
+    <tspan dy="6">mod p</tspan>
+   </text>
+   <text y="0" x="200">K
+    <tspan font-size="10" dy="6">B</tspan>
+    <tspan dy="-6">= Z</tspan>
+    <tspan font-size="10" dx="-2" dy="-6">b</tspan>
+    <tspan dy="6">mod p</tspan>
+   </text>
+  </g>
+ </g>
+</svg>

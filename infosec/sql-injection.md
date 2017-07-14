@@ -16,18 +16,18 @@ I collect different types of sqli attacks from the internet.
 In this document I am targeting 4 databases: MySQL, PostgreSQL, MS SQL, ORACLE
 
 
-***Table of Contents***
+# Content
 
 * TOC
 {:toc}
 
 ---
 
-## SQL-injection Bookmarks
+# SQL-injection Bookmarks
 
 * [Rogue-MySql-Server](https://github.com/allyshka/Rogue-MySql-Server) - MySQL fake server for read files of connected clients
 * [attackercan/cpp-sql-fuzzer](https://github.com/attackercan/CPP-SQL-FUZZER) - tables of allowed symbols in different inputs of SQL expressions
-* [sqlmap](http://sqlmap.org/) - automatic SQL injection and database takeover tool
+* [sqlmap](http://sqlmap.org/) - tool that automates the process of detecting and exploiting SQL injection ([Automated Audit using sqlmap](https://www.owasp.org/index.php/Automated_Audit_using_SQLMap))
 
 Cheatsheets:
 
@@ -47,8 +47,11 @@ Cheatsheets:
 * [Advanced MySqli exploitation with FILE_PRIV](http://lab.onsec.ru/2012_03_01_archive.html)
 * [ODAT](https://github.com/quentinhardy/odat) - Oracle database attacking tool ([wiki](https://github.com/quentinhardy/odat/wiki))
 
+<br>
 
 ---
+
+# Theory
 
 ## SQL injection classification
 
@@ -842,9 +845,9 @@ EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
 
 ## WAF bypass
 
-[WAF Attack Methods](./waf.html#attack-methods)
+[WAF Attack Methods](./hidden/waf.html#attack-methods)
 
-[Encoding special characters](encodings.html#special-characters)
+[Encoding special characters](/infolists/encodings.html#special-characters)
 
 [OWASP SQL injection bypassing WAF](https://www.owasp.org/index.php/SQL_Injection_Bypassing_WAF)
 

@@ -90,7 +90,7 @@ Averge values:
 
 There is several available sets:
 
-1. **osmocomDB** allow to listen network, clone device, etc.
+1. **osmocomDB** allow to listen network, clone device, etc. ([virtual machine with installed osmocomDB from phdays](http://phdays.ru/ctf_mobile.7z)) (interesting articles: [MITM Mobile (хабр)](http://habrahabr.ru/company/pt/blog/261035/))
 
     - telephone (about 10$) (must be supported by osmocomBB)
     - osmocomBB - free software enabling to control some types of telephones, to interact with gsm network

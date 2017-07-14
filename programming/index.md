@@ -1,16 +1,24 @@
 ---
 layout: page
 
-title: programming concepts
+title: programming
 
 category: main
-category_root: programming_concepts
+category_root: programming
 see_my_category_in_header: false
 
-permalink: /programming_concepts/
+permalink: /programming/
 ---
 
 <article class="markdown-body" markdown="1">
+
+Programming languages:
+
+* [hyperpolyglot](http://hyperpolyglot.org/) - programming languages
+* [Rosetta Code](http://rosettacode.org/wiki/Rosetta_Code) - the idea is to present solutions to the same task in as many different languages as possible, to demonstrate how languages are similar and different
+* [pythonchallenge.com](http://www.pythonchallenge.com/)
+* [sphere online judge](http://www.spoj.com/problems/classical/) - programmic problems (exercises)
+* [mail.ru](https://certification.mail.ru/tests/) - lots of programming tests
 
 Design patterns:
 
