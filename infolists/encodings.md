@@ -16,6 +16,10 @@ permalink: /infolists/encodings.html
 * TOC
 {:toc}
 
+## Links
+
+* [unicode character table](https://unicode-table.com/en/#control-character) or [link (graphemica.com)]((http://graphemica.com/))
+* [UTF-8 wikipedia](https://en.wikipedia.org/wiki/UTF-8)
 
 ## Definitions
 

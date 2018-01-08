@@ -15,33 +15,33 @@ published: true
 
 ***Wifi baseband*** vulnerabilities (almost in hardware) is not the matter of this article.
 
-## Content
+# Content
 
 * TOC
 {:toc}
 
+---
 
-## Technical characteristics
+# Technical characteristics
 
 802.11 data link layer consists of 2 layers:
 
 - Logical Link Control
 - Mac Access Control
 
-### 802.11 PHY Standards
+## 802.11 PHY Standards
 
-| Standard | Band(GHz) | Bandwidth(MHz) | Modulation Scheme | Antenna Technologies | Maximum data rate<br>(new standards - roughly) | Coverage |
-|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| 802.11   | 2.4       | 22             | DSSS, FHSS        | N/A                        | 2 Mb/s            | Indoor (20m) |
-| 802.11b  | 2.4       | 22             | DSSS              | N/A                        | 1, 2, 5.5, 11 Mb/s | Indoor (35m) |
-| 802.11a  | 5, 3.7    | 20             | OFDM              | N/A                        | 6, 9, 12, 18, 24, 36, 48, 54 Mb/s | Indoor (35m) |
-| 802.11g  | 2.4       | 20             | DSSS, OFDM        | N/A                        | OFDM - 6, 9, 12, 18, 24, 36, 48, 54 Mb/s <br> DSSS - 1, 2, 5.5, 11 Mb/s | Indoor (38m) |
-| 802.11n  | 2.4, 5    | 20, 40         | OFDM              | MIMO (4x4), SISO (1x1)     | 7.2 - 72.2, 15-150, 600 Mb/s | Indoor (70m) |
-| 802.11ad | 60        | 2160           | SC, OFDM          | Beamforming (MIMO > 10x10) | 7 Gb/s            | (< 5m)       |
-| 802.11ac | 5         | 20, 40, 80, 160 | OFDM             | MIMO (8x8) / MU-MIMO       | 7.2-96.3, 15-200, 32.5-433.3 Mb/s, 3.2 Gb/s | Indoor (30m) |
+|   Standard   | Band(GHz) | Bandwidth(MHz)  | Modulation Scheme |    Antenna Technologies    |             Maximum data rate<br>(new standards - roughly)              |   Coverage   |
+| :----------: | :-------: | :-------------: | :---------------: | :------------------------: | :---------------------------------------------------------------------: | :----------: |
+|    802.11    |    2.4    |       22        |    DSSS, FHSS     |            N/A             |                                 2 Mb/s                                  | Indoor (20m) |
+|   802.11b    |    2.4    |       22        |       DSSS        |            N/A             |                           1, 2, 5.5, 11 Mb/s                            | Indoor (35m) |
+|   802.11a    |  5, 3.7   |       20        |       OFDM        |            N/A             |                    6, 9, 12, 18, 24, 36, 48, 54 Mb/s                    | Indoor (35m) |
+| **802.11g**  |    2.4    |       20        |    DSSS, OFDM     |            N/A             | OFDM - 6, 9, 12, 18, 24, 36, 48, 54 Mb/s <br> DSSS - 1, 2, 5.5, 11 Mb/s | Indoor (38m) |
+| **802.11n**  |  2.4, 5   |     20, 40      |       OFDM        |   MIMO (4x4), SISO (1x1)   |                      7.2 - 72.2, 15-150, 600 Mb/s                       | Indoor (70m) |
+|   802.11ad   |    60     |      2160       |     SC, OFDM      | Beamforming (MIMO > 10x10) |                                 7 Gb/s                                  |    (< 5m)    |
+| **802.11ac** |     5     | 20, 40, 80, 160 |       OFDM        |    MIMO (8x8) / MU-MIMO    |               7.2-96.3, 15-200, 32.5-433.3 Mb/s, 3.2 Gb/s               | Indoor (30m) |
 
-There is a lot of standards (bigger then alphabet size). <br>
-**802.11n** is mostly used now.
+There is a lot of standards (bigger then alphabet size). **802.11n** is mostly used now.
 
 Carrier frequency can be very different: 2.4; 5; 0.9 (802.11ah); 3.7; 3.6, 4.9 (802.11y); 5.9 (802.11p); 60 GHz.
 
@@ -66,7 +66,8 @@ Carrier frequency can be very different: 2.4; 5; 0.9 (802.11ah); 3.7; 3.6, 4.9 (
 </div>
 
 **Belize (BZ)** today has smallest limitations.
-<br>&#20;
+
+<br>
 
 Almost everywhere for 2.4 WiFi are available:
 
@@ -76,7 +77,7 @@ Almost everywhere for 2.4 WiFi are available:
 
 <br>
 
-### Wifi antenna types
+## Wifi antenna types
 
 <div class="spoiler"><div class="spoiler-title">
     <i>Wireless antenna types:</i>
@@ -85,9 +86,10 @@ Almost everywhere for 2.4 WiFi are available:
 > ![]({{ "/resources/wireless-antenna-types.jpg" | prepend: site.baseurl }}){:width="1100px"}
 </div>
 </div>
+
 <br>
 
-### WiFi technic abbreviations
+## WiFi technic abbreviations (glossary)
 
 UHF
 : Ultra High Frequence (300 MHz - 3 GHz) (2.4 GHz wifi)
@@ -128,9 +130,9 @@ WNIC
 
 ---
 
-## Wifi hardware
+# Wifi hardware
 
-### Hardware modes
+## Hardware modes
 
 - STA (station) (or Managed)
 : default mode for wifi controller (WNIC in STA mode can connect to WNIC in AP mode)
@@ -155,20 +157,23 @@ WNIC
 
 <br>
 
-### Recommended wifi hardware
+## Recommended wifi hardware
 
-(by @090h)(for hackers)
+* [What is the best wireless card to buy (by aircrack-ng.org)](https://www.aircrack-ng.org/doku.php?id=faq#what_is_the_best_wireless_card_to_buy)
+* [Top Wardriving USB adapters](http://www.wirelesshack.org/top-wardriving-usb-adapters.html)
 
-- TP-Link TL-WN722N Atheros AR9271 (2.4 GHz)  
-- Alfa AWUS036H RTL8187L (2.4 GHz) 
-- Alfa AWUS036NHA (2.4G GHz) long range
-- Alfa AWUS051NH (2.4 & 5 GHz) long range 
-- Ralink 3070 based cards (MediaTek now)
-- any *MAC80211*
+* (by @090h)(for hackers)
+
+    - TP-Link TL-WN722N Atheros AR9271 v1 (2.4 GHz)  
+    - Alfa AWUS036H RTL8187L (2.4 GHz) 
+    - Alfa AWUS036NHA (2.4G GHz) long range
+    - Alfa AWUS051NH v2 (2.4 & 5 GHz) long range 
+    - Ralink 3070 based cards (MediaTek now)
+    - any *MAC80211*
 
 ---
 
-## Wifi management frames
+# Wifi management frames
 
 MFP (Management Frame Protection) (802.11w)
 : With MFP, all management frames are cryptographically (with IGTK key (Integrity Group Temporal Key)) hashed to create a Message Integrity Check (MIC). The MIC is added to the end of the frame (before the Frame Check Sequence (FCS)). <br>
@@ -179,7 +184,8 @@ This technology is not widespread because most of the hardware are not supportin
 Data frames can be send with some other control frames data simultaneously.
 <br>
 Frames can be ignored only if they have wrong format, wrong MIC or MFT is enabled.
-<br>&#20;
+
+<br>
 
 ***Authentication***:
 
@@ -264,7 +270,7 @@ Frames can be ignored only if they have wrong format, wrong MIC or MFT is enable
 
 ---
 
-## Wifi authentications types (WEP, WPS, WPA/WPA2)
+# Wifi authentications types (WEP, WPS, WPA/WPA2)
 
 #### WEP - Wired Equivalent Privacy (deprecated since 2004)
 
@@ -272,11 +278,11 @@ Frames can be ignored only if they have wrong format, wrong MIC or MFT is enable
     data encryption - RC4
 
     Pre-Shared WEP key:    
-    WEP-40 = 40 bit key + 24 bit IV
-    WEP-104 = 104 bit key + 24 bit IV
+        WEP-40 = 40 bit key + 24 bit IV
+        WEP-104 = 104 bit key + 24 bit IV
 
-    Keys can be set by user in 10/26 hex digits or as 5/13 ascii symbols. In case of ascii, users can use only printable symbols, though 5 ascii can be easily bruted
-    The same key is used for encryption of all packets, sent by users
+    Keys can be set by user in 10/26 hex digits or as 5/13 ascii symbols. In case of ascii, users can use only printable symbols, though 5 ascii can be easily bruted.
+    The same key is used for encryption of all packets, sent by users.
 
 
 ***Authentication modes***:
@@ -295,7 +301,7 @@ Frames can be ignored only if they have wrong format, wrong MIC or MFT is enable
     3. client --> router: encrypted(pre-shared wep key, plain-text)
     4. client <-- router: OK/FAIL
 
-- **EAP - Extensible Authentication Protocol** - shortly and roughly: it is authentication with RADIUS server
+- ***EAP - Extensible Authentication Protocol*** - shortly and roughly: it is authentication with RADIUS server
     
     Access point always sends authentication messages to radius server, and send its responses to clients.
     
@@ -303,7 +309,7 @@ Frames can be ignored only if they have wrong format, wrong MIC or MFT is enable
 
     EAP is an *authentication framework* specifying messages format, exist a lot of variations.
 
-- **MAC-address authentication**
+- ***MAC-address authentication***
 
     Access to user is granted based on his mac-address whitelist.
 
@@ -360,15 +366,10 @@ Last digit is checksum of first 7 digits.
 
     802.1X - authenticated key management (used for EAP encapsulation)
     
-    EAP (Extensible Authentication protocol). Shortly and roughly: it is authentication with RADIUS server
-    
-    <br>
-    TKIP (Temporal Key Integrity Protocol) (WPA) (deprecated since 2012). Encryption standard (algorithm, keys, IV), has rekeying mechanism.
-
-    CCMP (Counter Mode CBC-MAC Protocol) (WPA2). Encryption standard (algorithm, keys, IV)
-    
-    <br>
-    MIC (Message Integrity Code).
+    - ***EAP - Extensible Authentication protocol*** - ahortly and roughly: it is authentication with RADIUS server
+    - ***TKIP - Temporal Key Integrity Protocol*** - (WPA) (deprecated since 2012). Encryption standard (algorithm, keys, IV), has rekeying mechanism.
+        <br>***CCMP - Counter Mode CBC-MAC Protocol*** - (WPA2). Encryption standard (algorithm, keys, IV)
+    - ***MIC - Message Integrity Code***
 
 - **WPA Personal** = **WPA-PRE (WPA Pre-shared key)**
     
@@ -410,7 +411,7 @@ Usually, everyone use first channel, therefore on all other channels counters ar
 - All packets with lower value then counter is discarded.
 - Rekeying must be done every 10,000 packets (usually)
 - TKIP has separate keys for authentication, encryption, and integrity
-- Deprecated since 2009
+- ***Deprecated since 2009***
 
 *Checksum specifics*:
 
@@ -445,7 +446,7 @@ Usually, everyone use first channel, therefore on all other channels counters ar
 
 ---
 
-## Security issues
+# Security issues
 
 Wifi attacks can be done to achieve next goals:
 
@@ -475,7 +476,7 @@ Some attacks require capturing and injecting packets almost at once. To maximize
 
 ---
 
-### Protocol security issues
+## Protocol security issues
 
 - ***MAC Address spoofing***
 
@@ -493,7 +494,7 @@ Some attacks require capturing and injecting packets almost at once. To maximize
 
 ---
 
-### WEP security issues
+## WEP security issues
 
 "Shared key authentication" is less secure then "open system authentication", because it is possible to get pair ```<plaint-text, cipher-text>``` from authentication frames, that can be used to break pre-shared WEP key.
 
@@ -507,7 +508,7 @@ Main cryptographycal weaknesses:
 
 #### WEP attacks based on RC4 and protocol weaknesses
 
-***Attacks:***
+**Attacks:**
 
 - attack based on IV collisions
 
@@ -641,13 +642,13 @@ Most of the attacks is based on cracking RC4 cipher with only recording encrypte
     - AP gets 64 bytes, ecrypts them and then sends it back to the network (hacker put appropriate headers in his 64 bytes) => AP encrypt 64 bytes with 64 byte keystream
     - hacker listens for the packet and XOR it with 64 bytes he send previously => hacker hot 64 bytes of keystream for specified IV
 
-    Using this technic hacker can found keystream (up to 1500 bytes (L2 frame size)) for specified IV
+    Using this technic hacker may found keystream (up to 1500 bytes (L2 frame size)) for specified IV
 
 <br>
 
 ---
 
-### WPS security issues
+## WPS security issues
 
 ***WPS PIN recovery***:
 
@@ -657,7 +658,8 @@ Most of the attacks is based on cracking RC4 cipher with only recording encrypte
     - pin has 7 meaningful numbers, because last number is checksum of first 7
 
     (for pin bruteforce can be used utilities: - wifite, reaver-wps, bully, BulyWPSRussion.sh, ReVdK3-r2.sh, etc.)
-    <br>&#20;
+    
+    <br>
 
     The main **defence** from PIN brute force **is banning**. Different routers has different implementations:
     
@@ -669,7 +671,8 @@ Most of the attacks is based on cracking RC4 cipher with only recording encrypte
     If router banned WPS authentifiction ("wps locked") then you have to DoS it untill reboot. (e.g ReVdK3-r2.sh tool can do it)
 
     Utilities: wifity, reaver, bully, BullyWPSRussian.sh, etc. Reboot scripts: mdk3, ReVdK3, etc.
-    <br>&#20;
+    
+    <br>
 
 - **WPS PIN generation**:
 
@@ -681,7 +684,7 @@ Most of the attacks is based on cracking RC4 cipher with only recording encrypte
 
     Vulnerable vendors: ZyXELL, D-Link, Belkin, Huawei
     
-    Utilities: reaver -W --generate-pin, etc.
+    Utilities: `reaver -W --generate-pin`, etc.
 
     Some [custom PIN generators](https://github.com/devttys0/wps)
 
@@ -702,7 +705,7 @@ Most of the attacks is based on cracking RC4 cipher with only recording encrypte
 
 ---
 
-### WPA security issues
+## WPA security issues
 
 WPA uses TKIP based on RC4, but because of better mixing function of key and IV, previous attacks on RC4 (from WEP context) does not work.
 
@@ -747,10 +750,12 @@ WPA uses TKIP based on RC4, but because of better mixing function of key and IV,
     1. reverse Michael MIC and get MIC key
 
     Now attacker knows keystream for current IV and MIC key => he can inject packet on QoS channels with smaller IV.
-    <br> &#20;
+    
+    <br>
 
 - ***Ohigashi-Morii Attack (Beck-Tews + MITM)***
-    <br>&#20;
+    
+    <br>
 
 - ***WPA handshake attack*** (WPA Personal mode)
 
@@ -772,146 +777,170 @@ WPA uses TKIP based on RC4, but because of better mixing function of key and IV,
 
 ---
 
-### WPA 2 security issues
+## WPA 2 security issues
 
 - ***WPA 2 handshake attack***
 
     The same attack as WPA handshake attack, but because of stronger cryptography, will take much more time
 
-<br>
+- [***KRACK attack***](https://www.krackattacks.com/)
 
----
-
-## Usefull facts
-
-Apple can search for known APs with fake MAC-addr, but connection is always made with real MAC.
-
-iPhone sends requests for all APs known to him just after hearing any hidden AP beside.
+    Error in protocol results in possibility to MITM traffic for a lot of devices (idea is based on dropping IV vector of cryptography algorithm, for some devices (e.g. Androids) even the whole key are dropped to zero values)
 
 <br>
 
 ---
 
-## Practice (Offensive)
+# Practice (Offensive)
 
-There is a guy [090h](https://twitter.com/090h) who is a good specialist at practical wifi cracking. <br>
+There is a guy [090h](https://twitter.com/090h) who is a good specialist at practical wifi cracking (practical part of this webpage in many ways is based on my study of his work) <br>
 His [github account](https://github.com/0x90) has a lot of practically interesting repos. Among their number: <br>
 
-- [wifi-arsenal](https://github.com/0x90/wifi-arsenal) repo with collection of all wifi utilities, he can found. <br>
+- [***wifi-arsenal***](https://github.com/0x90/wifi-arsenal) repo with collection of all wifi utilities, he found. <br>
 - [kali-script](https://github.com/0x90/kali-scripts) which is good steroids for kali-linux (because by default utilities in kali repos are usually not up-to-date enough)
 
-Practical part of this webpage in many ways is based on my study of his work.
-<br>&#20;
+Handy links:
+
+* [Hijacker v1.3](http://www.kitploit.com/2017/09/hijacker-v13-all-in-one-wi-fi-cracking.html) - gui application for android - all-in-one WiFi cracking tools for Android
+* [Wifislax v1.1 final (2017)](http://www.wifislax.com/) - specially crafted distributive for Wifi pentest
+* Wifi maps:
+
+    * [3wifi.stascorp.com/map](http://3wifi.stascorp.com/map) - the map of wifi access points, sometimes with passwords
+    * [WiGLE (wireless network mapping)](https://wigle.net/) - all the networks found by everyone - map of wifi APs
+
+Usefull facts:
+
+- Apple can search for known APs with fake MAC-addr, but connection is always made with real MAC.
+- iPhone sends requests for all APs known to him just after hearing any hidden AP beside.
+
+<br>
 
 #### Some general-purpose commands
 
-        iwconfig, iw dev, iw phy wlan1
+``` bash
+    iwconfig, iw dev, iw phy wlan1
+```
 
 <br>
 
 #### Tunning and preparations
 
-Changing country:
+*   Changing country:
 
+    ``` bash
         iw reg get
-        iw reg set BZ # Not BO
+        iw reg set BZ # BZ is better then BO
+    ```
 
-Changing channel and power:
+*   Changing channel and power:
 
-```
-    iwconfig wlan1 channel 13
-    iwconfig wlan1 txpower 30
-```
+    ``` bash
+        iwconfig wlan1 channel 13
+        iwconfig wlan1 txpower 30
+    ```
 
-```
-    iw phy wlan1 set txpower fixed 30mBm
-```
+    ``` bash
+        iw phy wlan1 set txpower fixed 30mBm
+    ```
 
-Disabling network manager for wlan interface:
+*   Disabling network manager for wlan interface:
 
+    ``` bash
         cat >> /etc/NetworkManager/NetworkManager.conf
         [keyfile]
         unmanaged-devices=interface-name:wlan1mon;interface-name:wlan1
+    ```
 
-Change card mode to Monitor mode:
+*   Change card mode to Monitor mode:
 
+    ``` bash
         airmon-ng start wlan1
+    ```
 
-Dumping packets:
+#### Play with traffic
 
-        airdump-ng wlan1mon
+*   Monitor for APs (especially for WPS)
 
-<br>
-
-#### Monitoring programms
-
-```
-    horst -i wlan1mon
-```
-```
-    kismet
-```
-
-Monitor for APs (especially for WPS)
-
+    ``` bash
+        airodump-ng wlan1mon # This will also dump traffic
         wash -i wlan0mon
         wpsig # monitor for wps APs
+    ```
 
+    * {:.dummy} [RouterScan](https://kali.tools/?p=501) ([forum.antichat.ru - routerscan](https://forum.antichat.ru/threads/398971/)) - scans Wifi, searching for routers and extracts information about them
 
-<br>
+*   **Dump/capture/monitor** packets:
 
-#### Capturing packets
-
+    ``` bash
+        airodump-ng wlan1mon
         airodump-ng -c 9 --bssid id -w output.cap --showack wlan1mon
         pyrit -i wlan1mon -o $(date +%Y-%m-%d_%H)_stripped_live.cap --strip-live --all-handshakes
+    ```
+
+*   Monitors:
+
+    ``` bash
+        horst -i wlan1mon
+        kismet
+    ```
 
 <br>
 
-#### Jammers
+#### Influence traffic
 
-***wifijammer***
+*   Send deauth example
 
-***aireplay-ng*** -1 ...
+    ``` bash
+        aireplay-ng -0 1 -a 00:14:6C:7E:40:80 -c 00:0F:B5:34:30:30 wlan1
+    ```
+
+*   Jammers
+
+    ``` bash
+        wifijammer
+        aireplay-ng -1 ...
+    ```
 
 <br>
 
-#### Fake APs
+#### Create fake APs
 
-        MANA
-        Hostapd-WPE
+* [the MANA toolkit](https://github.com/sensepost/mana) - toolkit for wifi rogue AP attacks and MitM
+    <br> [hostapd-mana](https://github.com/sensepost/hostapd-mana) - patches to hostapd for rogue access points
+
+    Some articles:
+
+    * [(RU) Обзор Mana Toolkit (defcon.ru)](https://defcon.ru/wireless-security/1696/)
+    * [(RU) Rogue AP — фальшивые точки доступа (хабр)](https://habrahabr.ru/company/pentestit/blog/277793/)
+
+* [hostapd-wpe](https://github.com/OpenSecurityResearch/hostapd-wpe)
 
 <br>
 
 #### Cracking utilities
 
-***wifite*** - cracks wifi by capturing handshakes after deauthenticating clients. <br>
-Its main disadvantage is in using single interface, after sending deauth frame, wifite changes card mode to listening mode to catch handshake and during this operation client could have already send handshake.
-
-***r112*** - similar to wifite (???)
-
-***reaver*** - broad spectrum cracking tool
+* ***[wifite](https://github.com/derv82/wifite)*** - cracks wifi by capturing handshakes after deauthenticating clients.
+    <br>Its main disadvantage is in using single interface, after sending deauth frame, wifite changes card mode to listening mode to catch handshake and during this operation client could have already send handshake.
+* ***r112*** - similar to wifite (???)
+* ***[reaver (2012)](https://code.google.com/archive/p/reaver-wps-fork/)*** - broad spectrum cracking tool (can be used to crack WPS or WPA/WPA2) ([reaver-wps-fork-t6x](https://github.com/t6x/reaver-wps-fork-t6x) - fork for cracking WPS with Pixie Dust)
 
 Handshake bruteforce:
 
-        Hashcat
-        Pyrit
-        Cowpatty
-        Cloudcracker
-
-***Aircrack-ng*** – is an 802.11 WEP and WPA-PSK keys cracking program that can recover keys once enough data packets have been captured.
+* Hashcat (`aircrack-ng -J file.hccap file2.cap` - extract handshake for hashcat brute, `hashcat.exe -m 2500 ...`)
+* ***Aircrack-ng*** – is an 802.11 WEP and WPA-PSK keys cracking program that can recover keys once enough data packets have been captured.
+* [Pyrit](https://github.com/JPaulMora/Pyrit) - can create precomputed databases
+* coWPAtty
 
 <br>
 
 #### Frameworks
 
-***scapy*** - powerfull interactive packet manipulation program, written in python.
+*   ***scapy*** - powerfull interactive packet manipulation program, written in python.
 
+    ```
         >>> sniff(iface='wlan1mon', prn=lambda x: x.show(), lfilter=lambda p: p.haslayer(Dot11ProbeReq))
         >>> sniff(iface='wlan1mon', prn=lambda x: (x.addr2, x.info), lfilter=lambda p: p.haslayer(Dot11ProbeReq))
-
-***impacket*** - similar to scapy
-
-<br>
+    ```
 
 * [WiFi Pineapple](https://www.wifipineapple.com/) – wireless auditing platform
 
@@ -925,8 +954,26 @@ Scanner-like utilities:
 
 #### Other utilities
 
-air*-ng (airbase-ng, aircrack-ng, airdecap-ng, airdecloak-ng, aireplay-ng, airmon-ng, airodump-ng, etc.)
+*   [air*-ng](https://aircrack-ng.org/) (airbase-ng, aircrack-ng, airdecap-ng, airdecloak-ng, aireplay-ng, airmon-ng, airodump-ng, etc.)
 
-[Radiotap](http://www.radiotap.org/) is a de facto standard for 802.11 frame injection and reception. 
+    ``` bash
+        airdump-ng wlan0
+        airmon-ng start wlan0 # enable monitor mode
+        airodump-ng wlan0mon # analogue of tcpdump for wireless
+        aireplay # send packets
+        wpaclean # extract handshakes, and remove not interesting packets
+        aircrack-ng # can crack or prepare file for hashcat
+        /usr/lib/hashcat-utils/cap2hccapx.bin wifi-Buhgalteria.pcap-02.cap wifi-Buhgalteria.pcap-02.new.hccap
+    ```
+
+* [Radiotap](http://www.radiotap.org/) is a de facto standard for 802.11 frame injection and reception. 
+
+<br>
+
+---
+
+# Practice (Defensive) (frameworks/solutions)
+
+* [Wireless intrusion prevention system (WIPS)](https://en.wikipedia.org/wiki/Wireless_intrusion_prevention_system)
 
 </article>

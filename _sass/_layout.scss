@@ -4,7 +4,7 @@
 .site-header {
     // border-top: 5px solid $grey-color-dark;
     border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
+    min-height: $nav-bar-width;
 
     // Positioning context for the mobile navigation icon
     position: relative;
@@ -14,10 +14,10 @@
     font-size: 20px;
     font-weight: 300;
     font-style: italic;
-    line-height: 56px;
+    line-height: $nav-bar-width;
     letter-spacing: -1px;
-    margin-top: 2px;
-    margin-bottom: 0;
+    // margin-top: 2px;
+    // margin-bottom: 0;
     float: left;
 
     & a,
@@ -37,7 +37,7 @@
 .site-title {
     font-size: 26px;
     font-weight: 300;
-    line-height: 56px;
+    line-height: $nav-bar-width;
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
@@ -50,7 +50,7 @@
 
 .site-nav {
     float: right;
-    line-height: 56px;
+    line-height: $nav-bar-width;
 
     .menu-icon {
         display: none;
@@ -122,7 +122,7 @@
  * Site footer
  */
 .site-footer {
-    border-top: 1px solid $grey-color-light;
+    border-top: 2px solid $grey-color-light;
     padding: $spacing-unit 0;
 }
 
@@ -192,7 +192,7 @@
  * Page content
  */
 .page-content {
-    padding: $spacing-unit 0;
+    // padding: $spacing-unit 0;
 }
 
 .page-heading {

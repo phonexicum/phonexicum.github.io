@@ -9,6 +9,8 @@ permalink: /other_articles/
 
 <article class="markdown-body" markdown="1">
 
-Go Back
+Go Back, you
+
+* [isce-library.net](http://isce-library.net/epi.aspx) - service for searching primary source of quotation
 
 </article>

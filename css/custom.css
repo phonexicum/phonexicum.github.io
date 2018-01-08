@@ -1,13 +1,53 @@
 header.site-header {
     background-color: #ffffff;
-    /*position: fixed;*/
     width: 100%;
     top: 0px;
 }
 
+.header-wrapper {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.footer-heading {
+    padding-top: 15px;
+}
+
+header.site-header div.header-wrapper table div.gsc-control-cse.gsc-control-cse-en {
+    padding: 0;
+}
+header.site-header div.header-wrapper table div.gsc-control-cse.gsc-control-cse-en td.gsc-search-button {
+    padding-top: 2px;
+}
+
+
+/* ================================================================================================================= */
+
+body {
+    background-color: #f6f6f6;
+}
+
+.wrapper {
+    background-color: #ffffff;
+}
+
+.wrapper:after {
+    padding-bottom: 20px
+}
+
+/* ================================================================================================================= */
+
 .dummy a, .dummy {
     color: lightgrey;
     font-style: italic;
+}
+
+.small {
+    font-size: small;
+}
+
+.xsmall {
+    font-size: x-small;
 }
 
 .markdown-body td>p, .markdown-body td>blockquote, .markdown-body td>ul, .markdown-body td>ol, .markdown-body td>dl, .markdown-body td>table, .markdown-body td>pre, .markdown-body li>p
@@ -22,20 +62,13 @@ header.site-header {
     /*color: #418749;*/
 }
 
-.wrapper:before {
-  display: block;
-  content: " ";
-  margin-top: -80px;
-  height: 80px;
-  visibility: hidden;
-}
-
 .markdown-body .spoiler, .markdown-body .spoiler-text {
     overflow: hidden;
 }
+
 .markdown-body .spoiler-title {
     overflow: hidden;
-    cursor:pointer;
+    cursor: pointer;
 }
 .markdown-body .spoiler-title {
     text-decoration: underline;
@@ -43,6 +76,7 @@ header.site-header {
 }
 .markdown-body .spoiler-text {
     display: none;
+    background-color: #f9f9f9;
 }
 
 .markdown-body ul, .markdown-body ol {
@@ -61,13 +95,6 @@ header.site-header {
 
 .markdown-body ul+p {
     margin-top: 1.0em;
-}
-
-body {
-    background-color: #f6f6f6;
-}
-.wrapper {
-    background-color: #ffffff;
 }
 
 .markdown-body ol ol, .markdown-body ul ol {

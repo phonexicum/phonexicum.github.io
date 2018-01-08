@@ -19,21 +19,24 @@ permalink: /challenges.html
 
 ---
 
+<br>
+
 # Challenges
 
-Collections:
+Other's collections:
 
 * [Penetration testing practice labs - vulnerable applications and systems](http://www.amanhardikar.com/mindmaps/Practice.html) - awesomness
 * [OWASP Vulnerable Web Applications Directory Project](https://www.owasp.org/index.php/OWASP_Vulnerable_Web_Applications_Directory_Project#tab=On-Line_apps)
 * McAffee HacMe sites: [Hacme Bank v2.0 (2006)](https://www.mcafee.com/us/downloads/free-tools/hacme-bank.aspx), [Hacme Bank - Android v1.0](https://www.mcafee.com/us/downloads/free-tools/hacme-bank-android.aspx), [Hacme Books v2.0 (2006)](https://www.mcafee.com/us/downloads/free-tools/hacmebooks.aspx), [Hacme Casino v1.0 (2006)](https://www.mcafee.com/us/downloads/free-tools/hacme-casino.aspx), [Hacme Shipping v1.0 (2006)](https://www.mcafee.com/us/downloads/free-tools/hacmeshipping.aspx), [Hacme Travel v1.0 (2006)](https://www.mcafee.com/us/downloads/free-tools/hacmetravel.aspx)
-* [vulnhub.com](https://www.vulnhub.com/)
+* [Vulnerable By Design (vulnhub.com)](https://www.vulnhub.com/) ([64Base Boot2Root](https://www.vulnhub.com/entry/64base-101,173/) ([разбор на хабре (RU)](https://habrahabr.ru/post/317346/))) ([resources](https://www.vulnhub.com/resources/))
 
 Multidirectional:
 
 * [hacking-lab.com](https://www.hacking-lab.com/index.html)
+* [pentestit lab](https://lab.pentestit.ru/) ([TEST LAB 11 (lab.pentestit.ru)](https://lab.pentestit.ru/pentestlabs/7/))
+* [ringzer0team.com](https://ringzer0team.com/)
 * [hackerdom](http://training.hackerdom.ru/board/)
-* [Vulnerable By Design (vulnhub.com)](https://www.vulnhub.com/) ([resources](https://www.vulnhub.com/resources/))
-* [pentestit lab](https://lab.pentestit.ru/)
+* [shellterlabs.com](https://shellterlabs.com/en/contests/events/)
 * [Challenge Land](http://challengeland.co/Dashboard/statistics)
 * [CTFLearn](https://ctflearn.com/index.php?action=show_all_problems)
 * [Zeromutarts CTF](https://zeromutarts.de/)
@@ -42,29 +45,44 @@ Multidirectional:
 * [hellboundhackers.org](https://www.hellboundhackers.org/) (blackhats ?)
 * [try2hack.nl](http://www.try2hack.nl/) (one of the oldest sites)
 * [w3challs](https://w3challs.com/)
+* [hacksplaining](https://www.hacksplaining.com/exercises)
+* [vulnerability and attack labs](http://www.cis.syr.edu/~wedu/seed/all_labs.html)
+* Tasks from some CTF: [bakery.p.myctf.ru](http://bakery.p.myctf.ru/), [matrix.p.myctf.ru](http://matrix.p.myctf.ru/), [blackhat.p.myctf.ru](http://blackhat.p.myctf.ru/), [checker.p.myctf.ru](http://checker.p.myctf.ru/), [cats.p.myctf.ru](http://cats.p.myctf.ru/), [hipe.p.myctf.ru](http://hipe.p.myctf.ru/), [devil.p.myctf.ru](http://devil.p.myctf.ru/), [grut.p.myctf.ru](http://grut.p.myctf.ru/), [coderast.p.myctf.ru](http://coderast.p.myctf.ru/), [paintmaster.p.myctf.ru](http://paintmaster.p.myctf.ru/), [god.p.myctf.ru](http://god.p.myctf.ru/), [chat.p.myctf.ru](http://chat.p.myctf.ru/), [java-dev.p.myctf.ru](http://java-dev.p.myctf.ru/), [venus.p.myctf.ru](http://venus.p.myctf.ru/), [blog.p.myctf.ru:8000](http://blog.p.myctf.ru:8000/)
 
 Wild-world oriented:
 
-* [pentesterLab](https://pentesterlab.com/exercises/)
+* [hack the box](https://www.hackthebox.eu/en)
+* [pentesterLab](https://pentesterlab.com/exercises/) (majority is paid, but some are free)
 * [enigmagroup.org](https://www.enigmagroup.org/)
+* [metasploitable](https://sourceforge.net/projects/metasploitable/files/Metasploitable2/)
+* *DVL - Damn Vulnerable Linux*
 
+Video courses:
 
-## Smartphones
+* [Learning Exploitation with Offensive Computer Security (Spring 2014 Lectures & Videos)](https://www.cs.fsu.edu/~redwood/OffensiveComputerSecurity/lectures.html)
+* [Learning Exploitation with Offensive Computer Security 2.0 (2016)](http://howto.hackallthethings.com/2016/07/learning-exploitation-with-offensive.html)
+
+<br>
+
+# Smartphones
 
 * [DVIA (Damn Vulnerable iOS App)](http://damnvulnerableiosapp.com/) - vulnerable iOS app
 * [dineshshetty/Android-InsecureBankv2](https://github.com/dineshshetty/Android-InsecureBankv2) - vulnerable Android application
 * [ExploitMe Mobile Android Labs](http://securitycompass.github.io/AndroidLabs/index.html)
 
+<br>
 
-## CTF's
+# CTF's
 
 * [ctftime.org](https://ctftime.org/)
 * {:.dummy} [ctf.forgottensec.com](http://ctf.forgottensec.com/wiki/index.php?title=Main_Page)
-* [ctf framework](https://ctfd.io/)
+* [ctf framework](https://ctfd.io/) for hosting ctfs
 * [pwning/docs](https://github.com/pwning/docs/blob/master/suggestions-for-running-a-ctf.markdown) - suggestions for running a ctf
+* [An Introduction To CTFs](https://hackmy.world/projects/tutorial.php)
 
 Previous ctf tasks:
 
+* [PicoCTF](https://picoctf.com/) - you still can solve tasks from previous years
 * [shell-storm.org](http://shell-storm.org/repo/CTF/)
 * [hackerdom](https://github.com/hackerdom)
 * [capture.thefl.ag](http://captf.com/)
@@ -77,22 +95,27 @@ Writeups:
 * [grocid/CTF](https://github.com/grocid/CTF) - collection of ctf writeups
 * [michailvoronov (github)](https://github.com/michailvoronov)
 
-## SQL injection
+<br>
+
+# SQL injection
 
 * [SQLZOO](http://sqlzoo.net/)
 * [RedTiger's Hackit](http://redtiger.labs.overthewire.org/)
 * [Audi-1/sqli-labs](https://github.com/Audi-1/sqli-labs) - SQLI labs to test error based, Blind boolean based, Time based ([answers](https://www.youtube.com/user/dhakkan3/videos))
 * [MySQL Error-Based Injection Game v2](https://blackfan.ru/mysql_game_v2/)
+* [SQL Injection Ninja Testing Labs](http://leettime.net/sqlninja.com/) (challenges for various attack approaches)
 * {:.dummy} [http://test.test-me.pp.ru/](http://test.test-me.pp.ru/)
 
+<br>
 
-## Cryptogrphy
+# Cryptography
 
 * [cryptopals](https://cryptopals.com/) - the cryptopals crypto challenges
 * [Mystery Twister C3](https://www.mysterytwisterc3.org/en/)
 
+<br>
 
-## Binary/Reverse
+# Binary/Reverse
 
 * {:.dummy} [List of RE and pwn wargames](https://slack-files.com/T08RMAX7S-F095349T3-4920270219)
 
@@ -104,16 +127,15 @@ Tasks:
 
 * [pwnable.kr](http://pwnable.kr/play.php)
 * [pwnable.tw](https://pwnable.tw/)
-* [exploit-exercises.com](https://exploit-exercises.com/) (some [answers](http://louisrli.github.io/blog/2012/06/22/nebula0/#.WNVjoKIlEuU))
-
+* [exploit-exercises.com](https://exploit-exercises.com/) (some [answers](http://louisrli.github.io/blog/2012/06/22/nebula0/#.WNVjoKIlEuU)) <br>
     Some wargames better to be solved in specific sequence: Nebula -> Protostar -> Fusion
-
 * [root-me.org](https://www.root-me.org/?lang=en)
 * [smashthestack.org](http://smashthestack.org/) - wargames
 * [io.smashthestack.org](http://io.smashthestack.org/) (io) - *offline*
 * [io.smashthestack.org:8064](http://io.smashthestack.org:8064/) (io64) - *offline*
 * [io.netgarage.org](http://io.netgarage.org/) - wargame
 * [microcorruption](https://microcorruption.com/login)
+* [CTF-workshop](https://github.com/kablaa/CTF-Workshop) - challenges for binary exploitation workshop
 * [crackmes.de](http://crackmes.de/) - [archive](https://tuts4you.com/download.php?view.3152)
 * [forkbomb.ru](https://forkbomb.ru/)
 * [IOarm](http://188.166.114.127/) - wargame
@@ -121,6 +143,7 @@ Tasks:
 * [reversing.be](http://www.reversing.be/) - *offline* - *cracked?*
 * [Tasteless challenges](http://chall.tasteless.eu/)
 * [reversing.kr](http://reversing.kr/)
+* [hackcenter.com](https://hackcenter.com) (*for newbies ?*)
 
 Half-teaching:
 
@@ -129,18 +152,13 @@ Half-teaching:
 * [FuzzySecurity](http://www.fuzzysecurity.com/tutorials.html) - tutorials to write exploits for windows (and linux)
 * [PrimalSecurity](http://www.primalsecurity.net/tutorials/)
 
-<!--paid courses:
-
-* [pentesteracademy.com](http://www.pentesteracademy.com/topics)
-* [elearnsecurity.com](https://www.elearnsecurity.com/)
--->
-
 <br>
 
 * [radare2](https://yadi.sk/d/yo6xt-za3AWLYR) - radare 2 workshop (?)
 
+<br>
 
-## Web
+# Web
 
 * [hackthissite.org](https://www.hackthissite.org/)
 * [cure53, XSS Challenge wiki, Older Challenges and Write Ups](https://github.com/cure53/XSSChallengeWiki/wiki/Older-Challenges-and-Write-Ups) - awesome list of challenges
@@ -149,41 +167,47 @@ Half-teaching:
 
 * [Web Application Security Quiz](https://timoh6.github.io/WebAppSecQuiz/)
 * [hack contest](https://ahack.ru/contest/)
+* [ctf.infosecinstitute.com](http://ctf.infosecinstitute.com/ctf2/) - [solution](https://defcon.ru/penetration-testing/4212/)
 
 <br>
 
 * [OWASP Security Shepherd](http://www.kitploit.com/2017/01/owasp-security-shepherd-web-and-mobile.html) - web and mobile application security training platform
-* [OWASP mutillidae](http://www.irongeek.com/i.php?page=mutillidae/mutillidae-deliberately-vulnerable-php-owasp-top-10), [OWASP Mutillidae II](https://sourceforge.net/projects/mutillidae/files/)
+* [WebGoat](https://github.com/WebGoat/WebGoat) [OWASP WebGoat project](https://www.owasp.org/index.php/Category:OWASP_WebGoat_Project) - a deliberately insecure Web Application
+* [OWASP mutillidae](http://www.irongeek.com/i.php?page=mutillidae/mutillidae-deliberately-vulnerable-php-owasp-top-10), [OWASP Mutillidae II](https://sourceforge.net/projects/mutillidae/files/) - web pentest practice application
 * [DVWA (damn vulnerable web application](http://www.dvwa.co.uk/)
 * [bWapp](http://www.itsecgames.com/)
-* [webGoat](https://github.com/WebGoat/WebGoat) [OWASP webGoat installation](https://www.owasp.org/index.php/WebGoat_User_Guide_Table_of_Contents)
 * [Peruggia](https://sourceforge.net/projects/peruggia/)
 * [vicnum](http://vicnum.ciphertechs.com/)
 
+<br>
 
-### JS XSS
+## JS XSS
 
 * [XSS game](http://xss-game.appspot.com/)
 * [alert(1) to win](http://escape.alf.nu/)
 * [prompt(1) to win](http://prompt.ml)
 * [Home · cure53/XSSChallengeWiki Wiki](https://github.com/cure53/XSSChallengeWiki/wiki)
-* [return true to win](https://alf.nu/ReturnTrue)
+* [alf.nu](https://alf.nu/)
+    
+    * [return true to win](https://alf.nu/ReturnTrue)
+    * [alert(1) to win](https://alf.nu/alert1)
+    * many other interesting tasks
+
 * [XSS Puzzle](http://innerht.ml/challenges/kcal.pw/puzzle.php)
 * [The Token Challenge](http://innerht.ml/challenges/token/)
 * [hackvertor](http://challenge.hackvertor.co.uk/)
 
+<br>
 
-
-## BugBounty
+# BugBounty
 
 * [hackerone](https://hackerone.com/)
-* [list of bug bounty programs](https://bugcrowd.com/list-of-bug-bounty-programs)
+* [list of bug bounty programs](https://www.bugcrowd.com/bug-bounty-list/) (or [other link](https://bugcrowd.com/list-of-bug-bounty-programs))
 
+<br>
 
+# Other categories
 
-
-## Other
-
-* [spoj.com](http://www.spoj.com/problems/classical/) - programmic challenges
+* [spoj.com](http://www.spoj.com/problems/classical/) - programming challenges
 
 </article>

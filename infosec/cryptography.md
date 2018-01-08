@@ -13,27 +13,31 @@ published: true
 
 <article class="markdown-body" markdown="1">
 
-## Content
+# Content
 
 * TOC
 {:toc}
 
-* [TLS security (wikipedia)](https://en.wikipedia.org/wiki/Transport_Layer_Security#Cipher)
+<br>
+
+---
+
+Real-world cryptography is not only about crypto-algorithms, but also about protocols and key-management.
+
+Never store passwords - store hashes
+
+* [passwordresearch.com](http://www.passwordresearch.com/) - their aim is to consolidate the important password and authentication security research in one place.
 * [Cipher security against publicly known feasible attacks](https://en.wikipedia.org/wiki/Transport_Layer_Security#Cipher)
 
-## Cryptography basic theory
+**Studying**:
 
-<!--Information security main aims:
+* [Cryptography tutorial](https://www.tutorialspoint.com/cryptography/index.htm)
+* [Crypto 101](https://www.crypto101.io/) - crypto course
+* [Practical Aspects of Modern Cryptography, Winter 2011](http://courses.cs.washington.edu/courses/csep590a/11wi/)
 
-* Confidantiality
-* Integrity
-* Availability
+<br>
 
-***AAA***
-
-* Authentication
-* Authorization
-* Accounting-->
+# Cryptography basic theory, [CryptoTermininology (ghub)](https://github.com/OpenTechFund/CryptoTermininology)
 
 Various **cryptography problems**:
 
@@ -50,6 +54,11 @@ Various **cryptography problems**:
 
     The probability reaches 100% when the number of people reaches 367. However, 99.9% probability is reached with just 70 people, and 50% probability with 23 people. These conclusions are based on the assumption that each day of the year is equally probable for a birthday.
     <br>Birthday problem is relative to ***collision problem***.
+
+[Zero-knowledge proof](https://en.wikipedia.org/wiki/Zero-knowledge_proof) (zero-knowledge protocool)
+: is a method by which one party (the prover) can prove to another party (the verifier) that a given statement is true, without conveying any information apart from the fact that the statement is indeed true (other aspect is not to reveal the fact of how statement is estimated to the outer world)<br>
+    subcase: ***Zero-knowledge password proof***
+
 
 [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) (Password-Based Key Derivation Function)
 : PBKDF2 is a standard for generating *derived key*, based on *password* and *salt*
@@ -71,6 +80,9 @@ Various **cryptography problems**:
 
     * fast - for calculating hashes for lots of data
     * slow - to resist bruteforce
+
+    Digest
+    : output of the hash function
 
     Hash-functions usage:
 
@@ -119,19 +131,24 @@ Collision
 
     It is a common problem of generating PRNG using computer systems (which are deterministic)
 
+Fingerprint
+: the hash of the public key.
+
 ***Statement***: As the cryptographic key is used, it becomes obsolete.
 
 ***Statement***: Cryptography Salt purpose: Similar text (e.g. passwords) after being salt (with different salt) and hashed will result in different hash-messages. <br> This is protection from rainbow tables (a precomputed table for reversing cryptographic hash functions). Salt is not a secret (in contrary to cryptography keys and passwords).
 
 Symmetric cryptography is faster compared to asymmetric.
 
-### Basic algorithms
+<br>
 
-Hashes:
+## Basic algorithms
+
+**Hashes**:
 
 * md4, md5, sha1, sha2, sha3 (Keccak), ГОСТ (Стрибог), ...
 
-Symmetric cryptography:
+**Symmetric cryptography**:
 
 * [block ciphers](https://en.wikipedia.org/wiki/Block_cipher)
 
@@ -157,17 +174,17 @@ Symmetric cryptography:
 
     ancient examples: [One-time pad (or Шифр Вернама)](https://en.wikipedia.org/wiki/One-time_pad)
 
-Symmetric key exchange (without sending key through channel):
+**Symmetric key exchange** (without sending key through channel):
 
 * [Diffie-Hellman](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange)
 
-Asymmetric cryptography:
+**Asymmetric cryptography**:
 
 * [DSA](https://en.wikipedia.org/wiki/Digital_Signature_Algorithm)
 * [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem))
 * [Elliptic-curve cryptography](https://en.wikipedia.org/wiki/Elliptic_curve_cryptography)
 
-Asymmetric key exchange:
+**Asymmetric key exchange**:
 
 * [PKI - Public Key Infrustructure](https://en.wikipedia.org/wiki/Public_key_infrastructure)
 
@@ -179,43 +196,31 @@ Asymmetric key exchange:
 
         *Problem*: We trust certificate authorities a lot.
 
+**Challenge-response authentication**
 
+*   exists lots of realization and most are broken
 
-<!--### ?
+    <div class="spoiler"><div class="spoiler-title">
+    <i>approach introduced by @SolarDesigner (???)</i>
+    </div><div class="spoiler-text" markdown="1">
 
-Real-world cryptography is not only about crypto-algorithms, but also about protocols and even key-management.
+    Client calculates this and pass through network:
+    <br> `RESP = H(H(H(PASS, SALT)), CHALLENGE) xor H(PASS, SALT)`
 
-exist hashes (sha, etc.), symmetric encryption (block and stream ciphers) (aes, etc.), assymetric encryption (rsa, elliptic curves, etc.)
-Block ciphers has a lot of modes (CBC, CFB, ECD, CTR, ...)
+    Server stores `H(H(PASS, SALT))`, on receiving from client RESP, he calculates:
+    <br> `H( H(   H(H(PASS, SALT))   , CHALLENGE) xor RESP)` ` = ` `H( H(   H(H(PASS, SALT))   , CHALLENGE)  xor H(   H(H(PASS, SALT))   , CHALLENGE)  xor H(PASS, SALT) ) = H( H(PASS, SALT) )` - this server may check
 
-HMAC/MAC/MIC
+    </div></div>
 
-PRNG - Pseudo-random number generator - also cryptographycal problem
+<br>
 
-crypto protocols: openssl, etc.
-
-never store passwords - store hashes
-
-* [passwordresearch.com](http://www.passwordresearch.com/)
-
-
-Birthday paradox
-
-Diffie-Hellman
-
-Padding-->
-
-
-
-
-
-
-
-## Cryptography features
+# Cryptography features
 
 Keys became obsolete as you use them.
 
-## Cryptography issues
+<br>
+
+# Cryptography issues
 
 This paragraph applies to all network cryptography (e.g. wifi, ssl, etc.)
 
@@ -234,17 +239,20 @@ Symmetric cryptography:
 
 - Oracle padding - system reaction on different type of errors must be always the same (no differences in input, no differences in time)
 
-## Standards
+<br>
+
+# Standards
 
 * [SHS - Security Hash Standard (august 2015)](http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf)
 * [DSS - Digital Signature Standard (july 2013)](http://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf)
 * [ГОСТ Р 34.12-2015 ("Кузнечик")](https://ru.wikipedia.org/wiki/%D0%9A%D1%83%D0%B7%D0%BD%D0%B5%D1%87%D0%B8%D0%BA_(%D1%88%D0%B8%D1%84%D1%80)) - симметричное, блочное шифрование
 * [ГОСТ Р 34.11-2012 ("Стрибог")](https://ru.wikipedia.org/wiki/%D0%93%D0%9E%D0%A1%D0%A2_%D0%A0_34.11-2012) - алгоритм хеширования
 
+<br>
 
-## Cryptography elementaries
+# Cryptography elementaries
 
-### Common [block cipher modes](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Common_modes)
+## Common [block cipher modes](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Common_modes)
 
 
 | [ECB](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_Codebook_.28ECB.29) | [CBC](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Block_Chaining_.28CBC.29) | [CFB](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher_Feedback_.28CFB.29) |
@@ -264,7 +272,7 @@ Symmetric cryptography:
 
 Block ciphers demands some **padding** for plaintext's last block completion. Exists various type of [paddings](https://en.wikipedia.org/wiki/Padding_(cryptography)#Block_cipher_mode_of_operation).
 
-### Diffie-Hellman
+## Diffie-Hellman
 
 **Diffie-Hellman key exchange** - allows Alice and Bob to generate common secret key *without key transmittion*.
 <br>DH is not about endpoints authentication => it can be easily MiTM-ed if there is no additional precautions.
@@ -274,7 +282,7 @@ Block ciphers demands some **padding** for plaintext's last block completion. Ex
 
 <br>
 
-### TLS handshake
+## TLS handshake
 
 | TLS handshake using X509 certificates with client authentication | TLS handshake with preshared keys |
 |:---:|:---:|
@@ -288,9 +296,11 @@ Block ciphers demands some **padding** for plaintext's last block completion. Ex
 
 ---
 
-## Attacks
+# Attacks
 
-SSLv3 today better to be considered as insecure
+[***Cryptographic attacks cheat sheet***](https://github.com/iSECPartners/LibTech-Auditing-Cheatsheet#appendix-b-cryptographic-attacks-cheat-sheet)
+
+SSLv3 today is considered as insecure
 
 * [wikipedia SSL/TLS#security](https://en.wikipedia.org/wiki/Transport_Layer_Security#Security)
 * [wikipedia SSL/TLS#attacks](https://en.wikipedia.org/wiki/Transport_Layer_Security#Attacks_against_TLS.2FSSL)
@@ -299,11 +309,13 @@ MITM - man in the middle
 
 * **sslstrip** - attack based on ***http->https redirection*** - mitm interception of http to https redirection for web-applications (user's traffic must be intercepted (e.g. arpspoof, ...))
 
-### Hash attacks
+<br>
 
-[Lifetimes of cryptographic hash functions](http://valerieaurora.org/hash.html)
+## Hash attacks
 
-[Lessons From The History Of Attacks On Secure Hash Functions](https://z.cash/technology/history-of-hash-function-attacks.html)
+[***Lifetimes of cryptographic hash functions***](http://valerieaurora.org/hash.html)
+
+[***Lessons from the history of attacks on secure hash functions***](https://z.cash/technology/history-of-hash-function-attacks.html)
 
 [Hash security](https://en.wikipedia.org/wiki/Hash_function_security_summary) (wikipedia)
 
@@ -315,7 +327,9 @@ MITM - man in the middle
 
 * **birthday attack** - the attack depends on the higher likelihood of collisions found between random attack attempts and a fixed degree of permutations
 
-### Protocols attacks
+<br>
+
+## Protocols attacks
 
 * **protocol downgrade**
 
@@ -372,24 +386,29 @@ MITM - man in the middle
 
 * **HEARTBLEED** - binary vulnerability (CVE-2014-0160) (most shouted about) [heartbleed.com](http://heartbleed.com/) in OpenSSL, which enables to read random (but lot's of them) server's memory blocks
 
-### RSA attacks
+<br>
+
+## RSA attacks
 
 RSA by itself is secure crypto-algorithm, by if we know some data about key or plaintext, etc. Some attacks can be delivered.
 
 * [Lattice based attacks on RSA](https://github.com/mimoo/RSA-and-LLL-attacks) - Coppersmith, Boneh Durfee
+* [Processing RSA keys](https://loginroot.com/cracking-the-rsa-keys-part-1-getting-the-private-exponent/) - example of how to operate with those rsa digits
 
 <br>
 
 ---
 
-### Tools
+## Tools
 
 * [hash-identifier](https://tools.kali.org/password-attacks/hash-identifier)
+* [stompy](https://github.com/reinderien/omggawd/tree/master/stompy) - entropy verifier (randomness evaluation tool) for session cookies, XSRF tokens, OTPs, ...
 
 <br>
 
 * [HashPump](https://github.com/bwall/HashPump) - a tool to exploit the hash length extension attack in various hashing algorithms
 * [factordb](http://factordb.com/) - online service for numbers factorization
+* [morse code conversion](http://www.onlineconversion.com/morse_code.htm)
 * [caesar](http://planetcalc.com/1434/) - online service for caesar cipher decrypting
 * [Vigenere](http://www.cryptoclub.org/tools/cracksub_topframe.php) - online service for vigenere cipher decrypting
 
@@ -402,8 +421,9 @@ RSA by itself is secure crypto-algorithm, by if we know some data about key or p
 
 <br>
 
+* [ssdeep](https://ssdeep-project.github.io/ssdeep/) - fuzzy hashing program (in brief: similar inputs results in similar hash)
 * [CrypTool](https://www.cryptool.org/en/ct1-downloads) [CrypTool 2](https://www.cryptool.org/en/ct2-downloads) - e-learning platform for cryptography and cryptanalysis
-    **Must be** better python libraries.
+    <br> There **must be** better python libraries.
 
     * [cryptool-online](http://www.cryptool-online.org/index.php?option=com_content&view=article&id=47&Itemid=29&lang=en) - can code/encode online many ciphers
 

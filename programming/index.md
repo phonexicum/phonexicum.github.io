@@ -12,6 +12,8 @@ permalink: /programming/
 
 <article class="markdown-body" markdown="1">
 
+* [devdocs.io](https://devdocs.io/)
+
 Programming languages:
 
 * [hyperpolyglot](http://hyperpolyglot.org/) - programming languages
@@ -19,6 +21,8 @@ Programming languages:
 * [pythonchallenge.com](http://www.pythonchallenge.com/)
 * [sphere online judge](http://www.spoj.com/problems/classical/) - programmic problems (exercises)
 * [mail.ru](https://certification.mail.ru/tests/) - lots of programming tests
+* [②ality](http://www.2ality.com/) - javascript
+* [(RU) Пишем бота для Telegram на языке Python](https://groosha.gitbooks.io/telegram-bot-lessons/content/chapter1.html)
 
 Design patterns:
 
@@ -32,5 +36,21 @@ Design patterns:
 <br>
 
 [DevOps (wikipedia)](https://en.wikipedia.org/wiki/DevOps)
+
+<br>
+
+---
+
+# Other
+
+* [autoit](https://www.autoitscript.com/site/autoit/) (windows) - freeware BASIC-like scripting language designed for automating the Windows GUI and general scripting.
+* [(RU) Блог разработчиков PC-3000 (acelab.ru)](http://blog.acelab.ru/) - починка повреждённых файловых систем и железа (в стиле хабрахабра)
+
+## Fun
+
+* [Сказки волшебного леса](https://cont.ws/@gromozeka/237207)
+* [Программисты строители](https://xakep.ru/2001/06/19/12860/)
+* [Сборник дневников](http://lurkmore.to/%D0%A5%D1%80%D0%BE%D0%BD%D0%B8%D0%BA%D0%B8)
+* [All software sucks](http://harmful.cat-v.org/software/)
 
 </article>

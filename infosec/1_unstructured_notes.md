@@ -7,6 +7,7 @@ category: infosec
 see_my_category_in_header: true
 
 permalink: /infosec/unstructured_notes.html
+show_thispage_in_header: false
 
 published: true
 ---
@@ -24,30 +25,7 @@ published: true
 </div>
 </div>
 
-## Git repo disembowel
-
-    git init
-    wget http://example.com/.git/index -O .git/index
-    
-    git ls-files
-        # Listing of git files
-    
-    git checkout interest-file.txt
-        # error with file hash: 01d355b24a38cd5972d1317b9a2e7f6218e15231
-
-    wget http://example.com/.git/objects/xx/yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy -O .git/objects/xx/yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
-
-    git checkout interest-file.txt
-
-    # You have file
-
 <br>
-
-[dvcs-ripper](https://github.com/kost/dvcs-ripper) - rip web accessible (distributed) version control systems: SVN/GIT/HG... (even when directory browsing is turned off)
-
-<br>
-
----
 
 ## LFI -> RCE (by Log File Tainting)
 
@@ -82,8 +60,64 @@ Example of log file tainting with ruby: [Rails Dynamic Render to RCE (CVE-2016-0
     Через мыло. При этом в уязвимой CMS должна присутствовать возможность отправки писем от www-юзера, а также иметься доступная для чтения директория с отправленными мейлами (к примеру, /var/spool/mail).
     (/tmp/php*, C:tmpphp*). -->
 
-## PHP auto-typeconversion problems
+<br>
+
+---
+
+## PHP
+
+[PHP at the Core: A Hacker's Guide](http://php.net/manual/en/internals2.php)
+
+Auto-typeconversion problems:
 
 * [php magic hashes](https://www.whitehatsec.com/blog/magic-hashes/) - hashes that starts with `0e` and can be autoconverted by PHP to float variable, while using `==` instead of `===`
+
+PHP wrappers and filters:
+
+* [php wrappers](https://secure.php.net/manual/en/wrappers.php)
+* [php filters (base64)](https://secure.php.net/manual/en/filters.convert.php)
+
+<br>
+
+---
+
+## Hardware
+
+Ports with DMA (Direct Memory Access): FireWire, ExpressCard, Thunderbolt, PCI, PCI Express, ...
+
+TMP - Trusted Platform Module
+
+<br>
+
+---
+
+## Just phrases
+
+Static analysis:
+
+* AST - abstract syntax tree
+* data flow graph
+* control flow graph
+* abstract interpretation (set of multiple program states (variable values))
+<br>
+* taint analysis
+
+Dynamic analysis:
+
+* data to be analysed:
+
+    * program variables
+    * syscalls
+    * API calls
+    * environment change
+    <br>
+    * instrumentation
+
+
+<!--MS Office execution contexts:
+
+* Plugins
+* OLE - Object Linking and Embedding-->
+
 
 </article>

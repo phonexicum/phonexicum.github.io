@@ -17,7 +17,7 @@ Questioning Artificial Intelligence:
 
 - Are you humble?
 
-    - Yes. (That is a lie)
-    - No. (That is a lie)
+    - Yes. (liar)
+    - No. (liar)
 
 </article>

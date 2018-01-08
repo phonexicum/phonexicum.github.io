@@ -9,6 +9,8 @@ permalink: /
 <article class="markdown-body" markdown="1">
 
 <br>
+<br>
+<br>
 
 * [Bookmarks]({{ "/bookmarks.html" | prepend: site.baseurl }}) collection
 * [Challenges]({{ "/challenges.html" | prepend: site.baseurl }}) collection
@@ -16,12 +18,13 @@ permalink: /
 
 <br>
 
-* [Infosec]({{ "/infosec" | prepend: site.baseurl }}) (main articles)
-* [security related lists]({{ "/infolists" | prepend: site.baseurl }}) (encodings, ghdb)
+* [Infosec]({{ "/infosec" | prepend: site.baseurl }}) (***main articles***)
+* [security related lists]({{ "/infolists" | prepend: site.baseurl }}) (encodings, ghdb (google dorks))
 
 <br>
 
 * [phonexicum]({{ "/phonexicum" | prepend: site.baseurl }})
+    <br> [personal bookmarks]({{ "/dump-bookmarks.html" | prepend: site.baseurl }})
 
 <!--<br>
 

