@@ -31,9 +31,11 @@ Never store passwords - store hashes
 
 **Studying**:
 
+* [The Amazing King](http://www.theamazingking.com/crypto.php)
 * [Cryptography tutorial](https://www.tutorialspoint.com/cryptography/index.htm)
 * [Crypto 101](https://www.crypto101.io/) - crypto course
 * [Practical Aspects of Modern Cryptography, Winter 2011](http://courses.cs.washington.edu/courses/csep590a/11wi/)
+* [CryptoParty handbook (2013)](https://www.cryptoparty.in/learn/handbook)
 
 <br>
 

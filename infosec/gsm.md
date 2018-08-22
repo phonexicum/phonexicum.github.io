@@ -90,12 +90,37 @@ Averge values:
 
 There is several available sets:
 
-1. **osmocomDB** allow to listen network, clone device, etc. ([virtual machine with installed osmocomDB from phdays](http://phdays.ru/ctf_mobile.7z)) (interesting articles: [MITM Mobile (хабр)](http://habrahabr.ru/company/pt/blog/261035/))
+1. **[osmocomBB](https://bb.osmocom.org/trac/) (everything is only about 2G)** allow to listen network, clone device, etc. (interesting article: [MITM Mobile (хабр) (with osmocombb)](http://habrahabr.ru/company/pt/blog/261035/))
 
-    - telephone (about 10$) (must be supported by osmocomBB)
-    - osmocomBB - free software enabling to control some types of telephones, to interact with gsm network
+    - [supported osmocombb mobile phone](https://osmocom.org/projects/baseband/wiki/Phones) (about 10$) (mobile with only specific shipset are supported (because only those chipsets are well-documented and therefore targeted by developers))
+    - CP1202 cable
+    - [osmocomBB](https://bb.osmocom.org/trac/) - can be build from github sources or can be used prebilt virtual machine (vmware image) - [virtual machine with installed osmocomDB from phdays](http://phdays.ru/ctf_mobile.7z)
     - wireshark
 
+    osmocombb usage examples:
+
+    - pre-start (enables L1 emulation):
+        
+        - connect turned-off mobile phone
+        - master branch: `# ~/osmocom-bb-master/src/host/osmocon/osmocon -p /dev/ttyUSB0 -m c123xor -c ~/osmocom-bb-master/src/target/firmware/board/compal_e88/layer1.highram.bin` - not very stable (because phone will jump through various transmission windows and loose data)
+            <br> sylvain branch: `# ~/osmocom-bb-sylvain/src/host/osmocon/osmocon -p /dev/ttyUSB0 -m c123xor -c ~/osmocom-bb-sylvain/src/target/firmware/board/compal_e88/layer1.highram.bin` - more stable (does not jump through transmission windows)
+        - wait until osmocom command will hang
+        - turn on the phone (phone will start to load modified firmware)
+
+    - traffic sniffing
+
+        - `# ~/osmocomm-bb-sylvain/src/host/layer23/src/misc/ccch-scan -a ARFCN -i 127.0.0.1` (ip-address where to send captured packets)
+        - run wireshark
+
+    - active intervention
+
+        - insert ANY sim card into phone (or it will fail to register in network)
+        - `# ~/osmocom-bb-master/src/host/layer23/src/mobile/mobile -i 127.0.0.1` - this will start for us *virtual* phone
+        - `# telnet 127.0.0.1 4247` - *virtual* phone control interface
+        
+            - `OsmocomBB> enable` -> `OsmocomBB# list`
+            - `clone` - this will clone TMSI you specifyed
+                <br> (TMSI you requested can be sniffed from traffic, after sending to targeted phone number sms or making a phonecall) - just think about some trick
 
 1. Enough to make your **own base station**:
 

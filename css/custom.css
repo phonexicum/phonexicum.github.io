@@ -35,11 +35,22 @@ body {
     padding-bottom: 20px
 }
 
+.markdown-body table {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
 /* ================================================================================================================= */
 
-.dummy a, .dummy {
+.dummy a, .dummy, a.dummy {
     color: lightgrey;
     font-style: italic;
+}
+
+.block-inline {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 1rem 1rem;
 }
 
 .small {
@@ -103,4 +114,14 @@ body {
 
 .markdown-body ul ul ol, .markdown-body ul ol ol, .markdown-body ol ul ol, .markdown-body ol ol ol {
     list-style-type: decimal;
+}
+
+/* ================================================================================================================= */
+
+.bordered {
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 1rem;
+    border-color: darkgray;
+    padding: 1rem;
 }

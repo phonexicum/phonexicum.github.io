@@ -99,7 +99,10 @@ HTML entities
 
 ## Special characters
 
-unicode replacement symbol - "\ufffd"
+Special unicode symbols:
+
+* unicode replacement symbol - "\ufffd"
+* RTLO - RLO - Right-To-Left override - "0x202E"
 
 <table>
 <tbody>

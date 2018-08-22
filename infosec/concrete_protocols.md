@@ -19,10 +19,14 @@ permalink: /infosec/concrete_protocols.html
 <br>
 
 * [***Infrastructure PenTest Series: Part 2 - Vulnerability Analysis***](https://bitvijays.github.io/LFF-IPS-P2-VulnerabilityAnalysis.html) - awesome cheatsheet for vulnerability analysis of various ports
+* [0daysecurity pentest by ports](http://www.0daysecurity.com/penetration-testing/enumeration.html)
 
 ---
 
 # SMTP (port 21)
+
+*   [mailsploit.com](https://www.mailsploit.com/index) - a collection of bugs in email clients that allow effective sender spoofing and code injection attacks
+    <br> [analysis of 30 applications](https://docs.google.com/spreadsheets/d/1jkb_ZybbAoUA43K902lL-sB7c1HMQ78-fhQ8nowJCQk/edit)
 
 *   [Example of telnet session to SMTP server](https://www.port25.com/how-to-check-an-smtp-connection-with-a-manual-telnet-session-2/) ([other example](http://www.hacking-tutorial.com/tips-and-trick/how-to-send-email-using-telnet-in-kali-linux/#sthash.d2XXw2sn.dpbs))
 
@@ -31,8 +35,8 @@ permalink: /infosec/concrete_protocols.html
     </div><div class="spoiler-text" markdown="1">
     ```
     HELO server.example.com
-    MAIL FROM: <mr.president@government.com>
-    RCPT TO: <phonexicum@yandex.ru>
+    MAIL FROM: mr.president@government.com
+    RCPT TO: phonexicum@yandex.ru
     DATA
     From: [Hacker] <mr.president@government.com>
     To: <phonexicum@yandex.ru>
@@ -51,7 +55,7 @@ permalink: /infosec/concrete_protocols.html
 
     [sendemail (github)](https://github.com/mogaal/sendemail)
 
-    `sendEmail -f mr.smith@matrix.io -t phonexicum@matrix.io -u "=?utf-8?B?$(echo "This is the spam message" | base64)?=" -o message-content-type=html -o message-file=/home/phonexicum/email.html -s localhost:25 -o message-charset=utf-8`
+    `sendEmail -f mr.smith@matrix.io -t phonexicum@matrix.io -u "=?utf-8?B?$(echo "This is the spam message" | base64)?=" -o message-content-type=html -o message-file=/home/phonexicum/email.html -s localhost:25 -o message-charset=utf-8 -o tls=no`
 
 
     <div class="spoiler"><div class="spoiler-title" markdown="1">

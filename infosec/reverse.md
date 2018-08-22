@@ -29,6 +29,8 @@ published: true
 * [Reverse Engineering (RE) Tools (RE101/section3)](https://securedorg.github.io/RE101/section3/)
 * [Reverse Engineering Resources (pewpewthespells.com/re.html)](https://pewpewthespells.com/re.html) - ([web.archive.org](http://web.archive.org/web/20161007013208/http://pewpewthespells.com/re.html))
 
+[Linux Inside](https://0xax.gitbooks.io/linux-insides/content/SysCall/syscall-3.html) - [linux-insides (частично на русском)](https://proninyaroslav.gitbooks.io/linux-insides-ru/content/index.html)
+
 # Reverse Bookmarks
 
 ## Helpfull Resources
@@ -46,12 +48,17 @@ published: true
 
 * [reverse shell cheat sheet](https://highon.coffee/blog/reverse-shell-cheat-sheet/)
 
+<br>
+
+* [How To Cook Cisco](https://embedi.com/blog/how-cook-cisco/)
+
 ## Studying (practical)
 
 *I do not know the best order of studying.*
 
 Shellcoding and exploit development:
 
+* ***[CNIT 127: Exploit Development (2018)](https://samsclass.info/127/127_S18.shtml) - videos + lections, awesome***
 * [Linux (x86) Exploit Development Series](https://sploitfun.wordpress.com/2015/06/26/linux-x86-exploit-development-tutorial-series/)
 * [Shellcoding for Linux and Windows tutorial](http://www.vividmachines.com/shellcode/shellcode.html)
 * [Best books, tutorials and courses to learn about exploit development](http://www.pentest.guru/index.php/2016/01/28/best-books-tutorials-and-courses-to-learn-about-exploit-development/)
@@ -70,8 +77,13 @@ Shellcoding and exploit development:
 
 * [Reverse Engineering Malware 101](https://securedorg.github.io/RE101/)
 * [DefconRussia](https://www.slideshare.net/DefconRussia/)
-* [wasm](http://www.wasm.ru/) (link broken look web.archive.org [web.archive wasm](http://web.archive.org/web/20121224160453/http://www.wasm.ru/) ) (forum)
+* [wasm bak](https://vxlab.info/wasm/publist.php.htm)
+    <br> [wasm](http://www.wasm.ru/) (link broken look web.archive.org [web.archive wasm](http://web.archive.org/web/20121224160453/http://www.wasm.ru/) ) (forum)
 * [Reversing C++ programs with IDA pro and Hex-rays](https://blog.0xbadc0de.be/archives/67)
+
+<br>
+
+* [mechanization_of_exploits](https://github.com/REMath/literature_review/blob/master/mechanization_of_exploits.org)
 
 ### Heap
 
@@ -105,6 +117,11 @@ Other:
 
 * [Terminus Project](http://terminus.rewolf.pl/terminus/) - automatically generated diff of Windows structures gathered from NTDLL
 * [Evolution of PEB](http://blog.rewolf.pl/blog/?p=573) - windows (PEB) Process Environment Block ([picture only](http://terminus.rewolf.pl/terminus/structures/ntdll/_PEB_combined.html))
+* [windows kernel syscall table](https://github.com/tinysec/windows-syscall-table)
+
+<br>
+
+* [TsudaKageyu/minhook](https://github.com/TsudaKageyu/minhook) - the minimalistic x86/x64 API hooking library for Windows
 
 <br><br>
 
@@ -118,6 +135,8 @@ Other:
 [getting function names from ***go-lang*** executable in IDA](https://habrahabr.ru/post/325498/)
 
 [Detecting LD_PRELOAD](http://haxelion.eu/article/LD_NOT_PRELOADED_FOR_REAL/)
+
+Various NOP-s: [2-9 byte nops](http://www.felixcloutier.com/x86/NOP.html) [(pic)](https://pbs.twimg.com/media/DYbUe6EUMAUyaLV.jpg:large)
 
 <br>
 
@@ -189,6 +208,7 @@ Other:
 ### other
 
 * [Triton](https://triton.quarkslab.com/) - dynamic binary analysis framework
+* [Hybrid analysis](https://www.hybrid-analysis.com/) - a free malware analysis service for the community that detects and analyzes unknown threats using a unique Hybrid Analysis technology
 * {:.dummy} [fuzzball](https://github.com/bitblaze-fuzzball/fuzzball) - symbolic execution tool for x86
 * {:.dummy} [SASM](https://github.com/Dman95/SASM) - simple opensource crossplatform IDE for NASM, MASM, GAS, FASM assembly languages
 
@@ -232,14 +252,15 @@ Other:
     gdb steroids:
 
     * **[gdb peda](https://github.com/longld/peda)** - **Python Exploit Development Assistance for GDB** ([Linux interactive exploit evelopment with GDB and PEDA (blackhat 2012)](http://ropshell.com/peda/Linux_Interactive_Exploit_Development_with_GDB_and_PEDA_Slides.pdf))
-    * [gef](https://github.com/hugsy/gef) - multi-architecture gdb enhanced features for exploiters & reverse-engineers, [docs](http://gef.readthedocs.io/en/latest/)
+    * **[gef](https://github.com/hugsy/gef)** - multi-architecture gdb enhanced features for exploiters & reverse-engineers, [docs](http://gef.readthedocs.io/en/latest/)
     * [gdb-heap](https://github.com/rogerhu/gdb-heap)
     * [pwndbg](https://github.com/zachriggle/pwndbg) ([features](https://github.com/pwndbg/pwndbg/blob/master/FEATURES.md)) - *emulation*, *heap inspection*, ida pro integration, qemu compatibility, etc.
     * [gdb duel](https://github.com/vuvova/gdb-tools/blob/arpeggio/duel/help.md) - purpose language designed for concise state exploration of debugged C programs. ([gdb duel (ru) (хабр)](https://habrahabr.ru/post/328180/))
+    * [PINCE](https://github.com/korcankaraokcu/PINCE) - a front-end/reverse engineering tool for the GNU Project Debugger (GDB), focused on games - GUI for gdb
 
 * **[pwntools](https://docs.pwntools.com/en/stable/) - framework and exploit development library ([pwntools-usage-examples](https://github.com/Gallopsled/pwntools-write-ups)) ([examples](https://github.com/Gallopsled/pwntools/tree/dev/examples))**
 
-* [ROPgadget](https://github.com/JonathanSalwan/ROPgadget), [rp++](https://github.com/0vercl0k/rp) - search for rop-gadgets, [one_gadget](https://github.com/david942j/one_gadget) - search for one-gadget rce in binary
+* [ropper](https://github.com/sashs/Ropper), [ROPgadget](https://github.com/JonathanSalwan/ROPgadget), [rp++](https://github.com/0vercl0k/rp) - search for rop-gadgets, [one_gadget](https://github.com/david942j/one_gadget) - search for one-gadget rce in binary
     
     * {:.dummy} [free online rop-gadgets search](http://www.ropshell.com/)
 
@@ -288,6 +309,8 @@ Other:
 
 * **Static analysis/patching**:
 
+    Old-school (meaning ***not*** useless):
+
     * x64/x86 imports reconstruction tools
 
         * ***Import Reconstructor***
@@ -303,6 +326,7 @@ Other:
         * [Scylla](https://github.com/NtQuery/Scylla)
 
     * ***PETools***, [pefile](https://github.com/erocarrera/pefile), ***PEid*** – tools for PE-files analysis, modification, live memory dumps, etc.
+    * [pev](http://pev.sourceforge.net/)([pev (github)](https://github.com/merces/pev)) - the PE file analysis toolkit
     * [Resource Hacker](http://www.angusj.com/resourcehacker/) – tool for modification of resources inside PE-files
     * [Dependency Walker](http://www.dependencywalker.com/) - scans any x32/x64 windows module and builds a hierarchical tree diagram of all dependent modules
 
@@ -348,9 +372,9 @@ Python
 
 .NET/dotNet
 
-* [ILSpy](http://ilspy.net/) - .NET assembly browser and decompiler
+* [***ILSpy***](http://ilspy.net/) - .NET assembly browser and decompiler
+* [***dnSpy***](https://github.com/0xd4d/dnSpy) - .NET assembly editor, decompiler, and debugger
 * [dotPeek](https://www.jetbrains.com/decompiler/) - .NET decompiler and assembly browser
-* [dnSpy](https://github.com/0xd4d/dnSpy) - .NET assembly editor, decompiler, and debugger
 * [de4dot](https://github.com/0xd4d/de4dot) - .NET deobfuscator and unpacker
 
 Delphi
@@ -373,6 +397,13 @@ Delphi
 * [Splint](http://splint.org/) - is a tool for statically checking C programs for security vulnerabilities and coding mistakes
 * [Insure++](https://www.parasoft.com/product/insure/) - detects memory corruption, memory leaks, access outside of array bounds, invalid pointers
 * [efence](https://www.freebsd.org/cgi/man.cgi?query=efence&apropos=0&sektion=0&manpath=Red+Hat+Linux%2Fi386+7.1&format=html) (freebsd) - malloc debugger, which detects crossing the boundaries of a malloc() memory allocation, and detects touching memory that has been released by free()
+
+#### golang analysis
+
+[Облегчаем реверсинг Golang бинарников или зачем вообще писать скрипты в IDA](https://habr.com/post/325498/)
+
+* [IDAGolangHelper](https://github.com/sibears/IDAGolangHelper)
+* [gosym](https://golang.org/pkg/debug/gosym/), debug symbols
 
 <br>
 
@@ -584,7 +615,7 @@ Chunck allignment is 16 bytes = 2 qwords (3 lastbits)
 Various allocator realizations:
 
 * dlmalloc (Doug Lea)
-* ptmalloc (glibc malloc) (pthreads oriented)
+* ptmalloc (glibc malloc) (pthreads oriented) ([ptmalloc flow chart](https://raw.githubusercontent.com/cloudburst/libheap/master/heap.png))
 * jemalloc (firefox, freebsd) (big chunks allocation oriented)
 * tcmalloc (chrome) (caching oriented)
 * etc.
@@ -661,6 +692,13 @@ Antivituse features:
     
     - `jg` and `jle` making 2 contradictory actions one after another-->
 
+## ***Specific technics***
+
+### Windows
+
+* ReflectivePEInjection
+
+* [Exploiting a Windows 10 PagedPool off-by-one overflow (WCTF 2018)](https://j00ru.vexillium.org/2018/07/exploiting-a-windows-10-pagedpool-off-by-one/)
 
 <!--=======================================================================================================================-->
 <!--=======================================================================================================================-->

@@ -14,7 +14,9 @@ permalink: /programming/
 
 * [devdocs.io](https://devdocs.io/)
 
-Programming languages:
+
+
+**Programming languages**:
 
 * [hyperpolyglot](http://hyperpolyglot.org/) - programming languages
 * [Rosetta Code](http://rosettacode.org/wiki/Rosetta_Code) - the idea is to present solutions to the same task in as many different languages as possible, to demonstrate how languages are similar and different
@@ -24,7 +26,13 @@ Programming languages:
 * [②ality](http://www.2ality.com/) - javascript
 * [(RU) Пишем бота для Telegram на языке Python](https://groosha.gitbooks.io/telegram-bot-lessons/content/chapter1.html)
 
-Design patterns:
+<br>
+
+* [Python3 cheatsheet](https://perso.limsi.fr/pointal/_media/python:cours:mementopython3-english.pdf) - [Шпаргалка по Python3](https://pythonworld.ru/uploads/mementopython3-russian.pdf)
+
+
+
+**Design patterns**:
 
 - [Software Design Pattern (wikipedia)](https://en.wikipedia.org/wiki/Software_design_pattern) *([Шаблон проектирования (википедия)](https://ru.wikipedia.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD_%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F))*
 
@@ -37,6 +45,21 @@ Design patterns:
 
 [DevOps (wikipedia)](https://en.wikipedia.org/wiki/DevOps)
 
+
+**Development lifecycle**:
+
+* [Systems development lifecycle](https://en.wikipedia.org/wiki/Systems_development_life_cycle)
+    <br> [What is the Software Development Life Cycle (SDLC)](https://airbrake.io/blog/sdlc/what-is-the-software-development-life-cycle)
+* [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl) (microsoft)
+    <br> [SDL for agile development](https://www.microsoft.com/en-us/SDL/discover/sdlagile.aspx)
+
+<br>
+
+**Other**:
+
+* [Solutions for "Cracking the Coding Interview v5"](https://github.com/careercup/ctci)
+* [Google’s Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course/) (for free)
+
 <br>
 
 ---
@@ -45,6 +68,17 @@ Design patterns:
 
 * [autoit](https://www.autoitscript.com/site/autoit/) (windows) - freeware BASIC-like scripting language designed for automating the Windows GUI and general scripting.
 * [(RU) Блог разработчиков PC-3000 (acelab.ru)](http://blog.acelab.ru/) - починка повреждённых файловых систем и железа (в стиле хабрахабра)
+* backbone fast-startup:
+    
+    * collection of [tutorials, blog posts and example sites](https://github.com/jashkenas/backbone/wiki/Tutorials%2C-blog-posts-and-example-sites)
+    * [Backbone.js for Absolute Beginners](http://adrianmejia.com/blog/2012/09/11/backbone-dot-js-for-absolute-beginners-getting-started/) - exists 4 parts
+
+## network simulators
+
+* [gns3](https://www.gns3.com/)
+* [Dynagen](https://sourceforge.net/projects/dyna-gen/)
+* [Cisco Packet Tracer](https://www.netacad.com/ru/courses/packet-tracer-download/)
+* [ns3](https://www.nsnam.org/docs/release/3.11/models/html/emulation-overview.html)
 
 ## Fun
 

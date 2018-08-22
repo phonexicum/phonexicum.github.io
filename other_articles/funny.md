@@ -20,4 +20,10 @@ Questioning Artificial Intelligence:
     - Yes. (liar)
     - No. (liar)
 
+[Javapocalypse (2013) (youtube)](https://www.youtube.com/watch?v=E3418SeWZfQ)
+
+[Is it Pokemon or Big Data ?](https://pixelastic.github.io/pokemonorbigdata/)
+
+[Тест: А это точно криптовалюта?](https://www.kaspersky.ru/blog/what-the-cryptocurrency-quiz/19664/)
+
 </article>

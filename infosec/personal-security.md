@@ -6,7 +6,7 @@ title: Personal-sec
 category: infosec
 see_my_category_in_header: true
 
-permalink: /infosec/personal.html
+permalink: /infosec/personal-security.html
 
 published: true
 ---
@@ -30,6 +30,8 @@ Problems:
 {% endcomment %}
 
 * Book: [Information Security for Journalists (v1.3)](http://www.tcij.org/resources/handbooks/infosec)
+
+* [(russia) О применении закона «о праве на забвение»](https://yandex.ru/blog/company/o-primenenii-zakona-o-prave-na-zabvenie) - yandex blog
 
 # Content
 
@@ -143,7 +145,8 @@ Basic mechanisms:
 
 Search engine: [duckduckgo](https://duckduckgo.com/)
 
-[Free proxy lists](http://freeproxylists.net/ru/) - they WILL spy on you
+* [Free proxy lists](http://freeproxylists.net/ru/) - they WILL spy on you
+* [Free proxy lists](https://free-proxy-list.net/)
 
 <br>
 
@@ -184,7 +187,7 @@ e-mails is never fully encrypted: sender, receiver, timestamps, ...
     * [enigmail](https://www.enigmail.net/index.php/en/)
     * [torbirdy](https://addons.mozilla.org/en-us/thunderbird/addon/torbirdy/) - sending e-mails via tor
 
-* gmail/yandex alternatives with better security: [Hushmail](https://www.hushmail.com/) (government still has access), [Kolab Now](https://kolabnow.com/) (everything stored at Switzerland), [riseup.net](https://riseup.net/) (security ?)
+* gmail/yandex alternatives with better security: [Hushmail](https://www.hushmail.com/) (government still has access), [protonmail.com](https://protonmail.com/) (everything stored at Switzerland, claims to be opensource) (security ?), [Kolab Now](https://kolabnow.com/) (everything stored at Switzerland), [riseup.net](https://riseup.net/) (security ?)
 * 10-minute mail:
 
     * [guerrilla mail](https://www.guerrillamail.com/)
@@ -245,10 +248,11 @@ Secure mobile-phones:
 
 * [Password Safe](https://pwsafe.org/) - (specialists says it is indeed secure password storage) (Schneier approves) - based on *twofish* - one of the five Advanced Encryption Standard (AES) finalists <br>
     Some good, but undocumented [command-line options](https://www.schneier.com/blog/archives/2013/09/the_nsa_is_brea.html#c1682994)
+* [KeePassXC](https://keepassxc.org/) - (is it endeed as secure as it is told to be?)
 * [KeePass](http://keepass.info/) - (is it endeed as secure as it is told to be?)
+* [pass](https://www.passwordstore.org/) - for Linux
 * [DashLane](https://www.dashlane.com/) - (do not know if it is secure)
-* {:.dummy} Others: LastPass, 1Password
-
+* {:.dummy} Others: [LastPass](https://www.lastpass.com), [1Password](https://1password.com/), [dashlane](https://www.dashlane.com/)
 
 <br>
 

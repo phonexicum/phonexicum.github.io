@@ -16,14 +16,22 @@ published: true
 GHDB - Google Hacking Database (Google dorks)
 : *Google stores a lot of information and crawl sites constantly. This information can be used in pentest interests.*
 
-Key search engines: [bing](https://www.bing.com/) (can be better than google (for `filetype:xxx`)), [google](https://www.google.com/), [duckduckgo](https://duckduckgo.com/), [yandex](https://yandex.ru/), [yahoo](https://search.yahoo.com/), [rambler](https://www.rambler.ru/)
+#### Key search engines
+
+* [bing](https://www.bing.com/) (can be better than google (for `filetype:xxx`)), [google](https://www.google.com/), [duckduckgo](https://duckduckgo.com/), [yandex](https://yandex.ru/), [yahoo](https://search.yahoo.com/), [rambler](https://www.rambler.ru/), [cluuz.com](http://cluuz.com)
+* [idmarch.org](https://www.idmarch.org) - pdf search engine
+* [www.zanran.com](http://www.zanran.com/search) - search the web for data and statistics
+
+---
 
 Huge GHDB base is on **[exploit-db.com](https://www.exploit-db.com/google-hacking-database/)** ([по-русски (хабр)](https://habrahabr.ru/post/283210/))
 
-Using manually written queries - is **wrong** idea. <br>
+Using manually written queries **may be wrong** idea. Write them on your own for current situation. <br>
 **Lists** and **automated tools** must be used to collect information of interest for further analysis.
 
-## Google key words
+[google-dorks gist](https://gist.github.com/stevenswafford/393c6ec7b5375d5e8cdc) - listing of a number of useful Google dorks
+
+## Google keywords
 
 ***Punctuation and symbols***:
 
@@ -45,6 +53,7 @@ Using manually written queries - is **wrong** idea. <br>
 | :--------------: | :---------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- |
 |      site:       | Get results from certain sites or domains                                                                                     | olympics site:nbc.com and olympics site:.gov |
 |      inurl:      | Get results with specified word in uri (searches after site name)                                                             | inurl:news                                   |
+|       IP:        | (*bing* and *yahoo*) Search by IP-address                                                                                     | IP:88.198.55.240                             |
 |     intext:      | Search in web-page body                                                                                                       | intext:passwd                                |
 |     intitle:     | Search in web-page title tag                                                                                                  | intitle:"index of"                           |
 | ext: / filetype: | Search pages with special extension                                                                                           | ext:pdf                                      |
@@ -55,7 +64,6 @@ Using manually written queries - is **wrong** idea. <br>
 |      info:       | Get information about a web address, including the cached version of the page, similar pages, and pages that link to the site | info:google.com                              |
 |      cache:      | See what a page looks like the last time Google visited the site                                                              | cache:washington.edu                         |
 |     define:      | Show definition of term                                                                                                       | define:0day                                  |
-|       IP:        | (*bing* and *yahoo*) Search by IP-address                                                                                     | IP:88.198.55.240                             |
 
 
 </article>
