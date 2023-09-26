@@ -282,7 +282,7 @@ Subdomain enumiration
         * [lacnic.net](https://lacnic.net/cgi-bin/lacnic/whois) (Latin America, Caribbean)
         * [www.afrinic.net](https://www.afrinic.net/en/services/whois-query) (Africa)
 
-    * `curl -s http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum2.zip | gunzip | cut -d"," -f3 | sed 's/"//g' | sort -u | grep -i twitter` (MaxMind geo-ip base)
+    * `curl -s https://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum2.zip | gunzip | cut -d"," -f3 | sed 's/"//g' | sort -u | grep -i twitter` (MaxMind geo-ip base)
 
 * **reverse ip lookup**
 
